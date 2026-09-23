@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Property } from '../types';
 import { useApp } from '../context/AppContext';
-import { formatINR, formatNumber, calculateEMI } from '../utils/formatters';
+import { formatINR, formatNumber } from '../utils/formatters';
 import { 
   X, 
   MapPin, 
@@ -57,13 +57,6 @@ export const PropertyDetailModal: React.FC<PropertyDetailModalProps> = ({
     ? property.videos 
     : (property.videoTourUrl ? [property.videoTourUrl] : []);
 
-  // EMI Calculator State
-  const defaultLoanAmount = Math.round(property.pricing.totalPrice * 0.8);
-  const [loanAmount, setLoanAmount] = useState(defaultLoanAmount);
-  const [interestRate, setInterestRate] = useState(8.5);
-  const [loanTenureYears, setLoanTenureYears] = useState(20);
-
-  const monthlyEMI = calculateEMI(loanAmount, interestRate, loanTenureYears);
 
   // Visit booking state
   const [visitDate, setVisitDate] = useState(() => {
@@ -141,7 +134,7 @@ Certified by REM Advisory & Legal Compliance Division.
         {/* Sticky Header Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-white/95 backdrop-blur-md shrink-0">
           <div className="flex items-center space-x-3">
-            <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${
+            <span className={`px-2.5 py-1 rounded-md text-xs font-bold ${
               property.status === 'Ready to Move' ? 'bg-emerald-100 text-emerald-800' :
               property.status === 'High Yield Active' ? 'bg-slate-100 text-slate-800' :
               property.status === 'Pre-Launch' ? 'bg-amber-100 text-amber-900' :
@@ -452,88 +445,6 @@ Certified by REM Advisory & Legal Compliance Division.
             </div>
           </div>
 
-          {/* Interactive EMI & Affordability Calculator */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-              <div>
-                <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                  <DollarSign className="w-5 h-5 text-emerald-400" />
-                  <span>Interactive Home Loan & EMI Calculator</span>
-                </h3>
-                <p className="text-xs text-slate-400">Estimate monthly cash outflow with customized loan amount and interest rates</p>
-              </div>
-
-              <div className="bg-emerald-500/10 border border-emerald-500/30 px-4 py-2 rounded-2xl text-right">
-                <span className="text-xs text-emerald-300 font-bold block">Estimated Monthly EMI</span>
-                <span className="text-2xl font-black text-white">₹{formatNumber(monthlyEMI)}</span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Loan Amount */}
-              <div>
-                <div className="flex justify-between text-xs font-bold text-slate-300 mb-2">
-                  <span>Loan Principal</span>
-                  <span className="text-emerald-400">{formatINR(loanAmount)}</span>
-                </div>
-                <input
-                  type="range"
-                  min={1000000}
-                  max={property.pricing.totalPrice}
-                  step={500000}
-                  value={loanAmount}
-                  onChange={(e) => setLoanAmount(Number(e.target.value))}
-                  className="w-full accent-emerald-500 cursor-pointer"
-                />
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                  <span>₹10 L</span>
-                  <span>{formatINR(property.pricing.totalPrice)}</span>
-                </div>
-              </div>
-
-              {/* Interest Rate */}
-              <div>
-                <div className="flex justify-between text-xs font-bold text-slate-300 mb-2">
-                  <span>Interest Rate</span>
-                  <span className="text-emerald-400">{interestRate}% p.a.</span>
-                </div>
-                <input
-                  type="range"
-                  min={7.5}
-                  max={12.0}
-                  step={0.1}
-                  value={interestRate}
-                  onChange={(e) => setInterestRate(Number(e.target.value))}
-                  className="w-full accent-emerald-500 cursor-pointer"
-                />
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                  <span>7.5%</span>
-                  <span>12.0%</span>
-                </div>
-              </div>
-
-              {/* Tenure */}
-              <div>
-                <div className="flex justify-between text-xs font-bold text-slate-300 mb-2">
-                  <span>Loan Tenure</span>
-                  <span className="text-emerald-400">{loanTenureYears} Years</span>
-                </div>
-                <input
-                  type="range"
-                  min={5}
-                  max={30}
-                  step={1}
-                  value={loanTenureYears}
-                  onChange={(e) => setLoanTenureYears(Number(e.target.value))}
-                  className="w-full accent-emerald-500 cursor-pointer"
-                />
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                  <span>5 Yrs</span>
-                  <span>30 Yrs</span>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Amenities Grid */}
           <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200">
@@ -556,7 +467,7 @@ Certified by REM Advisory & Legal Compliance Division.
             <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
                 <div>
-                  <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[11px] font-bold uppercase tracking-wider mb-2 border border-blue-400/20">
+                  <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-md bg-blue-500/10 text-blue-400 text-[11px] font-bold uppercase tracking-wider mb-2 border border-blue-400/20">
                     <TrendingUp className="w-3.5 h-3.5" />
                     <span>High-Yield Property Investment</span>
                   </div>
@@ -585,9 +496,9 @@ Certified by REM Advisory & Legal Compliance Division.
                   <span className="text-slate-300">Syndicate Funding Progress</span>
                   <span className="text-blue-400 font-bold">{property.investment.fundedPercentage || 70}% Funded</span>
                 </div>
-                <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+                <div className="w-full h-3 bg-white/10 rounded-md overflow-hidden">
                   <div 
-                    className="h-full bg-blue-500 rounded-full transition-all duration-500" 
+                    className="h-full bg-blue-500 rounded-md transition-all duration-500" 
                     style={{ width: `${Math.min(100, property.investment.fundedPercentage || 70)}%` }}
                   />
                 </div>
@@ -624,7 +535,7 @@ Certified by REM Advisory & Legal Compliance Division.
 
               <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="text-xs text-slate-400">
-                  ⚡ Minimum investment starting from {formatINR(property.investment.minTicketSize || 50000)}.
+                  Minimum investment starting from {formatINR(property.investment.minTicketSize || 50000)}.
                 </div>
                 <button
                   type="button"

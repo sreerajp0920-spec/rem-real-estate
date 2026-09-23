@@ -281,7 +281,7 @@ export const INITIAL_PROPERTIES: Property[] = [
         'Exit projection to ₹14.2 Lakhs per share in 4 years (+42% appreciation gain)'
       ],
       cons: [
-        '8 of 10 shares already taken — only 2 slots open'
+        '8 of 10 shares already taken, only 2 slots open'
       ]
     },
     investment: {
@@ -429,20 +429,19 @@ export const INITIAL_PROPERTIES: Property[] = [
     id: 'rem-prop-02',
     title: 'REM Horizon Tech Park Grade-A (Tower B)',
     developer: 'REM Commercial Assets',
-    tagline: 'Premium institutional Grade-A commercial office space for corporate lease',
-    description: 'Prime Grade-A commercial office tower situated in the heart of the Silicon Corridor. Fully fitted modern workspace with meeting rooms, cafeteria, and data center provisions.',
+    tagline: 'Premium institutional Grade-A commercial office floor for outright acquisition',
+    description: 'Prime Grade-A commercial office floor situated in the heart of the Silicon Corridor. Fully fitted modern workspace with meeting rooms, cafeteria, and data center provisions.',
     category: 'commercial',
     status: 'Ready to Move',
     isUpcoming: false,
-    listingType: 'rent',
+    listingType: 'sale',
     propertyType: 'Commercial',
-    monthlyRent: 850000,
     possessionDate: 'Ready for Immediate Fitout',
     pricing: {
-      totalPrice: 850000, // Monthly Rent
-      pricePerSqFt: 145,
-      estimatedEmiMonthly: 0,
-      bookingTokenAmount: 25000,
+      totalPrice: 185000000,
+      pricePerSqFt: 14510,
+      estimatedEmiMonthly: 1450000,
+      bookingTokenAmount: 1000000,
     },
     dimensions: {
       carpetAreaSqFt: 11200,
@@ -666,20 +665,19 @@ export const INITIAL_PROPERTIES: Property[] = [
     id: 'rem-prop-05',
     title: 'REM CyberHub Retail Galleria',
     developer: 'REM Commercial Assets',
-    tagline: 'High-visibility corner retail storefront for premium brand lease',
+    tagline: 'High-visibility corner retail storefront for strategic commercial acquisition',
     description: 'An institutional-grade commercial retail asset situated along the prime commercial nexus with double frontage, escalator connectivity, and 24/7 power backup.',
     category: 'commercial',
     status: 'Ready to Move',
     isUpcoming: false,
-    listingType: 'rent',
+    listingType: 'sale',
     propertyType: 'Commercial',
-    monthlyRent: 420000,
     possessionDate: 'Immediate',
     pricing: {
-      totalPrice: 420000, // Monthly rent
-      pricePerSqFt: 210,
-      estimatedEmiMonthly: 0,
-      bookingTokenAmount: 25000,
+      totalPrice: 42000000,
+      pricePerSqFt: 16154,
+      estimatedEmiMonthly: 340000,
+      bookingTokenAmount: 500000,
     },
     dimensions: {
       carpetAreaSqFt: 2000,
@@ -972,23 +970,22 @@ export const INITIAL_PROPERTIES: Property[] = [
   },
   {
     id: 'rem-prop-10',
-    title: 'REM Parkview Furnished Residence (For Rent)',
+    title: 'REM Parkview Luxury Residence',
     developer: 'REM Urban Residences',
     tagline: 'Designer furnished 3 BHK overlooking Cubbon Park greens',
-    description: 'Fully furnished luxury apartment for rent. Comes equipped with high-end Bosch appliances, custom walnut wardrobes, central VRV air conditioning, and high-speed Wi-Fi.',
+    description: 'Luxury park-facing apartment residence. Comes equipped with high-end Bosch appliances, custom walnut wardrobes, central VRV air conditioning, and private balconies.',
     category: 'residential',
     status: 'Ready to Move',
     isUpcoming: false,
-    listingType: 'rent',
+    listingType: 'sale',
     propertyType: 'Apartment',
-    monthlyRent: 95000,
     possessionDate: 'Immediate',
     pricing: {
-      totalPrice: 95000, // Monthly Rent
-      pricePerSqFt: 53,
-      estimatedEmiMonthly: 0,
+      totalPrice: 28500000,
+      pricePerSqFt: 14615,
+      estimatedEmiMonthly: 235000,
       maintenancePerMonth: 8500,
-      bookingTokenAmount: 25000,
+      bookingTokenAmount: 250000,
     },
     dimensions: {
       carpetAreaSqFt: 1650,

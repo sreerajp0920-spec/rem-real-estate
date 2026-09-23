@@ -11,7 +11,11 @@ import { PortfolioView } from './components/PortfolioView';
 import { InvestModal } from './components/InvestModal';
 import { AuthModal } from './components/AuthModal';
 import { AdminLoginModal } from './components/AdminLoginModal';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
+import { TermsConditions } from './components/TermsConditions';
+import { SeoManager } from './components/SeoManager';
 import { 
+  Search,
   Building2, 
   ShieldCheck, 
   Phone, 
@@ -62,9 +66,8 @@ const MainContent: React.FC = () => {
 
   // Filter Properties
   const filteredProperties = properties.filter(prop => {
-    // 1. Listing Type (For Sale vs For Rent)
-    if (listingTypeFilter === 'sale' && prop.listingType === 'rent') return false;
-    if (listingTypeFilter === 'rent' && prop.listingType !== 'rent') return false;
+    // 1. Listing Type
+    if (prop.listingType === 'rent') return false;
 
     // 2. Property Type (Apartments, Villas, Plots, Penthouses, Commercial)
     if (propertyTypeFilter !== 'all') {
@@ -107,15 +110,8 @@ const MainContent: React.FC = () => {
       }
     }
 
-    // 7. Budget Filter (for rent vs sale)
-    if (listingTypeFilter === 'rent') {
-      const rentAmount = prop.monthlyRent || prop.pricing.totalPrice;
-      if (maxBudgetFilter < 50000000 && maxBudgetFilter <= 1000000) {
-        if (rentAmount > maxBudgetFilter) return false;
-      }
-    } else {
-      if (maxBudgetFilter < 50000000 && prop.pricing.totalPrice > maxBudgetFilter) return false;
-    }
+    // 7. Budget Filter
+    if (maxBudgetFilter < 50000000 && prop.pricing.totalPrice > maxBudgetFilter) return false;
 
     // 8. BHK Filter
     if (bhkFilter !== 'all') {
@@ -159,10 +155,7 @@ const MainContent: React.FC = () => {
   // Dynamic Section Title
   const getSectionTitle = () => {
     if (preLaunchOnly) return 'Upcoming Pre-Launch Projects';
-    if (listingTypeFilter === 'rent') {
-      if (selectedCategory === 'commercial' || propertyTypeFilter === 'Commercial') return 'Commercial Properties For Rent & Lease';
-      return 'Residential Homes For Rent';
-    }
+    
     if (propertyTypeFilter !== 'all') {
       return `${propertyTypeFilter}s For Sale`;
     }
@@ -172,6 +165,14 @@ const MainContent: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+      <SeoManager
+        activeTab={activeTab}
+        selectedCategory={selectedCategory}
+        listingTypeFilter={listingTypeFilter}
+        propertyTypeFilter={propertyTypeFilter}
+        preLaunchOnly={preLaunchOnly}
+        selectedProperty={selectedProperty}
+      />
       <Navbar />
 
       {/* Main View Router */}
@@ -188,12 +189,49 @@ const MainContent: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <PortfolioView />
           </div>
+        ) : activeTab === 'privacy' ? (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <PrivacyPolicy onBack={() => setActiveTab('properties')} />
+          </div>
+        ) : activeTab === 'terms' ? (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <TermsConditions onBack={() => setActiveTab('properties')} />
+          </div>
         ) : (
           <div>
             <HeroBanner />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
               
+              {/* Search Bar Above Property Filter */}
+              <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs mb-4">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+                  <div className="md:col-span-8 relative">
+                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search by property title, builder, or micromarket..."
+                      className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+                    />
+                  </div>
+
+                  <div className="md:col-span-4 relative">
+                    <MapPin className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+                    <select
+                      value={cityFilter}
+                      onChange={(e) => setCityFilter(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white cursor-pointer"
+                    >
+                      <option value="all">All Locations</option>
+                      <option value="South Bengaluru">South Bengaluru</option>
+                      <option value="North Bengaluru">North Bengaluru</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
               {/* Category & Multi-dimensional Filter Box */}
               <CategoryFilter
                 sortBy={sortBy}
@@ -293,8 +331,8 @@ const MainContent: React.FC = () => {
             <div className="md:col-span-3 space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">Explore REM</h4>
               <ul className="space-y-1.5 text-xs text-slate-400">
-                <li><button onClick={() => { setListingTypeFilter('sale'); setPropertyTypeFilter('all'); }} className="hover:text-white cursor-pointer">Properties For Sale</button></li>
-                <li><button onClick={() => { setListingTypeFilter('rent'); setPropertyTypeFilter('all'); }} className="hover:text-white cursor-pointer">Properties For Rent</button></li>
+                <li><button onClick={() => { setPropertyTypeFilter('all'); setPreLaunchOnly(false); }} className="hover:text-white cursor-pointer">All Verified Properties</button></li>
+                <li><button onClick={() => { setPropertyTypeFilter('Apartment'); setPreLaunchOnly(false); }} className="hover:text-white cursor-pointer">Luxury Apartments</button></li>
                 <li><button onClick={() => { setPreLaunchOnly(true); }} className="hover:text-white cursor-pointer">Pre-Launch Projects</button></li>
                 <li><button onClick={() => { setPropertyTypeFilter('Commercial'); }} className="hover:text-white cursor-pointer">Commercial Tech Parks</button></li>
               </ul>
@@ -323,9 +361,25 @@ const MainContent: React.FC = () => {
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
             <p>© 2026 REM Realty. All rights reserved. RERA verified.</p>
             <div className="flex items-center space-x-4 text-[11px]">
-              <span>Privacy Policy</span>
+              <button
+                onClick={() => {
+                  setActiveTab('privacy');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="hover:text-slate-300 transition-colors cursor-pointer"
+              >
+                Privacy Policy
+              </button>
               <span>•</span>
-              <span>Terms of Service</span>
+              <button
+                onClick={() => {
+                  setActiveTab('terms');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="hover:text-slate-300 transition-colors cursor-pointer"
+              >
+                Terms and Conditions
+              </button>
               <span>•</span>
               <button
                 onClick={() => {

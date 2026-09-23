@@ -85,7 +85,7 @@ export const Navbar: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search properties, locations..."
-                className="pl-8.5 pr-4 py-1.5 bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-xs font-medium text-slate-800 placeholder-slate-400 rounded-full border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all w-52 focus:w-64 outline-none"
+                className="pl-8.5 pr-4 py-1.5 bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-xs font-medium text-slate-800 placeholder-slate-400 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all w-52 focus:w-64 outline-none"
               />
             </div>
           </div>
@@ -125,15 +125,7 @@ export const Navbar: React.FC = () => {
                     <span>For Sale</span>
                     {listingTypeFilter === 'sale' && propertyTypeFilter === 'all' && !preLaunchOnly && <Check className="w-3.5 h-3.5 text-blue-600" />}
                   </button>
-                  <button
-                    onClick={() => handleNavSelection({ listingType: 'rent', propertyType: 'all', category: 'all', preLaunch: false })}
-                    className={`w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-slate-50 flex items-center justify-between ${
-                      listingTypeFilter === 'rent' && propertyTypeFilter === 'all' ? 'text-blue-600 bg-blue-50/50' : 'text-slate-700'
-                    }`}
-                  >
-                    <span>For Rent</span>
-                    {listingTypeFilter === 'rent' && propertyTypeFilter === 'all' && <Check className="w-3.5 h-3.5 text-blue-600" />}
-                  </button>
+                  
                   <button
                     onClick={() => handleNavSelection({ preLaunch: true, propertyType: 'all', listingType: 'all', category: 'all' })}
                     className={`w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-slate-50 flex items-center justify-between ${
@@ -218,51 +210,7 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            {/* 3. RENT DROPDOWN */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('rent')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  activeDropdown === 'rent' || (listingTypeFilter === 'rent')
-                    ? 'bg-slate-100 text-blue-600'
-                    : 'text-slate-700 hover:text-slate-950 hover:bg-slate-50'
-                }`}
-              >
-                <span>Rent</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
-
-              {activeDropdown === 'rent' && (
-                <div className="absolute left-0 mt-1 w-48 bg-white rounded-2xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in duration-150">
-                  <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                    Rent Properties
-                  </div>
-                  <button
-                    onClick={() => handleNavSelection({ listingType: 'rent', category: 'residential', propertyType: 'all', preLaunch: false })}
-                    className={`w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-slate-50 flex items-center justify-between ${
-                      listingTypeFilter === 'rent' && selectedCategory === 'residential' ? 'text-blue-600 bg-blue-50/50' : 'text-slate-700'
-                    }`}
-                  >
-                    <span>Residential</span>
-                    {listingTypeFilter === 'rent' && selectedCategory === 'residential' && <Check className="w-3.5 h-3.5 text-blue-600" />}
-                  </button>
-                  <button
-                    onClick={() => handleNavSelection({ listingType: 'rent', category: 'commercial', propertyType: 'Commercial', preLaunch: false })}
-                    className={`w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-slate-50 flex items-center justify-between ${
-                      listingTypeFilter === 'rent' && selectedCategory === 'commercial' ? 'text-blue-600 bg-blue-50/50' : 'text-slate-700'
-                    }`}
-                  >
-                    <span>Commercial</span>
-                    {listingTypeFilter === 'rent' && selectedCategory === 'commercial' && <Check className="w-3.5 h-3.5 text-blue-600" />}
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* 4. INVEST IN PROPERTIES - KEY FEATURE */}
+            {/* 3. INVEST IN PROPERTIES - KEY FEATURE */}
             <button
               onClick={() => setActiveTab('invest')}
               className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-black transition-all cursor-pointer ${
@@ -274,7 +222,7 @@ export const Navbar: React.FC = () => {
             >
               <TrendingUp className={`w-3.5 h-3.5 ${activeTab === 'invest' ? 'text-white' : 'text-blue-600'}`} />
               <span>Co-Own Properties</span>
-              <span className={`px-1.5 py-0.2 rounded-full text-[9px] font-black uppercase tracking-wider ${
+              <span className={`px-1.5 py-0.2 rounded text-[9px] font-black uppercase tracking-wider ${
                 activeTab === 'invest' ? 'bg-blue-800 text-white' : 'bg-blue-100 text-blue-800'
               }`}>
                 Earn Rent
@@ -305,7 +253,7 @@ export const Navbar: React.FC = () => {
             <div className="relative">
               <div 
                 onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-                className="flex items-center space-x-2 py-1 px-2 rounded-full border border-slate-200 bg-white hover:border-slate-300 hover:shadow-xs cursor-pointer transition-all"
+                className="flex items-center space-x-2 py-1 px-2 rounded-lg border border-slate-200 bg-white hover:border-slate-300 hover:shadow-xs cursor-pointer transition-all"
               >
                 <img
                   src={currentUser.avatar}
@@ -327,12 +275,12 @@ export const Navbar: React.FC = () => {
                     <p className="text-[11px] text-slate-400 font-semibold">Signed in as</p>
                     <p className="text-xs font-bold text-slate-900 truncate">{currentUser.name}</p>
                     <p className="text-[10px] text-slate-500 truncate">{currentUser.email}</p>
-                    <span className={`inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                    <span className={`inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-md ${
                       currentUser.role === 'admin' 
                         ? 'bg-slate-900 text-white' 
                         : 'bg-blue-100 text-blue-800'
                     }`}>
-                      {currentUser.role === 'admin' ? '🛡️ REM Operations Admin' : '🏡 Verified Homebuyer'}
+                      {currentUser.role === 'admin' ? 'REM Operations Admin' : 'Verified Homebuyer'}
                     </span>
                   </div>
 
@@ -424,16 +372,10 @@ export const Navbar: React.FC = () => {
             All Properties
           </button>
           <button
-            onClick={() => handleNavSelection({ listingType: 'sale' })}
-            className={`px-2.5 py-1 rounded-lg shrink-0 ${listingTypeFilter === 'sale' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}
+            onClick={() => handleNavSelection({ propertyType: 'Apartment', preLaunch: false })}
+            className={`px-2.5 py-1 rounded-lg shrink-0 ${propertyTypeFilter === 'Apartment' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}
           >
-            For Sale
-          </button>
-          <button
-            onClick={() => handleNavSelection({ listingType: 'rent' })}
-            className={`px-2.5 py-1 rounded-lg shrink-0 ${listingTypeFilter === 'rent' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}
-          >
-            For Rent
+            Apartments
           </button>
           <button
             onClick={() => handleNavSelection({ preLaunch: true })}

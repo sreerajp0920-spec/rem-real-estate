@@ -44,7 +44,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
     setPreLaunchOnly
   } = useApp();
 
-  const isRent = listingTypeFilter === 'rent';
+  
 
   const propertyTypes: { label: string; value: PropertyTypeFilter }[] = [
     { label: 'All Types', value: 'all' },
@@ -89,7 +89,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   };
 
   const activeFilterCount = 
-    (listingTypeFilter !== 'all' ? 1 : 0) +
+    
     (propertyTypeFilter !== 'all' ? 1 : 0) +
     (bhkFilter !== 'all' ? 1 : 0) +
     (cityFilter !== 'all' ? 1 : 0) +
@@ -110,7 +110,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             <div className="flex items-center space-x-2">
               <h3 className="text-sm font-extrabold text-slate-900 tracking-tight">Property Filters</h3>
               {activeFilterCount > 0 && (
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-blue-600 text-white">
+                <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-blue-600 text-white">
                   {activeFilterCount} Active
                 </span>
               )}
@@ -120,40 +120,6 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
         </div>
 
         <div className="flex items-center space-x-2 self-start sm:self-center">
-          {/* Quick Listing Mode Toggle */}
-          <div className="flex items-center p-1 bg-slate-100 rounded-xl">
-            <button
-              onClick={() => setListingTypeFilter('all')}
-              className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                listingTypeFilter === 'all'
-                  ? 'bg-white text-slate-900 shadow-xs'
-                  : 'text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setListingTypeFilter('sale')}
-              className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                listingTypeFilter === 'sale'
-                  ? 'bg-white text-blue-700 shadow-xs'
-                  : 'text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              Buy
-            </button>
-            <button
-              onClick={() => setListingTypeFilter('rent')}
-              className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                listingTypeFilter === 'rent'
-                  ? 'bg-white text-blue-700 shadow-xs'
-                  : 'text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              Rent
-            </button>
-          </div>
-
           {activeFilterCount > 0 && (
             <button
               onClick={handleReset}
@@ -288,11 +254,11 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
       </div>
 
-      {/* Row 4: Max Budget Bar (Placed below at the end) */}
+      {/* Row 4: Purchase Budget Bar */}
       <div className="pt-2.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
         <div className="flex items-center space-x-1.5 text-xs font-bold text-slate-700">
           <DollarSign className="w-3.5 h-3.5 text-blue-600" />
-          <span>{isRent ? 'Monthly Rental Budget' : 'Purchase Budget Range'}</span>
+          <span>Purchase Budget Range</span>
         </div>
 
         <div className="w-full sm:w-[45%] sm:max-w-md ml-auto">
@@ -301,38 +267,25 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             <span className="text-xs font-black text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-lg border border-blue-100">
               {maxBudgetFilter >= 50000000 
                 ? 'Any Budget' 
-                : isRent 
-                  ? `< ₹${(maxBudgetFilter / 1000).toFixed(0)}k/mo`
-                  : `< ${formatINR(maxBudgetFilter)}`}
+                : `< ${formatINR(maxBudgetFilter)}`}
             </span>
           </div>
 
           <input
             type="range"
-            min={isRent ? 25000 : 10000000}
-            max={isRent ? 1000000 : 50000000}
-            step={isRent ? 25000 : 2500000}
+            min={10000000}
+            max={50000000}
+            step={2500000}
             value={maxBudgetFilter}
             onChange={(e) => setMaxBudgetFilter(Number(e.target.value))}
             className="w-full accent-blue-600 cursor-pointer h-1.5 bg-slate-100 rounded-lg"
           />
 
           <div className="flex justify-between text-[10px] font-semibold text-slate-400 mt-0.5">
-            {isRent ? (
-              <>
-                <span>₹25k</span>
-                <span>₹2.5L</span>
-                <span>₹5.0L</span>
-                <span>Any</span>
-              </>
-            ) : (
-              <>
-                <span>₹1.0 Cr</span>
-                <span>₹2.5 Cr</span>
-                <span>₹4.0 Cr</span>
-                <span>Any</span>
-              </>
-            )}
+            <span>₹1.0 Cr</span>
+            <span>₹2.5 Cr</span>
+            <span>₹4.0 Cr</span>
+            <span>Any</span>
           </div>
         </div>
       </div>
@@ -342,14 +295,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
         <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100">
           <span className="text-[11px] font-bold text-slate-400">Active Filters:</span>
 
-          {listingTypeFilter !== 'all' && (
-            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 text-[11px] font-bold">
-              <span>Listing: {listingTypeFilter === 'sale' ? 'Buy' : 'Rent'}</span>
-              <button onClick={() => setListingTypeFilter('all')} className="hover:text-blue-900 cursor-pointer ml-1">
-                <X className="w-3 h-3" />
-              </button>
-            </span>
-          )}
+          
 
           {propertyTypeFilter !== 'all' && (
             <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 text-[11px] font-bold">
@@ -398,7 +344,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
           {maxBudgetFilter < 50000000 && (
             <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 text-[11px] font-bold">
-              <span>Budget: {isRent ? `< ₹${(maxBudgetFilter / 1000).toFixed(0)}k` : `< ${formatINR(maxBudgetFilter)}`}</span>
+              <span>Budget: &lt; {formatINR(maxBudgetFilter)}</span>
               <button onClick={() => setMaxBudgetFilter(50000000)} className="hover:text-blue-900 cursor-pointer ml-1">
                 <X className="w-3 h-3" />
               </button>

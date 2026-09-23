@@ -70,11 +70,11 @@ export const InvestModal: React.FC = () => {
 
         {isSuccess ? (
           <div className="text-center py-4 animate-in zoom-in-95">
-            <div className="w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 border border-blue-100">
+            <div className="w-16 h-16 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 border border-blue-100">
               <CheckCircle2 className="w-9 h-9" />
             </div>
             
-            <span className="text-[11px] font-bold uppercase text-blue-700 tracking-wider bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+            <span className="text-[11px] font-bold uppercase text-blue-700 tracking-wider bg-blue-50 px-3 py-1 rounded-md border border-blue-200">
               Co-Ownership Confirmed
             </span>
             
@@ -135,7 +135,7 @@ export const InvestModal: React.FC = () => {
         ) : (
           <form onSubmit={handleConfirmInvestment} className="space-y-5">
             <div>
-              <div className="inline-flex items-center space-x-1.5 text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full mb-2">
+              <div className="inline-flex items-center space-x-1.5 text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md mb-2">
                 <Users className="w-3.5 h-3.5 text-blue-600" />
                 <span className="text-[10px] font-bold uppercase tracking-wider">
                   Property Co-Ownership

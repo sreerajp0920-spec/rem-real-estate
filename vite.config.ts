@@ -9,6 +9,21 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'vendor';
+          }
+          if (id.includes('node_modules/lucide-react')) {
+            return 'icons';
+          }
+        }
+      }
+    }
+  },
   server: {
     allowedHosts: true,
   },
@@ -16,4 +31,3 @@ export default defineConfig({
     allowedHosts: true,
   },
 })
-

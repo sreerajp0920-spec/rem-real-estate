@@ -27,3 +27,4 @@ dist-ssr
 cloudflared.exe
 *.zip
 pinggy.txt
+scratch/

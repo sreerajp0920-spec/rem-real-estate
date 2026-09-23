@@ -83,7 +83,7 @@ This document certifies legal title interest in the SPV holding the underlying r
           <div>
             <div className="flex items-center space-x-2">
               <h1 className="text-2xl font-black text-slate-900 tracking-tight">{currentUser.name}'s Portfolio</h1>
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-blue-100 text-blue-800">
                 {currentUser.role}
               </span>
             </div>
@@ -215,7 +215,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                 >
                   <div>
                     <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800">
                         {inv.status} Holding
                       </span>
                       <span className="text-xs text-slate-400 font-medium">
@@ -319,7 +319,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                     <img src={property.images[0]} alt={property.title} className="w-full h-full object-cover" />
                     <button
                       onClick={() => toggleFavorite(property.id)}
-                      className="absolute top-3 right-3 p-2 rounded-full bg-white/90 text-rose-600 shadow-md"
+                      className="absolute top-3 right-3 p-2 rounded-md bg-white/90 text-rose-600 shadow-md"
                     >
                       <Heart className="w-4 h-4 fill-current" />
                     </button>
@@ -374,7 +374,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                     </div>
                     <div>
                       <div className="flex items-center space-x-2">
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800">
                           {visit.status}
                         </span>
                         <span className="text-xs font-semibold text-slate-500">{visit.type}</span>

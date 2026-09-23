@@ -179,4 +179,4 @@ export interface LeadInquiry {
   status: 'New' | 'Contacted' | 'Closed';
 }
 
-export type ActiveTab = 'properties' | 'admin' | 'invest' | 'portfolio' | 'compare';
+export type ActiveTab = 'properties' | 'admin' | 'invest' | 'portfolio' | 'compare' | 'privacy' | 'terms';

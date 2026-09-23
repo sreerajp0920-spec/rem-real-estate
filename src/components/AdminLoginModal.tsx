@@ -67,7 +67,7 @@ export const AdminLoginModal: React.FC = () => {
           <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white font-black flex items-center justify-center mx-auto mb-3 shadow-md">
             <ShieldCheck className="w-7 h-7" />
           </div>
-          <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+          <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-1.5">
             <Lock className="w-3 h-3" />
             <span>Restricted Access</span>
           </div>

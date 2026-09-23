@@ -33,8 +33,8 @@ jobs:
       - name: Build
         run: bun run build
 
-      - name: Copy index to 404 for SPA routing
-        run: cp dist/index.html dist/404.html
+      - name: Copy index to 404 for SPA routing if missing
+        run: test -f dist/404.html || cp dist/index.html dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

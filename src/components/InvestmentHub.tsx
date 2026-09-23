@@ -12,7 +12,9 @@ import {
   HeartHandshake,
   Wallet,
   CalendarCheck,
-  CheckCircle2
+  CheckCircle2,
+  IndianRupee,
+  TrendingUp
 } from 'lucide-react';
 
 export const InvestmentHub: React.FC = () => {
@@ -49,7 +51,7 @@ export const InvestmentHub: React.FC = () => {
     },
     {
       q: "Who takes care of property repairs, tenants, and maintenance?",
-      a: "REM handles 100% of the day-to-day operations—tenant management, rent collection, property tax, and maintenance. You simply enjoy passive monthly rent with zero landlord headaches."
+      a: "REM handles 100% of the day-to-day operations: tenant management, rent collection, property tax, and maintenance. You simply enjoy passive monthly rent with zero landlord headaches."
     }
   ];
 
@@ -59,7 +61,7 @@ export const InvestmentHub: React.FC = () => {
       {/* 1. Humanized Friendly Hero Banner */}
       <div className="relative rounded-3xl bg-slate-900 text-white p-8 sm:p-12 overflow-hidden border border-slate-800 shadow-xl">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-400/30">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-md bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-400/30">
             <HeartHandshake className="w-4 h-4" />
             <span>Co-Own Real Estate With Others</span>
           </div>
@@ -78,16 +80,20 @@ export const InvestmentHub: React.FC = () => {
           {/* Quick Highlight Pills */}
           <div className="mt-6 flex flex-wrap gap-2.5 text-xs font-semibold text-slate-200">
             <span className="px-3 py-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center space-x-1.5">
-              <span>💸 Monthly Rent Direct to Bank</span>
+              <IndianRupee className="w-3.5 h-3.5 text-blue-400" />
+              <span>Monthly Rent Direct to Bank</span>
             </span>
             <span className="px-3 py-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center space-x-1.5">
-              <span>📈 Share in Property Value Growth</span>
+              <TrendingUp className="w-3.5 h-3.5 text-blue-400" />
+              <span>Share in Property Value Growth</span>
             </span>
             <span className="px-3 py-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center space-x-1.5">
-              <span>🛡️ 100% Verified Legal Ownership</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
+              <span>100% Verified Legal Ownership</span>
             </span>
             <span className="px-3 py-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center space-x-1.5">
-              <span>✨ Zero Landlord Work</span>
+              <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
+              <span>Zero Landlord Work</span>
             </span>
           </div>
 
@@ -148,7 +154,7 @@ export const InvestmentHub: React.FC = () => {
               Choose How Much to Put In
             </h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Start with whatever fits your budget—from ₹50,000 to ₹5 Lakhs+. You receive official legal documentation for your share.
+              Start with whatever fits your budget, from ₹50,000 to ₹5 Lakhs+. You receive official legal documentation for your share.
             </p>
           </div>
 
@@ -178,7 +184,7 @@ export const InvestmentHub: React.FC = () => {
               Pre-vetted properties with verified titles and reliable rental tenants in Bengaluru.
             </p>
           </div>
-          <span className="text-xs font-bold px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full border border-blue-200 self-start sm:self-auto">
+          <span className="text-xs font-bold px-3 py-1.5 bg-blue-50 text-blue-700 rounded-md border border-blue-200 self-start sm:self-auto">
             {investableProperties.length} Properties Available
           </span>
         </div>
@@ -206,13 +212,13 @@ export const InvestmentHub: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20" />
                     
                     <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-blue-600 text-white shadow-xs">
+                      <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-blue-600 text-white shadow-xs">
                         ~{inv.grossRentalYieldPercentage}% Yearly Rent
                       </span>
                     </div>
 
                     <div className="absolute top-3 right-3">
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900/80 text-white backdrop-blur-md">
+                      <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-900/80 text-white backdrop-blur-md">
                         Start with {formatINR(minTicket)}
                       </span>
                     </div>
@@ -257,9 +263,9 @@ export const InvestmentHub: React.FC = () => {
                         <span className="text-blue-600 font-black">{fundedPct}% Funded</span>
                       </div>
                       
-                      <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="w-full h-2 bg-slate-200 rounded-md overflow-hidden">
                         <div 
-                          className="h-full bg-blue-600 rounded-full transition-all duration-500" 
+                          className="h-full bg-blue-600 rounded-md transition-all duration-500" 
                           style={{ width: `${Math.min(100, fundedPct)}%` }}
                         />
                       </div>

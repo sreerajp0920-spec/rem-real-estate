@@ -115,7 +115,7 @@ export const AuthModal: React.FC = () => {
                 <div>
                   <div className="flex items-center space-x-2">
                     <h4 className="text-sm font-extrabold text-slate-900">Ananya Verma</h4>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-100 text-blue-800">
                       Verified Buyer
                     </span>
                   </div>
@@ -143,7 +143,7 @@ export const AuthModal: React.FC = () => {
                 <div>
                   <div className="flex items-center space-x-2">
                     <h4 className="text-sm font-extrabold text-slate-900">Rahul Sharma</h4>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800">
                       HNW Client
                     </span>
                   </div>
