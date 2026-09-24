@@ -19,44 +19,44 @@ export const SeoManager: React.FC<SeoManagerProps> = ({
   selectedProperty
 }) => {
   useEffect(() => {
-    let title = 'REM Realty | Verified Properties in Bangalore | 0% Brokerage';
+    let title = 'REM Estates | Verified Properties in Bangalore | 0% Brokerage';
     let description = 'Discover RERA-verified luxury apartments, villas, penthouses, and commercial plots across Bangalore with 0% brokerage, 4K video tours, and verified carpet areas.';
-    let canonical = 'https://remrealty.in/';
+    let canonical = 'https://remestates.in/';
 
     if (selectedProperty) {
-      title = `${selectedProperty.title} in ${selectedProperty.location.locality}, Bangalore | REM Realty`;
+      title = `${selectedProperty.title} in ${selectedProperty.location.locality}, Bangalore | REM Estates`;
       description = `${selectedProperty.dimensions.bhk} by ${selectedProperty.developer} located at ${selectedProperty.location.locality}, Bangalore. RERA ID: ${selectedProperty.peaceOfMind.reraId}. Carpet Area: ${selectedProperty.dimensions.carpetAreaSqFt} sq ft.`;
-      canonical = `https://remrealty.in/?property=${selectedProperty.id}`;
+      canonical = `https://remestates.in/?property=${selectedProperty.id}`;
     } else if (activeTab === 'privacy') {
-      title = 'Privacy Policy | REM Realty - DPDPA 2023 Compliant';
-      description = 'Read REM Realty privacy policy outlining how customer data, RERA paperwork, and identity records are secured under India DPDPA 2023.';
-      canonical = 'https://remrealty.in/privacy-policy';
+      title = 'Privacy Policy | REM Estates - DPDPA 2023 Compliant';
+      description = 'Read REM Estates privacy policy outlining how customer data, RERA paperwork, and identity records are secured under India DPDPA 2023.';
+      canonical = 'https://remestates.in/privacy-policy';
     } else if (activeTab === 'terms') {
-      title = 'Terms and Conditions | REM Realty';
-      description = 'Terms of service, RERA property listing disclaimers, and 0% brokerage policy for REM Realty platform users and buyers.';
-      canonical = 'https://remrealty.in/terms-and-conditions';
+      title = 'Terms and Conditions | REM Estates';
+      description = 'Terms of service, RERA property listing disclaimers, and 0% brokerage policy for REM Estates platform users and buyers.';
+      canonical = 'https://remestates.in/terms-and-conditions';
     } else if (activeTab === 'invest') {
-      title = 'Commercial Real Estate Co-Investment Pools | REM Realty';
+      title = 'Commercial Real Estate Co-Investment Pools | REM Estates';
       description = 'Co-own Grade-A commercial tech parks and retail assets in Bangalore starting from ₹50,000. Earn 8-14% monthly rental yield.';
-      canonical = 'https://remrealty.in/invest';
+      canonical = 'https://remestates.in/invest';
     } else if (activeTab === 'portfolio') {
-      title = 'Investor Portfolio & Payouts | REM Realty';
+      title = 'Investor Portfolio & Payouts | REM Estates';
       description = 'Monitor your verified co-investment allocations, monthly rental distributions, and property capital appreciation in Bangalore.';
-      canonical = 'https://remrealty.in/portfolio';
+      canonical = 'https://remestates.in/portfolio';
     } else if (activeTab === 'admin') {
-      title = 'Operations Console | REM Realty Staff';
-      description = 'Internal administrative console for verified REM Realty property listings, lead management, and RERA compliance verification.';
-      canonical = 'https://remrealty.in/admin';
+      title = 'Operations Console | REM Estates Staff';
+      description = 'Internal administrative console for verified REM Estates property listings, lead management, and RERA compliance verification.';
+      canonical = 'https://remestates.in/admin';
     } else {
       // Properties catalog variations
       if (preLaunchOnly) {
-        title = 'Upcoming Pre-Launch Residential Projects in Bangalore | REM Realty';
+        title = 'Upcoming Pre-Launch Residential Projects in Bangalore | REM Estates';
         description = 'Access exclusive pre-launch builder allocations, early bird pricing, and RERA approved upcoming developments.';
-        canonical = 'https://remrealty.in/?filter=pre-launch';
+        canonical = 'https://remestates.in/?filter=pre-launch';
       } else if (propertyTypeFilter !== 'all') {
-        title = `Verified ${propertyTypeFilter}s for Sale in Bangalore | REM Realty`;
+        title = `Verified ${propertyTypeFilter}s for Sale in Bangalore | REM Estates`;
         description = `Browse premium verified ${propertyTypeFilter}s across Indiranagar, Whitefield, Sarjapur, and North Bangalore.`;
-        canonical = `https://remrealty.in/?type=${encodeURIComponent(propertyTypeFilter.toLowerCase())}`;
+        canonical = `https://remestates.in/?type=${encodeURIComponent(propertyTypeFilter.toLowerCase())}`;
       }
     }
 

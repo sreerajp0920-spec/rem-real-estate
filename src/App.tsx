@@ -9,11 +9,14 @@ import { AdminPortal } from './components/AdminPortal';
 import { InvestmentHub } from './components/InvestmentHub';
 import { PortfolioView } from './components/PortfolioView';
 import { InvestModal } from './components/InvestModal';
+import { CompanyInvestModal } from './components/CompanyInvestModal';
 import { AuthModal } from './components/AuthModal';
 import { AdminLoginModal } from './components/AdminLoginModal';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsConditions } from './components/TermsConditions';
 import { SeoManager } from './components/SeoManager';
+import { EditorialConcept } from './components/EditorialConcept';
+import { EditorialFooter } from './components/EditorialFooter';
 import { 
   Search,
   Building2, 
@@ -200,33 +203,34 @@ const MainContent: React.FC = () => {
         ) : (
           <div>
             <HeroBanner />
+            <EditorialConcept />
             
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div id="residences-catalog" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
               
               {/* Search Bar Above Property Filter */}
-              <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs mb-4">
+              <div className="bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-xs mb-6">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
                   <div className="md:col-span-8 relative">
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+                    <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5" />
                     <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search by property title, builder, or micromarket..."
-                      className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+                      placeholder="Search by residence title, builder, or micromarket..."
+                      className="w-full pl-10 pr-4 py-2.5 bg-[#FAF8F5] border border-stone-200 rounded-xl text-xs sm:text-sm font-medium text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:bg-white"
                     />
                   </div>
 
                   <div className="md:col-span-4 relative">
-                    <MapPin className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+                    <MapPin className="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5" />
                     <select
                       value={cityFilter}
                       onChange={(e) => setCityFilter(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white cursor-pointer"
+                      className="w-full pl-10 pr-4 py-2.5 bg-[#FAF8F5] border border-stone-200 rounded-xl text-xs sm:text-sm font-medium text-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:bg-white cursor-pointer"
                     >
-                      <option value="all">All Locations</option>
-                      <option value="South Bengaluru">South Bengaluru</option>
-                      <option value="North Bengaluru">North Bengaluru</option>
+                      <option value="all">All Locations (Bengaluru)</option>
+                      <option value="South Bengaluru">South Bengaluru (Indiranagar / Koramangala / ORR)</option>
+                      <option value="North Bengaluru">North Bengaluru (Hebbal / Devanahalli / Airport)</option>
                     </select>
                   </div>
                 </div>
@@ -241,15 +245,16 @@ const MainContent: React.FC = () => {
               />
 
               {/* Header result counter */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pt-4">
                 <div>
-                  <h2 className="text-xl font-black text-slate-900 tracking-tight">
+                  <h2 className="font-helvetica-black text-3xl sm:text-4xl font-black uppercase text-stone-950 tracking-tight">
                     {getSectionTitle()}
                   </h2>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Showing {sortedProperties.length} verified listings with 0% brokerage and RERA title checks.
+                  <p className="text-xs font-helvetica font-semibold text-stone-700 mt-1 uppercase tracking-wider">
+                    Showing {sortedProperties.length} verified residences with 0% brokerage and guaranteed RERA title clearance.
                   </p>
                 </div>
+
 
                 <div className="flex items-center space-x-3">
                   {(listingTypeFilter !== 'all' || propertyTypeFilter !== 'all' || preLaunchOnly) && (
@@ -306,102 +311,18 @@ const MainContent: React.FC = () => {
       )}
 
       <InvestModal />
+      <CompanyInvestModal />
 
       {/* Authentication Modal */}
       <AuthModal />
       <AdminLoginModal />
 
-      {/* Minimal Footer */}
-      <footer className="bg-slate-950 text-white border-t border-slate-800 pt-12 pb-8 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-slate-800">
-            
-            <div className="md:col-span-5 space-y-3">
-              <div className="flex items-center space-x-2.5">
-                <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-base shadow-sm">
-                  REM
-                </div>
-                <span className="font-extrabold text-lg text-white">REM Realty</span>
-              </div>
-              <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-                Data-driven real estate platform for REM. Verified carpet dimensions, 4K video walkthroughs, clear RERA titles, and 0% brokerage.
-              </p>
-            </div>
-
-            <div className="md:col-span-3 space-y-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">Explore REM</h4>
-              <ul className="space-y-1.5 text-xs text-slate-400">
-                <li><button onClick={() => { setPropertyTypeFilter('all'); setPreLaunchOnly(false); }} className="hover:text-white cursor-pointer">All Verified Properties</button></li>
-                <li><button onClick={() => { setPropertyTypeFilter('Apartment'); setPreLaunchOnly(false); }} className="hover:text-white cursor-pointer">Luxury Apartments</button></li>
-                <li><button onClick={() => { setPreLaunchOnly(true); }} className="hover:text-white cursor-pointer">Pre-Launch Projects</button></li>
-                <li><button onClick={() => { setPropertyTypeFilter('Commercial'); }} className="hover:text-white cursor-pointer">Commercial Tech Parks</button></li>
-              </ul>
-            </div>
-
-            <div className="md:col-span-4 space-y-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">Concierge Desk</h4>
-              <div className="space-y-1.5 text-xs text-slate-400">
-                <div className="flex items-center space-x-2">
-                  <Phone className="w-3.5 h-3.5 text-blue-400" />
-                  <span>+91 80 4000 8000</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Mail className="w-3.5 h-3.5 text-blue-400" />
-                  <span>concierge@rem.com</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <MapPin className="w-3.5 h-3.5 text-blue-400" />
-                  <span>REM Tower, Indiranagar, Bangalore</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
-            <p>© 2026 REM Realty. All rights reserved. RERA verified.</p>
-            <div className="flex items-center space-x-4 text-[11px]">
-              <button
-                onClick={() => {
-                  setActiveTab('privacy');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="hover:text-slate-300 transition-colors cursor-pointer"
-              >
-                Privacy Policy
-              </button>
-              <span>•</span>
-              <button
-                onClick={() => {
-                  setActiveTab('terms');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="hover:text-slate-300 transition-colors cursor-pointer"
-              >
-                Terms and Conditions
-              </button>
-              <span>•</span>
-              <button
-                onClick={() => {
-                  if (currentUser.role === 'admin') {
-                    setActiveTab('admin');
-                  } else {
-                    setIsAdminAuthModalOpen(true);
-                  }
-                }}
-                className="text-slate-600 hover:text-slate-400 flex items-center space-x-1 cursor-pointer transition-colors"
-                title="REM Staff Access"
-              >
-                <Lock className="w-2.5 h-2.5" />
-                <span>Staff Access</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Boutique Editorial Footer */}
+      <EditorialFooter />
     </div>
   );
 };
+
 
 export function App() {
   return (

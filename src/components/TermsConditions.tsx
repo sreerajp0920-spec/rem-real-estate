@@ -44,14 +44,14 @@ export const TermsConditions: React.FC<TermsConditionsProps> = ({ onBack }) => {
         <section className="space-y-3">
           <h2 className="text-base font-bold text-slate-950">1. Acceptance of Terms</h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            These Terms and Conditions of Service (&quot;Terms&quot;) constitute a legally binding agreement between you (&quot;User&quot;, &quot;Buyer&quot;, or &quot;Investor&quot;) and REM Realty (&quot;REM&quot;, &quot;we&quot;, or &quot;our&quot;). By accessing, browsing, registering on, or utilizing our website, listings, and advisory services, you acknowledge that you have read, understood, and agreed to be governed by these Terms.
+            These Terms and Conditions of Service (&quot;Terms&quot;) constitute a legally binding agreement between you (&quot;User&quot;, &quot;Buyer&quot;, or &quot;Investor&quot;) and REM Estates (&quot;REM&quot;, &quot;we&quot;, or &quot;our&quot;). By accessing, browsing, registering on, or utilizing our website, listings, and advisory services, you acknowledge that you have read, understood, and agreed to be governed by these Terms.
           </p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-base font-bold text-slate-950">2. Nature of Platform &amp; Zero Brokerage Guarantee</h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            REM Realty is a technology-enabled property discovery and direct developer advisory platform.
+            REM Estates is a technology-enabled property discovery and direct developer advisory platform.
           </p>
           <ul className="space-y-2 text-xs sm:text-sm text-slate-600 list-disc pl-5">
             <li><strong>0% Homebuyer Brokerage:</strong> REM does not levy any brokerage commission, hidden fees, or service surcharges on buyers purchasing verified residential or commercial properties featured in our primary catalog.</li>
@@ -98,10 +98,10 @@ export const TermsConditions: React.FC<TermsConditionsProps> = ({ onBack }) => {
         <section className="space-y-3 border-t border-slate-200 pt-6">
           <h2 className="text-base font-bold text-slate-950">7. Legal Department Inquiries</h2>
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs sm:text-sm text-slate-700">
-            <div className="font-bold text-slate-900">REM Realty Legal &amp; Corporate Affairs</div>
+            <div className="font-bold text-slate-900">REM Estates Legal &amp; Corporate Affairs</div>
             <div className="flex items-center space-x-2">
               <Mail className="w-3.5 h-3.5 text-blue-600" />
-              <span>Email: legal@remrealty.in</span>
+              <span>Email: legal@remestates.in</span>
             </div>
             <div className="flex items-center space-x-2">
               <MapPin className="w-3.5 h-3.5 text-blue-600" />

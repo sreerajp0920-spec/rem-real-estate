@@ -13,11 +13,16 @@ import {
   Layers,
   Sparkles,
   Trees,
-  Check
+  Check,
+  Globe
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { 
+    language,
+    setLanguage,
+    t,
+    setIsCompanyInvestModalOpen,
     activeTab, 
     setActiveTab, 
     currentUser, 
@@ -39,6 +44,7 @@ export const Navbar: React.FC = () => {
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   // Helper to apply filters & navigate to properties tab
   const handleNavSelection = (config: {
@@ -56,7 +62,7 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all shadow-xs">
+    <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-stone-200/80 transition-all shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
@@ -66,29 +72,32 @@ export const Navbar: React.FC = () => {
               onClick={() => {
                 handleNavSelection({ listingType: 'all', propertyType: 'all', category: 'all', preLaunch: false });
               }}
-              className="flex items-center space-x-2.5 cursor-pointer group"
+              className="flex items-center space-x-3 cursor-pointer group"
             >
-              <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-lg shadow-sm shadow-blue-500/20 group-hover:bg-blue-700 transition-all">
-                REM
+              <div className="w-9 h-9 rounded-full bg-stone-950 flex items-center justify-center text-amber-300 font-helvetica-black text-base shadow-sm group-hover:bg-black transition-all">
+                R
               </div>
               <div className="flex flex-col">
-                <span className="font-black text-lg tracking-tight text-slate-900 leading-none">REM</span>
-                <span className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase">Realty</span>
+                <span className="font-helvetica-black text-xl tracking-tighter text-stone-950 leading-none uppercase">REM ESTATES</span>
+                <span className="text-[9px] text-stone-900 font-helvetica-bold tracking-[0.25em] uppercase">Residences • Bengaluru</span>
               </div>
+
             </div>
+
 
             {/* Quick Search */}
             <div className="hidden xl:flex items-center relative">
-              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3" />
+              <Search className="w-3.5 h-3.5 text-stone-400 absolute left-3" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search properties, locations..."
-                className="pl-8.5 pr-4 py-1.5 bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-xs font-medium text-slate-800 placeholder-slate-400 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all w-52 focus:w-64 outline-none"
+                placeholder="Search residences, localities..."
+                className="pl-8.5 pr-4 py-1.5 bg-white hover:bg-stone-50 focus:bg-white text-xs font-medium text-stone-800 placeholder-stone-400 rounded-full border border-stone-200 focus:border-stone-400 focus:ring-2 focus:ring-stone-200 transition-all w-56 focus:w-64 outline-none"
               />
             </div>
           </div>
+
 
           {/* New Nav Hierarchy */}
           <nav className="hidden md:flex items-center space-x-1">
@@ -231,9 +240,74 @@ export const Navbar: React.FC = () => {
 
             </nav>
 
-          {/* Right Actions: Admin Console & Profile */}
-          <div className="flex items-center space-x-3">
+          {/* Right Actions: Invest in Company, Language Toggle, Admin & Profile */}
+          <div className="flex items-center space-x-2.5">
             
+            {/* Corporate Equity Investment CTA */}
+            <button
+              onClick={() => setIsCompanyInvestModalOpen(true)}
+              className="hidden lg:inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-amber-400 hover:bg-amber-300 text-black font-helvetica-black text-[11px] uppercase tracking-wider transition-all shadow-xs cursor-pointer border border-amber-500/40"
+              title="Invest in REM Estates Pvt. Ltd. (Growth Round)"
+            >
+              <TrendingUp className="w-3.5 h-3.5" />
+              <span>{t('navCompanyInvest')}</span>
+            </button>
+
+            {/* Language Selector Dropdown (English, Kannada, Hindi) */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                className="flex items-center space-x-1.5 py-1.5 px-3 rounded-full border border-stone-300 bg-white hover:border-stone-500 text-xs font-helvetica-bold text-stone-900 cursor-pointer shadow-xs transition-all"
+                title="Switch Language / ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸಿ / भाषा बदलें"
+              >
+                <Globe className="w-3.5 h-3.5 text-stone-700" />
+                <span className="uppercase text-[11px] font-black">
+                  {language === 'en' ? 'EN' : language === 'kn' ? 'ಕನ್ನಡ' : 'हिन्दी'}
+                </span>
+                <ChevronDown className="w-3 h-3 text-stone-400" />
+              </button>
+
+              {isLangMenuOpen && (
+                <div 
+                  className="absolute right-0 mt-2 w-44 bg-white rounded-2xl shadow-2xl border-2 border-stone-900 py-1.5 z-50 animate-in fade-in"
+                  onMouseLeave={() => setIsLangMenuOpen(false)}
+                >
+                  <div className="px-3.5 py-1 text-[10px] font-helvetica-bold text-stone-500 uppercase tracking-wider border-b border-stone-100">
+                    Select Language / ಭಾಷೆ
+                  </div>
+                  <button
+                    onClick={() => { setLanguage('en'); setIsLangMenuOpen(false); }}
+                    className={`w-full text-left px-3.5 py-2 text-xs font-semibold flex items-center justify-between cursor-pointer ${
+                      language === 'en' ? 'bg-stone-100 text-black font-black' : 'text-stone-700 hover:bg-stone-50'
+                    }`}
+                  >
+                    <span>English (Main)</span>
+                    {language === 'en' && <Check className="w-3.5 h-3.5 text-stone-900" />}
+                  </button>
+
+                  <button
+                    onClick={() => { setLanguage('kn'); setIsLangMenuOpen(false); }}
+                    className={`w-full text-left px-3.5 py-2 text-xs font-semibold flex items-center justify-between cursor-pointer ${
+                      language === 'kn' ? 'bg-stone-100 text-black font-black' : 'text-stone-700 hover:bg-stone-50'
+                    }`}
+                  >
+                    <span>ಕನ್ನಡ (Kannada)</span>
+                    {language === 'kn' && <Check className="w-3.5 h-3.5 text-stone-900" />}
+                  </button>
+
+                  <button
+                    onClick={() => { setLanguage('hi'); setIsLangMenuOpen(false); }}
+                    className={`w-full text-left px-3.5 py-2 text-xs font-semibold flex items-center justify-between cursor-pointer ${
+                      language === 'hi' ? 'bg-stone-100 text-black font-black' : 'text-stone-700 hover:bg-stone-50'
+                    }`}
+                  >
+                    <span>हिन्दी (Hindi)</span>
+                    {language === 'hi' && <Check className="w-3.5 h-3.5 text-stone-900" />}
+                  </button>
+                </div>
+              )}
+            </div>
+
             {/* Admin Console Button - ONLY visible when authenticated as Admin */}
             {currentUser.role === 'admin' && (
               <button
@@ -255,6 +329,7 @@ export const Navbar: React.FC = () => {
                 onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
                 className="flex items-center space-x-2 py-1 px-2 rounded-lg border border-slate-200 bg-white hover:border-slate-300 hover:shadow-xs cursor-pointer transition-all"
               >
+
                 <img
                   src={currentUser.avatar}
                   alt={currentUser.name}
@@ -354,37 +429,47 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Navigation Bar */}
-        <div className="md:hidden flex items-center justify-between py-2 border-t border-slate-100 text-xs font-bold text-slate-700 overflow-x-auto space-x-2">
+        <div className="md:hidden flex items-center justify-between py-2 border-t border-stone-200 text-xs font-bold text-stone-800 overflow-x-auto space-x-2">
+          {/* Mobile Company Invest CTA */}
           <button
-            onClick={() => setActiveTab('invest')}
-            className={`px-2.5 py-1 rounded-lg shrink-0 font-black flex items-center space-x-1 ${
-              activeTab === 'invest' 
-                ? 'bg-blue-600 text-white' 
-                : 'bg-blue-50 text-blue-800 border border-blue-200'
-            }`}
+            onClick={() => setIsCompanyInvestModalOpen(true)}
+            className="px-2.5 py-1 rounded-lg shrink-0 font-helvetica-black bg-amber-400 text-black border border-amber-500/40 flex items-center space-x-1 cursor-pointer"
           >
-            <span>Invest in Properties</span>
+            <TrendingUp className="w-3 h-3" />
+            <span>{t('navCompanyInvest')}</span>
           </button>
+
+          {/* Mobile Quick Language Toggle */}
+          <button
+            onClick={() => setLanguage(language === 'en' ? 'kn' : language === 'kn' ? 'hi' : 'en')}
+            className="px-2.5 py-1 rounded-lg shrink-0 font-helvetica-bold bg-white text-stone-900 border border-stone-300 flex items-center space-x-1 cursor-pointer"
+            title="Toggle Language"
+          >
+            <Globe className="w-3 h-3 text-stone-700" />
+            <span>{language === 'en' ? 'EN' : language === 'kn' ? 'ಕನ್ನಡ' : 'हिन्दी'}</span>
+          </button>
+
           <button
             onClick={() => handleNavSelection({ listingType: 'all', propertyType: 'all', category: 'all', preLaunch: false })}
-            className={`px-2.5 py-1 rounded-lg shrink-0 ${activeTab === 'properties' && listingTypeFilter === 'all' && propertyTypeFilter === 'all' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`}
+            className={`px-2.5 py-1 rounded-lg shrink-0 ${activeTab === 'properties' && listingTypeFilter === 'all' && propertyTypeFilter === 'all' ? 'bg-stone-900 text-white' : 'bg-stone-100'}`}
           >
-            All Properties
+            {t('navProperties')}
           </button>
           <button
             onClick={() => handleNavSelection({ propertyType: 'Apartment', preLaunch: false })}
-            className={`px-2.5 py-1 rounded-lg shrink-0 ${propertyTypeFilter === 'Apartment' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}
+            className={`px-2.5 py-1 rounded-lg shrink-0 ${propertyTypeFilter === 'Apartment' ? 'bg-stone-900 text-white' : 'bg-stone-100'}`}
           >
             Apartments
           </button>
           <button
             onClick={() => handleNavSelection({ preLaunch: true })}
-            className={`px-2.5 py-1 rounded-lg shrink-0 ${preLaunchOnly ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}
+            className={`px-2.5 py-1 rounded-lg shrink-0 ${preLaunchOnly ? 'bg-amber-400 text-black font-bold' : 'bg-stone-100'}`}
           >
             Pre-Launch
           </button>
-          </div>
+        </div>
       </div>
     </header>
+
   );
 };

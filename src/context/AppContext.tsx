@@ -12,8 +12,19 @@ import {
 } from '../types';
 import { INITIAL_PROPERTIES, PRESET_USERS } from '../data/propertiesData';
 import { formatINR } from '../utils/formatters';
+import { Language, Translations, TRANSLATIONS } from '../utils/translations';
 
 interface AppContextType {
+  // Multi-Language Support
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: keyof Translations) => string;
+
+  // Corporate Company Investment
+  isCompanyInvestModalOpen: boolean;
+  setIsCompanyInvestModalOpen: (open: boolean) => void;
+  addInquiry: (inquiry: LeadInquiry) => void;
+
   properties: Property[];
   currentUser: UserProfile;
   activeTab: ActiveTab;
@@ -145,6 +156,18 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     }
     return PRESET_USERS.buyer;
   });
+
+  // Multi-Language & Translation State
+  const [language, setLanguage] = useState<Language>('en');
+  const [isCompanyInvestModalOpen, setIsCompanyInvestModalOpen] = useState<boolean>(false);
+
+  const t = (key: keyof Translations): string => {
+    return TRANSLATIONS[language]?.[key] || TRANSLATIONS['en'][key] || '';
+  };
+
+  const addInquiry = (inquiry: LeadInquiry) => {
+    setInquiries(prev => [inquiry, ...prev]);
+  };
 
   // Navigation & Modal State
   const [activeTab, setActiveTab] = useState<ActiveTab>('properties');
@@ -438,6 +461,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   return (
     <AppContext.Provider value={{
+      language,
+      setLanguage,
+      t,
+      isCompanyInvestModalOpen,
+      setIsCompanyInvestModalOpen,
+      addInquiry,
       properties,
       currentUser,
       activeTab,

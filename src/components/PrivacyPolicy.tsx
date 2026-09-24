@@ -44,7 +44,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
         <section className="space-y-3">
           <h2 className="text-base font-bold text-slate-950">1. Scope and Introduction</h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            REM Realty (&quot;REM&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates the real estate discovery and co-investment platform accessible at remrealty.in and its affiliated digital properties. We are committed to safeguarding personal data in compliance with India&apos;s Digital Personal Data Protection Act (DPDPA), 2023, the Information Technology Act, 2000, and the Real Estate (Regulation and Development) Act (RERA).
+            REM Estates (&quot;REM&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates the real estate discovery and co-investment platform accessible at remestates.in and its affiliated digital properties. We are committed to safeguarding personal data in compliance with India&apos;s Digital Personal Data Protection Act (DPDPA), 2023, the Information Technology Act, 2000, and the Real Estate (Regulation and Development) Act (RERA).
           </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             This Privacy Policy explains how we collect, verify, process, and protect your information when you browse property listings, book site inspections, or participate in co-ownership syndicates.
