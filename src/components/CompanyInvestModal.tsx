@@ -21,8 +21,7 @@ export const CompanyInvestModal: React.FC = () => {
     isCompanyInvestModalOpen, 
     setIsCompanyInvestModalOpen,
     currentUser,
-    addInquiry,
-    language
+    addInquiry
   } = useApp();
 
   const [fullName, setFullName] = useState(currentUser.name || '');
@@ -58,9 +57,8 @@ export const CompanyInvestModal: React.FC = () => {
   };
 
   const handleDownloadDeck = () => {
-    // Simulated instant PDF download
     const blob = new Blob([
-      `REM ESTATES PRIVATE LIMITED\nCONFIDENTIAL INFORMATION MEMORANDUM & PITCH DECK\nPre-Series A Corporate Growth Round\nPipeline: ₹1,500 Cr+ Transaction Volume\nContact: ir@remestates.com`
+      `REM ESTATES PRIVATE LIMITED\nCONFIDENTIAL INFORMATION MEMORANDUM & PITCH DECK\nPre-Series A Corporate Growth Round\nPipeline: ₹1,500 Cr+ Transaction Volume\nContact: ir@remestates.in`
     ], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -77,10 +75,10 @@ export const CompanyInvestModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-3xl my-8 bg-white rounded-3xl shadow-2xl border-2 border-stone-900 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-3xl my-8 bg-[#FFFFFF] rounded-3xl shadow-2xl border-2 border-[#1F4027] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
         
-        {/* Header Banner */}
-        <div className="bg-stone-950 text-white p-6 sm:p-8 relative">
+        {/* Header Banner in Obsidian Pine */}
+        <div className="bg-[#09240F] text-white p-6 sm:p-8 relative">
           <button
             onClick={handleClose}
             className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all cursor-pointer"
@@ -88,7 +86,7 @@ export const CompanyInvestModal: React.FC = () => {
             <X className="w-5 h-5" />
           </button>
 
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-400 text-black font-helvetica-black text-[11px] uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#702B00] text-white font-helvetica-black text-[11px] uppercase tracking-wider mb-3">
             <TrendingUp className="w-3.5 h-3.5" />
             <span>Corporate Growth Equity Round</span>
           </div>
@@ -96,7 +94,7 @@ export const CompanyInvestModal: React.FC = () => {
           <h3 className="font-helvetica-black text-2xl sm:text-3xl uppercase font-black tracking-tight text-white leading-tight">
             Invest in REM Estates Pvt. Ltd.
           </h3>
-          <p className="font-helvetica text-xs sm:text-sm text-stone-200 mt-2 font-normal max-w-xl leading-relaxed">
+          <p className="font-helvetica text-xs sm:text-sm text-[#F5F6F4]/90 mt-2 font-normal max-w-xl leading-relaxed">
             Participate in the equity expansion of South India’s premier verified architectural real estate and prop-tech platform. Asset-light, technology-driven brokerage with verified transaction pipelines.
           </p>
 
@@ -106,7 +104,7 @@ export const CompanyInvestModal: React.FC = () => {
               <span className="font-helvetica-black text-lg font-black text-white block">
                 ₹1,500 Cr+
               </span>
-              <span className="text-[10px] font-helvetica-bold text-amber-300 uppercase tracking-wider">
+              <span className="text-[10px] font-helvetica-bold text-[#702B00] uppercase tracking-wider">
                 Transaction Pipeline
               </span>
             </div>
@@ -115,7 +113,7 @@ export const CompanyInvestModal: React.FC = () => {
               <span className="font-helvetica-black text-lg font-black text-white block">
                 18.4%
               </span>
-              <span className="text-[10px] font-helvetica-bold text-amber-300 uppercase tracking-wider">
+              <span className="text-[10px] font-helvetica-bold text-[#702B00] uppercase tracking-wider">
                 YoY EBITDA Growth
               </span>
             </div>
@@ -124,7 +122,7 @@ export const CompanyInvestModal: React.FC = () => {
               <span className="font-helvetica-black text-lg font-black text-white block">
                 Zero Debt
               </span>
-              <span className="text-[10px] font-helvetica-bold text-amber-300 uppercase tracking-wider">
+              <span className="text-[10px] font-helvetica-bold text-[#702B00] uppercase tracking-wider">
                 Asset-Light Model
               </span>
             </div>
@@ -133,7 +131,7 @@ export const CompanyInvestModal: React.FC = () => {
               <span className="font-helvetica-black text-lg font-black text-white block">
                 100% RERA
               </span>
-              <span className="text-[10px] font-helvetica-bold text-amber-300 uppercase tracking-wider">
+              <span className="text-[10px] font-helvetica-bold text-[#702B00] uppercase tracking-wider">
                 Legal Governance
               </span>
             </div>
@@ -141,40 +139,40 @@ export const CompanyInvestModal: React.FC = () => {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8 bg-[#FDFBF7]">
+        <div className="p-6 sm:p-8 bg-[#F5F6F4]">
           {isSubmitted ? (
             <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto border-2 border-emerald-300 shadow-md">
+              <div className="w-16 h-16 rounded-full bg-[#1F4027]/15 text-[#1F4027] flex items-center justify-center mx-auto border-2 border-[#1F4027]/40 shadow-md">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
 
-              <h4 className="font-helvetica-black text-2xl uppercase font-black text-stone-950">
+              <h4 className="font-helvetica-black text-2xl uppercase font-black text-[#09240F]">
                 Data Room Access Requested
               </h4>
               
-              <div className="p-4 rounded-2xl bg-white border-2 border-stone-200 max-w-md mx-auto text-left space-y-2">
+              <div className="p-4 rounded-2xl bg-[#FFFFFF] border-2 border-[#677865]/25 max-w-md mx-auto text-left space-y-2">
                 <div className="flex justify-between text-xs">
-                  <span className="text-stone-500 font-bold uppercase">Investor Reference:</span>
-                  <span className="font-helvetica-bold text-stone-900">{referenceId}</span>
+                  <span className="text-[#677865] font-bold uppercase">Investor Reference:</span>
+                  <span className="font-helvetica-bold text-[#09240F]">{referenceId}</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-stone-500 font-bold uppercase">Pledged Allocation:</span>
-                  <span className="font-helvetica-black text-stone-950">{formatINR(ticketSize)}</span>
+                  <span className="text-[#677865] font-bold uppercase">Pledged Allocation:</span>
+                  <span className="font-helvetica-black text-[#09240F]">{formatINR(ticketSize)}</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-stone-500 font-bold uppercase">Instrument:</span>
-                  <span className="font-helvetica-bold text-stone-900">Compulsory Convertible Debentures / CCPS</span>
+                  <span className="text-[#677865] font-bold uppercase">Instrument:</span>
+                  <span className="font-helvetica-bold text-[#09240F]">Compulsory Convertible Debentures / CCPS</span>
                 </div>
               </div>
 
-              <p className="font-helvetica text-xs text-stone-700 max-w-lg mx-auto font-medium">
+              <p className="font-helvetica text-xs text-[#405D47] max-w-lg mx-auto font-medium">
                 Our Founder and Managing Director, along with our legal advisors, will reach out to you within 24 hours to execute the Non-Disclosure Agreement (NDA) and release the Virtual Data Room credentials.
               </p>
 
               <div className="pt-4 flex items-center justify-center space-x-3">
                 <button
                   onClick={handleDownloadDeck}
-                  className="px-5 py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-helvetica-bold text-xs uppercase tracking-wider flex items-center space-x-2 cursor-pointer shadow-md"
+                  className="px-5 py-2.5 rounded-full bg-[#702B00] hover:bg-[#542000] text-white font-helvetica-bold text-xs uppercase tracking-wider flex items-center space-x-2 cursor-pointer shadow-md"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Pitch Deck</span>
@@ -182,7 +180,7 @@ export const CompanyInvestModal: React.FC = () => {
 
                 <button
                   onClick={handleClose}
-                  className="px-6 py-2.5 rounded-full bg-stone-200 hover:bg-stone-300 text-stone-900 font-helvetica-bold text-xs uppercase tracking-wider cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-[#FFFFFF] hover:bg-[#F5F6F4] text-[#09240F] border border-[#677865]/35 font-helvetica-bold text-xs uppercase tracking-wider cursor-pointer"
                 >
                   Done
                 </button>
@@ -192,15 +190,15 @@ export const CompanyInvestModal: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               
               {/* Round Summary Card */}
-              <div className="p-4 rounded-2xl bg-stone-100 border border-stone-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="p-4 rounded-2xl bg-[#FFFFFF] border border-[#677865]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <span className="text-[10px] font-helvetica-bold uppercase tracking-wider text-stone-600 block">
+                  <span className="text-[10px] font-helvetica-bold uppercase tracking-wider text-[#677865] block">
                     Current Syndicate Round
                   </span>
-                  <span className="font-helvetica-black text-base font-black text-stone-950 uppercase">
+                  <span className="font-helvetica-black text-base font-black text-[#09240F] uppercase">
                     Pre-Series A • ₹15 Crore Equity / CCPS
                   </span>
-                  <span className="text-xs text-stone-700 block mt-0.5">
+                  <span className="text-xs text-[#405D47] block mt-0.5">
                     Post-Money Valuation: ₹85 Crore • 17.6% Dilution Cap
                   </span>
                 </div>
@@ -208,9 +206,9 @@ export const CompanyInvestModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleDownloadDeck}
-                  className="px-4 py-2 rounded-xl bg-white hover:bg-stone-50 text-stone-950 font-helvetica-bold text-xs border border-stone-300 shadow-xs flex items-center space-x-2 shrink-0 cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#F5F6F4] hover:bg-[#FFFFFF] text-[#09240F] font-helvetica-bold text-xs border border-[#677865]/30 shadow-xs flex items-center space-x-2 shrink-0 cursor-pointer"
                 >
-                  <Download className="w-3.5 h-3.5" />
+                  <Download className="w-3.5 h-3.5 text-[#702B00]" />
                   <span>Pitch Deck (PDF)</span>
                 </button>
               </div>
@@ -218,7 +216,7 @@ export const CompanyInvestModal: React.FC = () => {
               {/* Form Fields */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-stone-900 block mb-1">
+                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-[#09240F] block mb-1">
                     Investor Full Name *
                   </label>
                   <input
@@ -227,12 +225,12 @@ export const CompanyInvestModal: React.FC = () => {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="e.g. Rahul Sharma"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-stone-300 text-stone-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-stone-900"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#677865]/30 text-[#09240F] text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-[#702B00]"
                   />
                 </div>
 
                 <div>
-                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-stone-900 block mb-1">
+                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-[#09240F] block mb-1">
                     Work Email Address *
                   </label>
                   <input
@@ -241,12 +239,12 @@ export const CompanyInvestModal: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="e.g. rahul@venturefund.com"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-stone-300 text-stone-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-stone-900"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#677865]/30 text-[#09240F] text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-[#702B00]"
                   />
                 </div>
 
                 <div>
-                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-stone-900 block mb-1">
+                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-[#09240F] block mb-1">
                     WhatsApp Phone Number *
                   </label>
                   <input
@@ -255,18 +253,18 @@ export const CompanyInvestModal: React.FC = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-stone-300 text-stone-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-stone-900"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#677865]/30 text-[#09240F] text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-[#702B00]"
                   />
                 </div>
 
                 <div>
-                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-stone-900 block mb-1">
+                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-[#09240F] block mb-1">
                     Investor Classification *
                   </label>
                   <select
                     value={investorType}
                     onChange={(e) => setInvestorType(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-stone-300 text-stone-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-stone-900 cursor-pointer"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#677865]/30 text-[#09240F] text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-[#702B00] cursor-pointer"
                   >
                     <option value="Individual Angel / HNI">Individual Angel / HNI</option>
                     <option value="Family Office / Single Family Office">Family Office</option>
@@ -280,10 +278,10 @@ export const CompanyInvestModal: React.FC = () => {
               {/* Indicative Ticket Size Selector */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-stone-900 block">
+                  <label className="font-helvetica-bold text-xs uppercase tracking-wider text-[#09240F] block">
                     Indicative Investment Commitment *
                   </label>
-                  <span className="font-helvetica-black text-base text-stone-950 font-black">
+                  <span className="font-helvetica-black text-base text-[#702B00] font-black">
                     {formatINR(ticketSize)}
                   </span>
                 </div>
@@ -296,43 +294,43 @@ export const CompanyInvestModal: React.FC = () => {
                       onClick={() => setTicketSize(amount)}
                       className={`py-2 px-3 rounded-xl font-helvetica-bold text-xs transition-all cursor-pointer border ${
                         ticketSize === amount
-                          ? 'bg-stone-950 text-white border-stone-950 shadow-md'
-                          : 'bg-white text-stone-800 border-stone-300 hover:bg-stone-100'
+                          ? 'bg-[#702B00] text-white border-[#702B00] shadow-xs'
+                          : 'bg-[#FFFFFF] text-[#09240F] border-[#677865]/30 hover:bg-[#F5F6F4]'
                       }`}
                     >
                       {formatINR(amount)}
                     </button>
                   ))}
                 </div>
-                <p className="text-[11px] text-stone-500 font-medium mt-1.5">
+                <p className="text-[11px] text-[#677865] font-medium mt-1.5">
                   Min. Angel Ticket: ₹5 Lakhs • Institutional Allocation: ₹25 Lakhs+
                 </p>
               </div>
 
-              {/* Security & Confidentiality Notice */}
-              <div className="p-3.5 rounded-xl bg-stone-100 border border-stone-200 flex items-start space-x-3 text-xs text-stone-700">
-                <Lock className="w-4 h-4 text-stone-900 shrink-0 mt-0.5" />
+              {/* Security Notice */}
+              <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#677865]/25 flex items-start space-x-3 text-xs text-[#405D47]">
+                <Lock className="w-4 h-4 text-[#702B00] shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
                   Confidential Private Placement under Indian Companies Act 2013. Information submitted is subject to standard non-disclosure terms and reviewed strictly by REM Estates Investor Relations.
                 </p>
               </div>
 
               {/* Actions */}
-              <div className="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-stone-200">
+              <div className="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-[#677865]/25">
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="w-full sm:w-auto px-5 py-3 rounded-full text-stone-700 hover:text-stone-950 font-helvetica-bold text-xs uppercase tracking-wider cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-3 rounded-full text-[#405D47] hover:text-[#09240F] font-helvetica-bold text-xs uppercase tracking-wider cursor-pointer"
                 >
                   Cancel
                 </button>
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-stone-950 hover:bg-black text-white font-helvetica-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-xl cursor-pointer"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#702B00] hover:bg-[#542000] text-white font-helvetica-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-xl cursor-pointer"
                 >
                   <span>Request Data Room Access</span>
-                  <ArrowRight className="w-4 h-4 text-amber-300" />
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </button>
               </div>
 

@@ -260,15 +260,15 @@ const MainContent: React.FC = () => {
                   {(listingTypeFilter !== 'all' || propertyTypeFilter !== 'all' || preLaunchOnly) && (
                     <button
                       onClick={handleResetFilters}
-                      className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 transition-all cursor-pointer"
+                      className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#F5F6F4] hover:bg-[#FFFFFF] text-xs font-bold text-[#09240F] border border-[#677865]/30 transition-all cursor-pointer"
                     >
                       <RotateCcw className="w-3 h-3" />
                       <span>Clear Nav Filter</span>
                     </button>
                   )}
 
-                  <div className="hidden sm:flex items-center space-x-1.5 text-xs font-semibold text-slate-500 bg-white px-3 py-1.5 rounded-xl border border-slate-200">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <div className="hidden sm:flex items-center space-x-1.5 text-xs font-semibold text-[#405D47] bg-[#FFFFFF] px-3 py-1.5 rounded-xl border border-[#677865]/25">
+                    <ShieldCheck className="w-4 h-4 text-[#1F4027]" />
                     <span>100% RERA Verified</span>
                   </div>
                 </div>
@@ -276,15 +276,15 @@ const MainContent: React.FC = () => {
 
               {/* Properties Grid */}
               {sortedProperties.length === 0 ? (
-                <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-sm max-w-lg mx-auto my-8">
-                  <Building2 className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                  <h3 className="text-lg font-black text-slate-900">No properties match your filter</h3>
-                  <p className="text-xs text-slate-500 mt-1 mb-6">
+                <div className="bg-[#FFFFFF] rounded-3xl p-12 text-center border-2 border-[#677865]/25 shadow-sm max-w-lg mx-auto my-8">
+                  <Building2 className="w-12 h-12 text-[#677865] mx-auto mb-3" />
+                  <h3 className="text-lg font-black text-[#09240F]">No properties match your filter</h3>
+                  <p className="text-xs text-[#405D47] mt-1 mb-6">
                     Try expanding your budget range, resetting your filters, or clearing the search keyword.
                   </p>
                   <button
                     onClick={handleResetFilters}
-                    className="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#542000] text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
                   >
                     View All Properties
                   </button>

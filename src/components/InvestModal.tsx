@@ -57,52 +57,52 @@ export const InvestModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 p-6 sm:p-8">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-[#FFFFFF] rounded-3xl shadow-2xl overflow-hidden border-2 border-[#1F4027] p-6 sm:p-8">
         
         {/* Close Button */}
         <button
           onClick={() => { setIsInvestModalOpen(false); setIsSuccess(false); }}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-900 rounded-xl hover:bg-slate-100 transition-all cursor-pointer"
+          className="absolute top-4 right-4 p-2 text-[#677865] hover:text-[#09240F] rounded-xl hover:bg-[#F5F6F4] transition-all cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {isSuccess ? (
           <div className="text-center py-4 animate-in zoom-in-95">
-            <div className="w-16 h-16 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 border border-blue-100">
+            <div className="w-16 h-16 rounded-full bg-[#1F4027]/15 text-[#1F4027] flex items-center justify-center mx-auto mb-4 border border-[#1F4027]/40">
               <CheckCircle2 className="w-9 h-9" />
             </div>
             
-            <span className="text-[11px] font-bold uppercase text-blue-700 tracking-wider bg-blue-50 px-3 py-1 rounded-md border border-blue-200">
+            <span className="text-[11px] font-bold uppercase text-[#1F4027] tracking-wider bg-[#1F4027]/10 px-3 py-1 rounded-md border border-[#1F4027]/30">
               Co-Ownership Confirmed
             </span>
             
-            <h3 className="text-2xl font-black text-slate-900 tracking-tight mt-2">
+            <h3 className="text-2xl font-black text-[#09240F] tracking-tight mt-2">
               Welcome to the Property!
             </h3>
             
-            <p className="text-xs text-slate-600 max-w-xs mx-auto mt-2 leading-relaxed">
-              Congratulations <span className="font-bold text-slate-900">{currentUser.name}</span>, your share of <strong className="text-slate-900">{formatINR(investAmount)}</strong> in <span className="font-bold text-slate-900">{investTargetProperty.title}</span> has been confirmed.
+            <p className="text-xs text-[#405D47] max-w-xs mx-auto mt-2 leading-relaxed">
+              Congratulations <span className="font-bold text-[#09240F]">{currentUser.name}</span>, your share of <strong className="text-[#09240F]">{formatINR(investAmount)}</strong> in <span className="font-bold text-[#09240F]">{investTargetProperty.title}</span> has been confirmed.
             </p>
 
             {/* Benefit Summary Card */}
-            <div className="my-5 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left text-xs space-y-2.5">
-              <div className="flex justify-between items-center text-slate-600">
+            <div className="my-5 p-4 rounded-2xl bg-[#F5F6F4] border border-[#677865]/25 text-left text-xs space-y-2.5">
+              <div className="flex justify-between items-center text-[#405D47]">
                 <span>Monthly Rent to Your Bank:</span>
-                <span className="text-sm font-black text-slate-900">₹{formatNumber(monthlyPayout)} / mo</span>
+                <span className="text-sm font-black text-[#09240F]">₹{formatNumber(monthlyPayout)} / mo</span>
               </div>
-              <div className="flex justify-between items-center text-slate-600">
+              <div className="flex justify-between items-center text-[#405D47]">
                 <span>First Rent Deposit:</span>
-                <span className="font-bold text-slate-800">5th of next month</span>
+                <span className="font-bold text-[#09240F]">5th of next month</span>
               </div>
-              <div className="flex justify-between items-center text-slate-600">
+              <div className="flex justify-between items-center text-[#405D47]">
                 <span>Estimated 4-Year Property Gain:</span>
-                <span className="font-bold text-blue-700">+{formatINR(exitCapitalGain)}</span>
+                <span className="font-bold text-[#702B00]">+{formatINR(exitCapitalGain)}</span>
               </div>
-              <div className="flex justify-between items-center pt-2 border-t border-slate-200 text-slate-600">
+              <div className="flex justify-between items-center pt-2 border-t border-[#677865]/25 text-[#405D47]">
                 <span>Co-Ownership Status:</span>
-                <span className="font-extrabold text-blue-800 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+                <span className="font-extrabold text-[#1F4027] bg-[#1F4027]/15 px-2 py-0.5 rounded border border-[#1F4027]/30">
                   ACTIVE CO-OWNER
                 </span>
               </div>
@@ -115,7 +115,7 @@ export const InvestModal: React.FC = () => {
                   setIsSuccess(false);
                   setActiveTab('portfolio');
                 }}
-                className="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer flex items-center justify-center space-x-2"
+                className="flex-1 py-3 rounded-xl bg-[#1F4027] hover:bg-[#405D47] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer flex items-center justify-center space-x-2"
               >
                 <Briefcase className="w-4 h-4" />
                 <span>View in My Portfolio</span>
@@ -126,7 +126,7 @@ export const InvestModal: React.FC = () => {
                   setIsInvestModalOpen(false);
                   setIsSuccess(false);
                 }}
-                className="px-5 py-3 rounded-xl border border-slate-200 text-slate-600 font-bold text-xs hover:bg-slate-50 cursor-pointer"
+                className="px-5 py-3 rounded-xl border border-[#677865]/35 text-[#09240F] font-bold text-xs hover:bg-[#F5F6F4] cursor-pointer"
               >
                 Done
               </button>
@@ -135,45 +135,45 @@ export const InvestModal: React.FC = () => {
         ) : (
           <form onSubmit={handleConfirmInvestment} className="space-y-5">
             <div>
-              <div className="inline-flex items-center space-x-1.5 text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md mb-2">
-                <Users className="w-3.5 h-3.5 text-blue-600" />
+              <div className="inline-flex items-center space-x-1.5 text-[#702B00] bg-[#F5F6F4] border border-[#702B00]/30 px-2.5 py-0.5 rounded-md mb-2">
+                <Users className="w-3.5 h-3.5 text-[#702B00]" />
                 <span className="text-[10px] font-bold uppercase tracking-wider">
                   Property Co-Ownership
                 </span>
               </div>
               
-              <h3 className="text-xl font-black text-slate-900 tracking-tight">
+              <h3 className="text-xl font-black text-[#09240F] tracking-tight">
                 Co-own {investTargetProperty.title}
               </h3>
               
-              <p className="text-xs text-slate-500 mt-0.5">
-                {investTargetProperty.location.locality}, {investTargetProperty.location.city} • Property Value: <strong className="text-slate-800">{formatINR(investTargetProperty.pricing.totalPrice)}</strong>
+              <p className="text-xs text-[#405D47] mt-0.5">
+                {investTargetProperty.location.locality}, {investTargetProperty.location.city} • Property Value: <strong className="text-[#09240F]">{formatINR(investTargetProperty.pricing.totalPrice)}</strong>
               </p>
             </div>
 
             {/* Simplified Key Highlights */}
-            <div className="grid grid-cols-3 gap-2 p-3 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+            <div className="grid grid-cols-3 gap-2 p-3 bg-[#F5F6F4] rounded-2xl border border-[#677865]/25 text-center">
               <div>
-                <span className="text-[10px] text-slate-400 font-bold uppercase block">Rental Yield</span>
-                <span className="text-xs font-black text-slate-900 block">{yieldRate}% p.a.</span>
+                <span className="text-[10px] text-[#677865] font-bold uppercase block">Rental Yield</span>
+                <span className="text-xs font-black text-[#09240F] block">{yieldRate}% p.a.</span>
               </div>
-              <div className="border-x border-slate-200">
-                <span className="text-[10px] text-slate-400 font-bold uppercase block">Rent Frequency</span>
-                <span className="text-xs font-black text-blue-700 block">Monthly</span>
+              <div className="border-x border-[#677865]/25">
+                <span className="text-[10px] text-[#677865] font-bold uppercase block">Rent Frequency</span>
+                <span className="text-xs font-black text-[#702B00] block">Monthly</span>
               </div>
               <div>
-                <span className="text-[10px] text-slate-400 font-bold uppercase block">Holding Period</span>
-                <span className="text-xs font-black text-slate-900 block">{tenureYears} Years</span>
+                <span className="text-[10px] text-[#677865] font-bold uppercase block">Holding Period</span>
+                <span className="text-xs font-black text-[#09240F] block">{tenureYears} Years</span>
               </div>
             </div>
 
             {/* Choose How Much You Want to Put In */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="text-xs font-bold text-slate-700">
+                <label className="text-xs font-bold text-[#09240F]">
                   Choose your contribution:
                 </label>
-                <span className="text-[11px] font-medium text-slate-500">
+                <span className="text-[11px] font-medium text-[#677865]">
                   Minimum: {formatINR(minTicket)}
                 </span>
               </div>
@@ -187,8 +187,8 @@ export const InvestModal: React.FC = () => {
                     onClick={() => setInvestAmount(preset)}
                     className={`py-2 px-1 rounded-xl text-xs font-bold border transition-all cursor-pointer text-center ${
                       investAmount === preset
-                        ? 'border-blue-600 bg-blue-50 text-blue-900 shadow-xs'
-                        : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700'
+                        ? 'border-[#702B00] bg-[#702B00]/10 text-[#702B00] shadow-xs'
+                        : 'border-[#677865]/30 bg-[#FFFFFF] hover:bg-[#F5F6F4] text-[#09240F]'
                     }`}
                   >
                     {formatINR(preset)}
@@ -198,53 +198,53 @@ export const InvestModal: React.FC = () => {
 
               {/* Custom Input */}
               <div className="relative">
-                <span className="absolute left-3.5 top-2.5 text-sm font-bold text-slate-400">₹</span>
+                <span className="absolute left-3.5 top-2.5 text-sm font-bold text-[#677865]">₹</span>
                 <input
                   type="number"
                   step="10000"
                   min={minTicket}
                   value={investAmount}
                   onChange={(e) => setInvestAmount(Math.max(0, Number(e.target.value)))}
-                  className="w-full pl-8 pr-4 py-2 text-sm font-bold text-slate-900 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+                  className="w-full pl-8 pr-4 py-2 text-sm font-bold text-[#09240F] bg-[#F5F6F4] border border-[#677865]/30 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#702B00] focus:bg-[#FFFFFF]"
                   placeholder="Or enter custom amount"
                 />
               </div>
             </div>
 
-            {/* Clean Monthly Return Preview (No green gradient) */}
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5 text-xs">
-              <div className="flex justify-between items-center text-slate-600">
+            {/* Monthly Return Preview */}
+            <div className="p-4 rounded-2xl bg-[#F5F6F4] border border-[#677865]/25 space-y-2.5 text-xs">
+              <div className="flex justify-between items-center text-[#405D47]">
                 <span className="flex items-center space-x-1.5">
-                  <Banknote className="w-3.5 h-3.5 text-slate-500" />
+                  <Banknote className="w-3.5 h-3.5 text-[#677865]" />
                   <span>Estimated Monthly Rent:</span>
                 </span>
-                <span className="text-sm font-black text-slate-900">
+                <span className="text-sm font-black text-[#09240F]">
                   ₹{formatNumber(monthlyPayout)} / month
                 </span>
               </div>
-              <div className="flex justify-between items-center text-slate-600">
+              <div className="flex justify-between items-center text-[#405D47]">
                 <span className="flex items-center space-x-1.5">
-                  <CalendarCheck2 className="w-3.5 h-3.5 text-slate-500" />
+                  <CalendarCheck2 className="w-3.5 h-3.5 text-[#677865]" />
                   <span>Rent Schedule:</span>
                 </span>
-                <span className="font-semibold text-slate-700">Deposited on the 5th of each month</span>
+                <span className="font-semibold text-[#09240F]">Deposited on the 5th of each month</span>
               </div>
-              <div className="flex justify-between items-center text-slate-600">
+              <div className="flex justify-between items-center text-[#405D47]">
                 <span className="flex items-center space-x-1.5">
-                  <Building2 className="w-3.5 h-3.5 text-slate-500" />
+                  <Building2 className="w-3.5 h-3.5 text-[#677865]" />
                   <span>Your Co-Ownership Stake:</span>
                 </span>
-                <span className="font-bold text-slate-800">{ownershipPercentage}% of this property</span>
+                <span className="font-bold text-[#09240F]">{ownershipPercentage}% of this property</span>
               </div>
-              <div className="flex justify-between items-center pt-2 border-t border-slate-200 font-bold text-slate-900">
+              <div className="flex justify-between items-center pt-2 border-t border-[#677865]/25 font-bold text-[#09240F]">
                 <span>Estimated Value after {tenureYears} Years:</span>
-                <span className="font-black text-blue-700 text-sm">{formatINR(investAmount + exitCapitalGain)}</span>
+                <span className="font-black text-[#702B00] text-sm">{formatINR(investAmount + exitCapitalGain)}</span>
               </div>
             </div>
 
             {/* Security Assurance */}
-            <div className="flex items-center space-x-2 text-[11px] text-slate-500 bg-white p-2.5 rounded-xl border border-slate-200">
-              <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
+            <div className="flex items-center space-x-2 text-[11px] text-[#405D47] bg-[#FFFFFF] p-2.5 rounded-xl border border-[#677865]/25">
+              <ShieldCheck className="w-4 h-4 text-[#1F4027] shrink-0" />
               <span>Direct co-ownership deed • Rent straight to your bank • 100% transparent</span>
             </div>
 
@@ -254,9 +254,9 @@ export const InvestModal: React.FC = () => {
                 type="checkbox"
                 checked={agreedToTerms}
                 onChange={(e) => setAgreedToTerms(e.target.checked)}
-                className="mt-0.5 rounded text-blue-600 focus:ring-blue-500"
+                className="mt-0.5 rounded accent-[#702B00]"
               />
-              <span className="text-[11px] text-slate-600 leading-normal">
+              <span className="text-[11px] text-[#405D47] leading-normal">
                 I agree to the co-ownership guidelines and monthly rental distribution to my registered bank account.
               </span>
             </label>
@@ -266,7 +266,7 @@ export const InvestModal: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsInvestModalOpen(false)}
-                className="flex-1 py-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+                className="flex-1 py-3 rounded-xl border border-[#677865]/35 hover:bg-[#F5F6F4] text-[#405D47] font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
               >
                 Cancel
               </button>
@@ -274,7 +274,7 @@ export const InvestModal: React.FC = () => {
               <button
                 type="submit"
                 disabled={!agreedToTerms || investAmount < minTicket}
-                className="flex-2 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-wider transition-all shadow-md disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center space-x-2"
+                className="flex-2 py-3 rounded-xl bg-[#702B00] hover:bg-[#542000] text-white font-black text-xs uppercase tracking-wider transition-all shadow-md disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center space-x-2"
               >
                 <span>Join Co-Owners ({formatINR(investAmount)})</span>
                 <ArrowRight className="w-4 h-4" />

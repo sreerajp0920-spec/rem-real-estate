@@ -44,8 +44,6 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
     setPreLaunchOnly
   } = useApp();
 
-  
-
   const propertyTypes: { label: string; value: PropertyTypeFilter }[] = [
     { label: 'All Types', value: 'all' },
     { label: 'Apartments', value: 'Apartment' },
@@ -89,7 +87,6 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   };
 
   const activeFilterCount = 
-    
     (propertyTypeFilter !== 'all' ? 1 : 0) +
     (bhkFilter !== 'all' ? 1 : 0) +
     (cityFilter !== 'all' ? 1 : 0) +
@@ -98,24 +95,24 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
     (maxBudgetFilter < 50000000 ? 1 : 0);
 
   return (
-    <div className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200/90 shadow-xs mb-6 space-y-3.5">
+    <div className="bg-[#FFFFFF] rounded-3xl p-4 sm:p-5 border-2 border-[#677865]/25 shadow-xs mb-6 space-y-3.5">
       
       {/* Top Header: Title, Listing Mode & Reset */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#677865]/20">
         <div className="flex items-center space-x-2.5">
-          <div className="p-2 rounded-xl bg-blue-50 text-blue-600">
+          <div className="p-2 rounded-xl bg-[#1F4027]/10 text-[#1F4027]">
             <SlidersHorizontal className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h3 className="text-sm font-extrabold text-slate-900 tracking-tight">Property Filters</h3>
+              <h3 className="text-sm font-extrabold text-[#09240F] tracking-tight">Property Filters</h3>
               {activeFilterCount > 0 && (
-                <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-blue-600 text-white">
+                <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-[#702B00] text-white">
                   {activeFilterCount} Active
                 </span>
               )}
             </div>
-            <p className="text-[11px] text-slate-400 font-medium">Refine listings by property type, BHK, budget & location</p>
+            <p className="text-[11px] text-[#405D47] font-medium">Refine listings by property type, BHK, budget &amp; location</p>
           </div>
         </div>
 
@@ -123,7 +120,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
           {activeFilterCount > 0 && (
             <button
               onClick={handleReset}
-              className="flex items-center space-x-1 px-3 py-1.5 rounded-xl text-xs font-bold text-rose-600 hover:bg-rose-50 border border-rose-200 transition-all cursor-pointer"
+              className="flex items-center space-x-1 px-3 py-1.5 rounded-xl text-xs font-bold text-[#532001] hover:bg-[#532001]/10 border border-[#532001]/30 transition-all cursor-pointer"
               title="Reset all filters"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -135,7 +132,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
       {/* Row 1: Property Type Pills */}
       <div>
-        <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+        <label className="text-[11px] font-bold text-[#677865] uppercase tracking-wider block mb-1.5">
           Property Type
         </label>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -147,8 +144,8 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
                 onClick={() => setPropertyTypeFilter(t.value)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
                   isSelected
-                    ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                    : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200/80'
+                    ? 'bg-[#1F4027] text-white border-[#1F4027] shadow-xs'
+                    : 'bg-[#F5F6F4] hover:bg-[#F5F6F4]/80 text-[#09240F] border-[#677865]/25'
                 }`}
               >
                 {t.label}
@@ -160,7 +157,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
       {/* Row 2: BHK Configuration Pills */}
       <div>
-        <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+        <label className="text-[11px] font-bold text-[#677865] uppercase tracking-wider block mb-1.5">
           Unit Configuration (BHK)
         </label>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -172,8 +169,8 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
                 onClick={() => setBhkFilter(bhk.value)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
                   isSelected
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                    : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200/80'
+                    ? 'bg-[#702B00] text-white border-[#702B00] shadow-xs'
+                    : 'bg-[#F5F6F4] hover:bg-[#F5F6F4]/80 text-[#09240F] border-[#677865]/25'
                 }`}
               >
                 {bhk.label}
@@ -184,18 +181,18 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
       </div>
 
       {/* Row 3: Dropdowns for Location → Construction Stage → Sort Listings → Pre-Launch Deals */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 pt-2.5 border-t border-slate-100">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 pt-2.5 border-t border-[#677865]/20">
         
         {/* Location Filter */}
         <div className="md:col-span-3">
-          <label className="flex items-center space-x-1.5 text-xs font-bold text-slate-700 mb-1">
-            <MapPin className="w-3.5 h-3.5 text-slate-400" />
+          <label className="flex items-center space-x-1.5 text-xs font-bold text-[#09240F] mb-1">
+            <MapPin className="w-3.5 h-3.5 text-[#405D47]" />
             <span>Location</span>
           </label>
           <select
             value={cityFilter}
             onChange={(e) => setCityFilter(e.target.value)}
-            className="w-full text-xs font-bold text-slate-800 bg-slate-50 hover:bg-slate-100/80 border border-slate-200/90 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer transition-all"
+            className="w-full text-xs font-bold text-[#09240F] bg-[#F5F6F4] hover:bg-[#F5F6F4]/80 border border-[#677865]/30 rounded-xl px-3 py-2 outline-none focus:ring-1 focus:ring-[#702B00] cursor-pointer transition-all"
           >
             {cities.map(c => (
               <option key={c.value} value={c.value}>{c.label}</option>
@@ -205,14 +202,14 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
         {/* Construction Status Filter */}
         <div className="md:col-span-3">
-          <label className="flex items-center space-x-1.5 text-xs font-bold text-slate-700 mb-1">
-            <Calendar className="w-3.5 h-3.5 text-slate-400" />
+          <label className="flex items-center space-x-1.5 text-xs font-bold text-[#09240F] mb-1">
+            <Calendar className="w-3.5 h-3.5 text-[#405D47]" />
             <span>Construction Stage</span>
           </label>
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full text-xs font-bold text-slate-800 bg-slate-50 hover:bg-slate-100/80 border border-slate-200/90 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer transition-all"
+            className="w-full text-xs font-bold text-[#09240F] bg-[#F5F6F4] hover:bg-[#F5F6F4]/80 border border-[#677865]/30 rounded-xl px-3 py-2 outline-none focus:ring-1 focus:ring-[#702B00] cursor-pointer transition-all"
           >
             {statuses.map(s => (
               <option key={s.value} value={s.value}>{s.label}</option>
@@ -222,14 +219,14 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
         {/* Sort By Dropdown */}
         <div className="md:col-span-3">
-          <label className="flex items-center space-x-1.5 text-xs font-bold text-slate-700 mb-1">
-            <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
+          <label className="flex items-center space-x-1.5 text-xs font-bold text-[#09240F] mb-1">
+            <ArrowUpDown className="w-3.5 h-3.5 text-[#405D47]" />
             <span>Sort Listings</span>
           </label>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="w-full text-xs font-bold text-slate-800 bg-slate-50 hover:bg-slate-100/80 border border-slate-200/90 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer transition-all"
+            className="w-full text-xs font-bold text-[#09240F] bg-[#F5F6F4] hover:bg-[#F5F6F4]/80 border border-[#677865]/30 rounded-xl px-3 py-2 outline-none focus:ring-1 focus:ring-[#702B00] cursor-pointer transition-all"
           >
             <option value="price_asc">Price: Low to High</option>
             <option value="price_desc">Price: High to Low</option>
@@ -243,11 +240,11 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             onClick={() => setPreLaunchOnly(!preLaunchOnly)}
             className={`w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
               preLaunchOnly
-                ? 'bg-amber-50 border-amber-300 text-amber-900 shadow-xs'
-                : 'bg-slate-50 border-slate-200/90 text-slate-700 hover:bg-slate-100'
+                ? 'bg-[#702B00] border-[#702B00] text-white shadow-xs'
+                : 'bg-[#F5F6F4] border-[#677865]/30 text-[#09240F] hover:bg-[#F5F6F4]/80'
             }`}
           >
-            <Sparkles className={`w-3.5 h-3.5 ${preLaunchOnly ? 'text-amber-600 fill-amber-500' : 'text-slate-400'}`} />
+            <Sparkles className={`w-3.5 h-3.5 ${preLaunchOnly ? 'text-white fill-white' : 'text-[#677865]'}`} />
             <span>Pre-Launch Deals Only</span>
           </button>
         </div>
@@ -255,16 +252,16 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
       </div>
 
       {/* Row 4: Purchase Budget Bar */}
-      <div className="pt-2.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-        <div className="flex items-center space-x-1.5 text-xs font-bold text-slate-700">
-          <DollarSign className="w-3.5 h-3.5 text-blue-600" />
+      <div className="pt-2.5 border-t border-[#677865]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+        <div className="flex items-center space-x-1.5 text-xs font-bold text-[#09240F]">
+          <DollarSign className="w-3.5 h-3.5 text-[#702B00]" />
           <span>Purchase Budget Range</span>
         </div>
 
         <div className="w-full sm:w-[45%] sm:max-w-md ml-auto">
           <div className="flex items-center justify-between mb-1">
-            <span className="text-[11px] font-semibold text-slate-400">Max Budget:</span>
-            <span className="text-xs font-black text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-lg border border-blue-100">
+            <span className="text-[11px] font-semibold text-[#677865]">Max Budget:</span>
+            <span className="text-xs font-black text-[#702B00] bg-[#F5F6F4] px-2.5 py-0.5 rounded-lg border border-[#702B00]/30">
               {maxBudgetFilter >= 50000000 
                 ? 'Any Budget' 
                 : `< ${formatINR(maxBudgetFilter)}`}
@@ -278,10 +275,10 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             step={2500000}
             value={maxBudgetFilter}
             onChange={(e) => setMaxBudgetFilter(Number(e.target.value))}
-            className="w-full accent-blue-600 cursor-pointer h-1.5 bg-slate-100 rounded-lg"
+            className="w-full accent-[#702B00] cursor-pointer h-1.5 bg-[#F5F6F4] rounded-lg"
           />
 
-          <div className="flex justify-between text-[10px] font-semibold text-slate-400 mt-0.5">
+          <div className="flex justify-between text-[10px] font-semibold text-[#677865] mt-0.5">
             <span>₹1.0 Cr</span>
             <span>₹2.5 Cr</span>
             <span>₹4.0 Cr</span>
@@ -290,62 +287,60 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
         </div>
       </div>
 
-      {/* Row 5: Dismissible Active Filter Chips (if any active) */}
+      {/* Row 5: Dismissible Active Filter Chips */}
       {activeFilterCount > 0 && (
-        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100">
-          <span className="text-[11px] font-bold text-slate-400">Active Filters:</span>
-
-          
+        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#677865]/20">
+          <span className="text-[11px] font-bold text-[#677865]">Active Filters:</span>
 
           {propertyTypeFilter !== 'all' && (
-            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 text-[11px] font-bold">
+            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-[#F5F6F4] text-[#09240F] border border-[#677865]/30 text-[11px] font-bold">
               <span>Type: {propertyTypeFilter}</span>
-              <button onClick={() => setPropertyTypeFilter('all')} className="hover:text-blue-900 cursor-pointer ml-1">
+              <button onClick={() => setPropertyTypeFilter('all')} className="hover:text-[#702B00] cursor-pointer ml-1">
                 <X className="w-3 h-3" />
               </button>
             </span>
           )}
 
           {bhkFilter !== 'all' && (
-            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 text-[11px] font-bold">
+            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-[#F5F6F4] text-[#09240F] border border-[#677865]/30 text-[11px] font-bold">
               <span>BHK: {bhkFilter}</span>
-              <button onClick={() => setBhkFilter('all')} className="hover:text-blue-900 cursor-pointer ml-1">
+              <button onClick={() => setBhkFilter('all')} className="hover:text-[#702B00] cursor-pointer ml-1">
                 <X className="w-3 h-3" />
               </button>
             </span>
           )}
 
           {cityFilter !== 'all' && (
-            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 text-[11px] font-bold">
+            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-[#F5F6F4] text-[#09240F] border border-[#677865]/30 text-[11px] font-bold">
               <span>City: {cityFilter}</span>
-              <button onClick={() => setCityFilter('all')} className="hover:text-blue-900 cursor-pointer ml-1">
+              <button onClick={() => setCityFilter('all')} className="hover:text-[#702B00] cursor-pointer ml-1">
                 <X className="w-3 h-3" />
               </button>
             </span>
           )}
 
           {statusFilter !== 'all' && (
-            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 text-[11px] font-bold">
+            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-[#F5F6F4] text-[#09240F] border border-[#677865]/30 text-[11px] font-bold">
               <span>Status: {statusFilter}</span>
-              <button onClick={() => setStatusFilter('all')} className="hover:text-blue-900 cursor-pointer ml-1">
+              <button onClick={() => setStatusFilter('all')} className="hover:text-[#702B00] cursor-pointer ml-1">
                 <X className="w-3 h-3" />
               </button>
             </span>
           )}
 
           {preLaunchOnly && (
-            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800 border border-amber-200 text-[11px] font-bold">
+            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-[#702B00]/15 text-[#702B00] border border-[#702B00]/30 text-[11px] font-bold">
               <span>Pre-Launch Only</span>
-              <button onClick={() => setPreLaunchOnly(false)} className="hover:text-amber-900 cursor-pointer ml-1">
+              <button onClick={() => setPreLaunchOnly(false)} className="hover:text-[#09240F] cursor-pointer ml-1">
                 <X className="w-3 h-3" />
               </button>
             </span>
           )}
 
           {maxBudgetFilter < 50000000 && (
-            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 text-[11px] font-bold">
+            <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-[#F5F6F4] text-[#09240F] border border-[#677865]/30 text-[11px] font-bold">
               <span>Budget: &lt; {formatINR(maxBudgetFilter)}</span>
-              <button onClick={() => setMaxBudgetFilter(50000000)} className="hover:text-blue-900 cursor-pointer ml-1">
+              <button onClick={() => setMaxBudgetFilter(50000000)} className="hover:text-[#702B00] cursor-pointer ml-1">
                 <X className="w-3 h-3" />
               </button>
             </span>
@@ -353,7 +348,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
           <button
             onClick={handleReset}
-            className="text-[11px] font-bold text-rose-600 hover:underline cursor-pointer ml-auto"
+            className="text-[11px] font-bold text-[#532001] hover:underline cursor-pointer ml-auto"
           >
             Clear All
           </button>

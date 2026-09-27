@@ -266,7 +266,7 @@ export const AdminPortal: React.FC = () => {
               setVideoInputUrl('');
               setActiveAdminTab('add');
             }}
-            className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer flex items-center space-x-2"
+            className="px-4 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-[#702B00]/20 transition-all cursor-pointer flex items-center space-x-2"
           >
             <PlusCircle className="w-4 h-4" />
             <span>Add Upcoming Product</span>
@@ -296,7 +296,7 @@ export const AdminPortal: React.FC = () => {
 
           <button
             onClick={() => exitAdminMode()}
-            className="px-3.5 py-2.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 font-semibold text-xs border border-rose-400/30 transition-all cursor-pointer flex items-center space-x-1.5"
+            className="px-3.5 py-2.5 rounded-xl bg-[#532001]/20 hover:bg-[#532001]/30 text-[#F5F6F4] font-semibold text-xs border border-[#532001]/40 transition-all cursor-pointer flex items-center space-x-1.5"
             title="Sign out of admin mode"
           >
             <LogOut className="w-3.5 h-3.5" />
@@ -307,43 +307,43 @@ export const AdminPortal: React.FC = () => {
 
       {/* Admin KPIs Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Total Catalog Listings</span>
-          <span className="text-2xl font-black text-slate-900 mt-1 block">{properties.length}</span>
-          <span className="text-xs text-slate-500 font-medium mt-0.5">Live on user platform</span>
+        <div className="p-5 rounded-2xl bg-white border border-[#677865]/20 shadow-2xs">
+          <span className="text-xs font-bold text-[#677865] uppercase tracking-wider block">Total Catalog Listings</span>
+          <span className="text-2xl font-black text-[#09240F] mt-1 block font-helvetica-bold">{properties.length}</span>
+          <span className="text-xs text-[#405D47] font-medium mt-0.5">Live on user platform</span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 shadow-xs">
-          <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block">Upcoming Launches</span>
-          <span className="text-2xl font-black text-amber-900 mt-1 block">
+        <div className="p-5 rounded-2xl bg-[#702B00]/10 border border-[#702B00]/25 shadow-2xs">
+          <span className="text-xs font-bold text-[#702B00] uppercase tracking-wider block font-helvetica-bold">Upcoming Launches</span>
+          <span className="text-2xl font-black text-[#09240F] mt-1 block font-helvetica-bold">
             {properties.filter(p => p.isUpcoming || p.status === 'Pre-Launch').length}
           </span>
-          <span className="text-xs text-amber-700 font-medium mt-0.5">Pre-registration active</span>
+          <span className="text-xs text-[#405D47] font-medium mt-0.5">Pre-registration active</span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200 shadow-xs">
-          <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block">Investable Assets</span>
-          <span className="text-2xl font-black text-emerald-900 mt-1 block">
+        <div className="p-5 rounded-2xl bg-[#1F4027]/10 border border-[#1F4027]/25 shadow-2xs">
+          <span className="text-xs font-bold text-[#1F4027] uppercase tracking-wider block font-helvetica-bold">Investable Assets</span>
+          <span className="text-2xl font-black text-[#09240F] mt-1 block font-helvetica-bold">
             {properties.filter(p => p.investment?.isInvestable).length}
           </span>
-          <span className="text-xs text-emerald-700 font-medium mt-0.5">Fractional Grade-A</span>
+          <span className="text-xs text-[#405D47] font-medium mt-0.5">Fractional Grade-A</span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 shadow-xs">
-          <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block">Inquiries & Leads</span>
-          <span className="text-2xl font-black text-slate-900 mt-1 block">{inquiries.length}</span>
-          <span className="text-xs text-slate-800 font-medium mt-0.5">Pledges & site visits</span>
+        <div className="p-5 rounded-2xl bg-[#F5F6F4] border border-[#677865]/20 shadow-2xs">
+          <span className="text-xs font-bold text-[#405D47] uppercase tracking-wider block">Inquiries &amp; Leads</span>
+          <span className="text-2xl font-black text-[#09240F] mt-1 block font-helvetica-bold">{inquiries.length}</span>
+          <span className="text-xs text-[#405D47] font-medium mt-0.5">Pledges &amp; site visits</span>
         </div>
       </div>
 
       {/* Admin Sub-Tabs */}
-      <div className="flex border-b border-slate-200 space-x-6">
+      <div className="flex border-b border-[#677865]/20 space-x-6">
         <button
           onClick={() => setActiveAdminTab('inventory')}
           className={`pb-3 text-sm font-bold transition-all relative ${
             activeAdminTab === 'inventory'
-              ? 'text-slate-800 border-b-2 border-slate-900'
-              : 'text-slate-500 hover:text-slate-900'
+              ? 'text-[#702B00] border-b-2 border-[#702B00]'
+              : 'text-[#677865] hover:text-[#09240F]'
           }`}
         >
           <span>Manage Inventory ({properties.length})</span>
@@ -353,8 +353,8 @@ export const AdminPortal: React.FC = () => {
           onClick={() => setActiveAdminTab('add')}
           className={`pb-3 text-sm font-bold transition-all relative ${
             activeAdminTab === 'add'
-              ? 'text-slate-800 border-b-2 border-slate-900'
-              : 'text-slate-500 hover:text-slate-900'
+              ? 'text-[#702B00] border-b-2 border-[#702B00]'
+              : 'text-[#677865] hover:text-[#09240F]'
           }`}
         >
           <span>{editingPropertyId ? 'Edit Product' : 'Add Upcoming Product'}</span>
@@ -364,11 +364,11 @@ export const AdminPortal: React.FC = () => {
           onClick={() => setActiveAdminTab('leads')}
           className={`pb-3 text-sm font-bold transition-all relative ${
             activeAdminTab === 'leads'
-              ? 'text-slate-800 border-b-2 border-slate-900'
-              : 'text-slate-500 hover:text-slate-900'
+              ? 'text-[#702B00] border-b-2 border-[#702B00]'
+              : 'text-[#677865] hover:text-[#09240F]'
           }`}
         >
-          <span>CRM Leads & Pledges ({inquiries.length})</span>
+          <span>CRM Leads &amp; Pledges ({inquiries.length})</span>
         </button>
       </div>
 
@@ -378,78 +378,78 @@ export const AdminPortal: React.FC = () => {
           
           <div className="flex items-center justify-between gap-4">
             <div className="relative w-72">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+              <Search className="w-4 h-4 text-[#677865] absolute left-3 top-3" />
               <input
                 type="text"
                 value={inventorySearch}
                 onChange={(e) => setInventorySearch(e.target.value)}
                 placeholder="Search catalog..."
-                className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-9 pr-4 py-2 bg-white border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] placeholder-[#677865] focus:outline-none focus:ring-2 focus:ring-[#702B00]"
               />
             </div>
 
-            <p className="text-xs text-slate-400 font-semibold">
+            <p className="text-xs text-[#677865] font-semibold">
               Showing {filteredProperties.length} properties
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+          <div className="bg-white rounded-3xl border border-[#677865]/20 overflow-hidden shadow-2xs">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <tr className="border-b border-[#677865]/20 bg-[#F5F6F4] text-[11px] font-bold text-[#677865] uppercase tracking-wider">
                   <th className="p-4">Property</th>
                   <th className="p-4">Category</th>
-                  <th className="p-4">Status & Stage</th>
+                  <th className="p-4">Status &amp; Stage</th>
                   <th className="p-4">Dimensions</th>
                   <th className="p-4">Pricing</th>
                   <th className="p-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-xs">
+              <tbody className="divide-y divide-[#677865]/15 text-xs">
                 {filteredProperties.map(p => (
-                  <tr key={p.id} className="hover:bg-slate-50/80 transition-colors">
+                  <tr key={p.id} className="hover:bg-[#F5F6F4]/80 transition-colors">
                     <td className="p-4">
                       <div className="flex items-center space-x-3">
                         <img src={p.images[0]} alt={p.title} className="w-12 h-10 rounded-lg object-cover" />
                         <div>
-                          <h4 className="font-extrabold text-slate-900 line-clamp-1">{p.title}</h4>
-                          <span className="text-[11px] text-slate-500">{p.location.locality}, {p.location.city}</span>
+                          <h4 className="font-extrabold text-[#09240F] line-clamp-1 font-helvetica-bold">{p.title}</h4>
+                          <span className="text-[11px] text-[#405D47]">{p.location.locality}, {p.location.city}</span>
                         </div>
                       </div>
                     </td>
 
-                    <td className="p-4 font-semibold text-slate-700 capitalize">
+                    <td className="p-4 font-semibold text-[#405D47] capitalize">
                       {p.category.replace('_', ' ')}
                     </td>
 
                     <td className="p-4">
-                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-                        p.status === 'Ready to Move' ? 'bg-emerald-100 text-emerald-800' :
-                        p.status === 'High Yield Active' ? 'bg-slate-100 text-slate-800' :
-                        p.status === 'Pre-Launch' ? 'bg-amber-100 text-amber-900' :
-                        'bg-blue-100 text-blue-800'
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${
+                        p.status === 'Ready to Move' ? 'bg-[#1F4027]/10 text-[#1F4027] border-[#1F4027]/25' :
+                        p.status === 'High Yield Active' ? 'bg-[#702B00]/10 text-[#702B00] border-[#702B00]/25' :
+                        p.status === 'Pre-Launch' ? 'bg-[#702B00]/15 text-[#532001] border-[#702B00]/30' :
+                        'bg-[#405D47]/10 text-[#405D47] border-[#405D47]/25'
                       }`}>
                         {p.status}
                       </span>
                       {p.isUpcoming && (
-                        <span className="ml-1 text-[10px] text-amber-600 font-bold">Upcoming</span>
+                        <span className="ml-1 text-[10px] text-[#702B00] font-bold">Upcoming</span>
                       )}
                     </td>
 
                     <td className="p-4">
-                      <div className="font-bold text-slate-800">{formatNumber(p.dimensions.carpetAreaSqFt)} sft</div>
-                      <span className="text-[10px] text-slate-400">{p.dimensions.bhk}</span>
+                      <div className="font-bold text-[#09240F]">{formatNumber(p.dimensions.carpetAreaSqFt)} sft</div>
+                      <span className="text-[10px] text-[#677865]">{p.dimensions.bhk}</span>
                     </td>
 
                     <td className="p-4">
-                      <div className="font-black text-slate-900">{formatINR(p.pricing.totalPrice)}</div>
-                      <span className="text-[10px] text-slate-400">₹{formatNumber(p.pricing.pricePerSqFt)}/sft</span>
+                      <div className="font-black text-[#09240F] font-helvetica-bold">{formatINR(p.pricing.totalPrice)}</div>
+                      <span className="text-[10px] text-[#677865]">₹{formatNumber(p.pricing.pricePerSqFt)}/sft</span>
                     </td>
 
                     <td className="p-4 text-right space-x-2">
                       <button
                         onClick={() => setSelectedProperty(p)}
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all"
+                        className="p-1.5 rounded-lg text-[#677865] hover:text-[#702B00] hover:bg-[#702B00]/10 transition-all cursor-pointer"
                         title="Preview"
                       >
                         <Eye className="w-4 h-4" />
@@ -457,7 +457,7 @@ export const AdminPortal: React.FC = () => {
 
                       <button
                         onClick={() => handleEditClick(p)}
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-slate-50 transition-all"
+                        className="p-1.5 rounded-lg text-[#677865] hover:text-[#702B00] hover:bg-[#702B00]/10 transition-all cursor-pointer"
                         title="Edit details"
                       >
                         <Edit3 className="w-4 h-4" />
@@ -469,7 +469,7 @@ export const AdminPortal: React.FC = () => {
                             deleteProperty(p.id);
                           }
                         }}
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-all"
+                        className="p-1.5 rounded-lg text-[#677865] hover:text-[#532001] hover:bg-[#532001]/10 transition-all cursor-pointer"
                         title="Delete"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -497,7 +497,7 @@ export const AdminPortal: React.FC = () => {
               <button
                 type="button"
                 onClick={() => { setEditingPropertyId(null); setActiveAdminTab('inventory'); }}
-                className="text-xs font-bold text-slate-500 hover:text-slate-900"
+                className="text-xs font-bold text-[#677865] hover:text-[#09240F] cursor-pointer"
               >
                 Cancel Edit
               </button>
@@ -508,36 +508,36 @@ export const AdminPortal: React.FC = () => {
             
             {/* 1. Product Title */}
             <div className="md:col-span-2">
-              <label className="text-xs font-bold text-slate-700 block mb-1">Product Title *</label>
+              <label className="text-xs font-bold text-[#09240F] block mb-1">Product Title *</label>
               <input
                 type="text"
                 required
                 value={formData.title || ''}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 placeholder="e.g. Cascadia Sky Residences"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none"
               />
             </div>
 
             {/* 2. Developer / Builder */}
             <div className="md:col-span-2">
-              <label className="text-xs font-bold text-slate-700 block mb-1">Developer / Builder</label>
+              <label className="text-xs font-bold text-[#09240F] block mb-1">Developer / Builder</label>
               <input
                 type="text"
                 value={formData.developer || ''}
                 onChange={(e) => setFormData({ ...formData, developer: e.target.value })}
                 placeholder="e.g. REM Signature Projects"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none"
               />
             </div>
 
             {/* 3. Category */}
             <div>
-              <label className="text-xs font-bold text-slate-700 block mb-1">Category</label>
+              <label className="text-xs font-bold text-[#09240F] block mb-1">Category</label>
               <select
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value as PropertyCategory })}
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer"
+                className="w-full px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none cursor-pointer"
               >
                 <option value="upcoming_launch">Upcoming Launch (Pre-Release)</option>
                 <option value="residential">Residential Homes & Villas</option>
@@ -549,11 +549,11 @@ export const AdminPortal: React.FC = () => {
 
             {/* 4. Construction Status */}
             <div>
-              <label className="text-xs font-bold text-slate-700 block mb-1">Construction Status</label>
+              <label className="text-xs font-bold text-[#09240F] block mb-1">Construction Status</label>
               <select
                 value={formData.status}
                 onChange={(e) => setFormData({ ...formData, status: e.target.value as PropertyStatus })}
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer"
+                className="w-full px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none cursor-pointer"
               >
                 <option value="Pre-Launch">Pre-Launch</option>
                 <option value="Under Construction">Under Construction</option>
@@ -564,7 +564,7 @@ export const AdminPortal: React.FC = () => {
 
             {/* 5. Total Valuation */}
             <div>
-              <label className="text-xs font-bold text-slate-700 block mb-1">Total Valuation (INR) *</label>
+              <label className="text-xs font-bold text-[#09240F] block mb-1">Total Valuation (INR) *</label>
               <input
                 type="number"
                 required
@@ -581,13 +581,13 @@ export const AdminPortal: React.FC = () => {
                   });
                 }}
                 placeholder="e.g. 28500000"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none"
               />
             </div>
 
             {/* 6. Area */}
             <div>
-              <label className="text-xs font-bold text-slate-700 block mb-1">Area (Sq.Ft)</label>
+              <label className="text-xs font-bold text-[#09240F] block mb-1">Area (Sq.Ft)</label>
               <input
                 type="number"
                 value={formData.dimensions?.carpetAreaSqFt || ''}
@@ -607,13 +607,13 @@ export const AdminPortal: React.FC = () => {
                   });
                 }}
                 placeholder="e.g. 1980"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none"
               />
             </div>
 
             {/* 7. BHK / Unit Type */}
             <div>
-              <label className="text-xs font-bold text-slate-700 block mb-1">BHK / Unit Type</label>
+              <label className="text-xs font-bold text-[#09240F] block mb-1">BHK / Unit Type</label>
               <input
                 type="text"
                 value={formData.dimensions?.bhk || ''}
@@ -625,13 +625,13 @@ export const AdminPortal: React.FC = () => {
                   }
                 })}
                 placeholder="e.g. 3 BHK Luxury Condo"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none"
               />
             </div>
 
             {/* 8. Locality */}
             <div className="md:col-span-3">
-              <label className="text-xs font-bold text-slate-700 block mb-1">Locality</label>
+              <label className="text-xs font-bold text-[#09240F] block mb-1">Locality</label>
               <input
                 type="text"
                 value={formData.location?.locality || ''}
@@ -643,21 +643,21 @@ export const AdminPortal: React.FC = () => {
                   }
                 })}
                 placeholder="e.g. Indiranagar, Bangalore"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none"
               />
             </div>
 
           </div>
 
           {/* 9. Multiple Photos Section */}
-          <div className="pt-4 border-t border-slate-100">
+          <div className="pt-4 border-t border-[#677865]/15">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
               <div className="flex items-center space-x-2">
-                <Image className="w-4 h-4 text-blue-600" />
-                <label className="text-xs font-bold text-slate-800">
+                <Image className="w-4 h-4 text-[#702B00]" />
+                <label className="text-xs font-bold text-[#09240F]">
                   Property Photos ({formData.images?.length || 0})
                 </label>
-                <span className="text-[10px] font-semibold text-slate-400">Add multiple high-resolution photos</span>
+                <span className="text-[10px] font-semibold text-[#677865]">Add multiple high-resolution photos</span>
               </div>
 
               <button
@@ -676,7 +676,7 @@ export const AdminPortal: React.FC = () => {
                     images: [...(formData.images || []), nextPhoto]
                   });
                 }}
-                className="text-[11px] font-bold text-slate-800 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center"
+                className="text-[11px] font-bold text-[#09240F] hover:text-[#702B00] bg-[#F5F6F4] hover:bg-[#677865]/20 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center border border-[#677865]/20"
               >
                 + Add Sample Photo
               </button>
@@ -701,7 +701,7 @@ export const AdminPortal: React.FC = () => {
                   }
                 }}
                 placeholder="Paste photo image URL (e.g. https://images.unsplash.com/...)"
-                className="flex-1 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="flex-1 px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none"
               />
               <button
                 type="button"
@@ -714,7 +714,7 @@ export const AdminPortal: React.FC = () => {
                     setPhotoInputUrl('');
                   }
                 }}
-                className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center space-x-1"
+                className="px-4 py-2 bg-[#702B00] hover:bg-[#532001] text-white text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center space-x-1"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Photo</span>
@@ -724,9 +724,9 @@ export const AdminPortal: React.FC = () => {
             {/* Photos Gallery Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
               {(formData.images || []).map((imgUrl, idx) => (
-                <div key={idx} className="relative group rounded-xl overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-100 shadow-xs">
+                <div key={idx} className="relative group rounded-xl overflow-hidden border border-[#677865]/20 aspect-[4/3] bg-[#F5F6F4] shadow-xs">
                   <img src={imgUrl} alt={`Photo ${idx + 1}`} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#09240F]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <button
                       type="button"
                       onClick={() => {
@@ -735,19 +735,19 @@ export const AdminPortal: React.FC = () => {
                           images: (formData.images || []).filter((_, i) => i !== idx)
                         });
                       }}
-                      className="p-1.5 rounded-lg bg-rose-600 text-white hover:bg-rose-700 transition-all cursor-pointer shadow-md"
+                      className="p-1.5 rounded-lg bg-[#532001] text-white hover:bg-[#532001]/80 transition-all cursor-pointer shadow-md"
                       title="Remove photo"
                     >
                       <X className="w-3.5 h-3.5" />
                     </button>
                   </div>
-                  <span className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-slate-900/80 text-[10px] font-bold text-white">
+                  <span className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-[#09240F]/80 text-[10px] font-bold text-white">
                     #{idx + 1}
                   </span>
                 </div>
               ))}
               {(formData.images || []).length === 0 && (
-                <div className="col-span-full py-4 text-center border-2 border-dashed border-slate-200 rounded-xl text-xs text-slate-400 font-medium">
+                <div className="col-span-full py-4 text-center border-2 border-dashed border-[#677865]/25 rounded-xl text-xs text-[#677865] font-medium">
                   No photos added yet. Paste a URL above or click "+ Add Sample Photo".
                 </div>
               )}
@@ -755,14 +755,14 @@ export const AdminPortal: React.FC = () => {
           </div>
 
           {/* 10. Multiple Videos Section */}
-          <div className="pt-4 border-t border-slate-100">
+          <div className="pt-4 border-t border-[#677865]/15">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
               <div className="flex items-center space-x-2">
-                <Video className="w-4 h-4 text-blue-600" />
-                <label className="text-xs font-bold text-slate-800">
+                <Video className="w-4 h-4 text-[#702B00]" />
+                <label className="text-xs font-bold text-[#09240F]">
                   Property Videos ({formData.videos?.length || (formData.videoTourUrl ? 1 : 0)})
                 </label>
-                <span className="text-[10px] font-semibold text-slate-400">Add multiple video tour walkthrough URLs</span>
+                <span className="text-[10px] font-semibold text-[#677865]">Add multiple video tour walkthrough URLs</span>
               </div>
 
               <button
@@ -783,7 +783,7 @@ export const AdminPortal: React.FC = () => {
                     videoTourUrl: updated[0] || ''
                   });
                 }}
-                className="text-[11px] font-bold text-slate-800 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center"
+                className="text-[11px] font-bold text-[#09240F] hover:text-[#702B00] bg-[#F5F6F4] hover:bg-[#677865]/20 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center border border-[#677865]/20"
               >
                 + Add Sample Video
               </button>
@@ -811,7 +811,7 @@ export const AdminPortal: React.FC = () => {
                   }
                 }}
                 placeholder="Paste video walkthrough URL (e.g. https://assets.mixkit.co/...mp4)"
-                className="flex-1 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="flex-1 px-3 py-2 bg-[#F5F6F4] border border-[#677865]/25 rounded-xl text-xs font-semibold text-[#09240F] focus:bg-white focus:ring-2 focus:ring-[#702B00] outline-none"
               />
               <button
                 type="button"
@@ -827,7 +827,7 @@ export const AdminPortal: React.FC = () => {
                     setVideoInputUrl('');
                   }
                 }}
-                className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center space-x-1"
+                className="px-4 py-2 bg-[#702B00] hover:bg-[#532001] text-white text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center space-x-1"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Video</span>
@@ -837,14 +837,14 @@ export const AdminPortal: React.FC = () => {
             {/* Videos List */}
             <div className="space-y-2">
               {(formData.videos || (formData.videoTourUrl ? [formData.videoTourUrl] : [])).map((vidUrl, idx) => (
-                <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs">
+                <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-[#F5F6F4] border border-[#677865]/20 text-xs">
                   <div className="flex items-center space-x-2.5 min-w-0 pr-3">
-                    <div className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 rounded-lg bg-white text-[#702B00] border border-[#677865]/15 flex items-center justify-center shrink-0">
                       <Video className="w-3.5 h-3.5" />
                     </div>
                     <div className="min-w-0">
-                      <div className="font-bold text-slate-800">Walkthrough Video #{idx + 1}</div>
-                      <p className="text-[11px] text-slate-400 truncate max-w-md">{vidUrl}</p>
+                      <div className="font-bold text-[#09240F]">Walkthrough Video #{idx + 1}</div>
+                      <p className="text-[11px] text-[#405D47] truncate max-w-md">{vidUrl}</p>
                     </div>
                   </div>
 
@@ -859,7 +859,7 @@ export const AdminPortal: React.FC = () => {
                         videoTourUrl: updated[0] || ''
                       });
                     }}
-                    className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-50 transition-all cursor-pointer shrink-0"
+                    className="p-1.5 rounded-lg text-[#532001] hover:bg-[#532001]/10 transition-all cursor-pointer shrink-0"
                     title="Remove video"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -867,25 +867,25 @@ export const AdminPortal: React.FC = () => {
                 </div>
               ))}
               {(formData.videos || (formData.videoTourUrl ? [formData.videoTourUrl] : [])).length === 0 && (
-                <div className="py-4 text-center border-2 border-dashed border-slate-200 rounded-xl text-xs text-slate-400 font-medium">
+                <div className="py-4 text-center border-2 border-dashed border-[#677865]/25 rounded-xl text-xs text-[#677865] font-medium">
                   No videos added yet. Paste a video URL above or click "+ Add Sample Video".
                 </div>
               )}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 flex justify-end space-x-3">
+          <div className="pt-4 border-t border-[#677865]/15 flex justify-end space-x-3">
             <button
               type="button"
               onClick={() => setActiveAdminTab('inventory')}
-              className="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 text-xs font-bold hover:bg-slate-50 cursor-pointer"
+              className="px-5 py-2.5 rounded-xl border border-[#677865]/25 text-[#405D47] text-xs font-bold hover:bg-[#F5F6F4] cursor-pointer"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-wider shadow-md shadow-md cursor-pointer"
+              className="px-6 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-black text-xs uppercase tracking-wider shadow-md shadow-[#702B00]/20 cursor-pointer"
             >
               {editingPropertyId ? 'Save Changes' : 'Publish Product to REM Platform'}
             </button>
@@ -897,14 +897,14 @@ export const AdminPortal: React.FC = () => {
       {activeAdminTab === 'leads' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-base font-black text-slate-900">User Inquiries & Investment Commitments</h3>
-            <span className="text-xs font-bold text-slate-400">{inquiries.length} records logged</span>
+            <h3 className="text-base font-black text-[#09240F] font-helvetica-bold">User Inquiries &amp; Investment Commitments</h3>
+            <span className="text-xs font-bold text-[#677865]">{inquiries.length} records logged</span>
           </div>
 
-          <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+          <div className="bg-white rounded-3xl border border-[#677865]/20 overflow-hidden shadow-2xs">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <tr className="border-b border-[#677865]/20 bg-[#F5F6F4] text-[11px] font-bold text-[#677865] uppercase tracking-wider">
                   <th className="p-4">User</th>
                   <th className="p-4">Property</th>
                   <th className="p-4">Inquiry Type</th>
@@ -914,42 +914,42 @@ export const AdminPortal: React.FC = () => {
                   <th className="p-4 text-right">Update Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-xs">
+              <tbody className="divide-y divide-[#677865]/15 text-xs">
                 {inquiries.map(inq => (
-                  <tr key={inq.id} className="hover:bg-slate-50/80 transition-colors">
+                  <tr key={inq.id} className="hover:bg-[#F5F6F4]/80 transition-colors">
                     <td className="p-4">
-                      <div className="font-bold text-slate-900">{inq.userName}</div>
-                      <div className="text-[11px] text-slate-500">{inq.userEmail}</div>
-                      <div className="text-[10px] text-slate-400">{inq.userPhone}</div>
+                      <div className="font-bold text-[#09240F]">{inq.userName}</div>
+                      <div className="text-[11px] text-[#405D47]">{inq.userEmail}</div>
+                      <div className="text-[10px] text-[#677865]">{inq.userPhone}</div>
                     </td>
 
-                    <td className="p-4 font-bold text-slate-800 max-w-[200px] truncate">
+                    <td className="p-4 font-bold text-[#405D47] max-w-[200px] truncate">
                       {inq.propertyTitle}
                     </td>
 
                     <td className="p-4">
-                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-                        inq.inquiryType === 'Investment Pledge' ? 'bg-emerald-100 text-emerald-800' :
-                        inq.inquiryType === 'Site Visit' ? 'bg-blue-100 text-blue-800' :
-                        'bg-slate-100 text-slate-700'
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${
+                        inq.inquiryType === 'Investment Pledge' ? 'bg-[#1F4027]/10 text-[#1F4027] border-[#1F4027]/25' :
+                        inq.inquiryType === 'Site Visit' ? 'bg-[#702B00]/10 text-[#702B00] border-[#702B00]/25' :
+                        'bg-[#405D47]/10 text-[#405D47] border-[#405D47]/25'
                       }`}>
                         {inq.inquiryType}
                       </span>
                     </td>
 
-                    <td className="p-4 font-black text-slate-900">
+                    <td className="p-4 font-black text-[#09240F] font-helvetica-bold">
                       {inq.amount ? formatINR(inq.amount) : 'N/A'}
                     </td>
 
-                    <td className="p-4 text-slate-600 max-w-[240px] truncate">
+                    <td className="p-4 text-[#405D47] max-w-[240px] truncate">
                       {inq.notes}
                     </td>
 
                     <td className="p-4">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                        inq.status === 'Closed' ? 'bg-emerald-100 text-emerald-800' :
-                        inq.status === 'Contacted' ? 'bg-blue-100 text-blue-800' :
-                        'bg-amber-100 text-amber-900'
+                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${
+                        inq.status === 'Closed' ? 'bg-[#1F4027]/10 text-[#1F4027] border-[#1F4027]/25' :
+                        inq.status === 'Contacted' ? 'bg-[#702B00]/10 text-[#702B00] border-[#702B00]/25' :
+                        'bg-[#405D47]/10 text-[#405D47] border-[#405D47]/25'
                       }`}>
                         {inq.status}
                       </span>
@@ -958,19 +958,19 @@ export const AdminPortal: React.FC = () => {
                     <td className="p-4 text-right space-x-1">
                       <button
                         onClick={() => updateInquiryStatus(inq.id, 'New')}
-                        className="px-2 py-1 rounded bg-slate-100 text-slate-700 text-[10px] font-bold hover:bg-slate-200"
+                        className="px-2 py-1 rounded bg-[#F5F6F4] text-[#09240F] text-[10px] font-bold hover:bg-[#677865]/20 border border-[#677865]/20 cursor-pointer"
                       >
                         New
                       </button>
                       <button
                         onClick={() => updateInquiryStatus(inq.id, 'Contacted')}
-                        className="px-2 py-1 rounded bg-blue-50 text-blue-700 text-[10px] font-bold hover:bg-blue-100"
+                        className="px-2 py-1 rounded bg-[#702B00]/10 text-[#702B00] text-[10px] font-bold hover:bg-[#702B00]/20 border border-[#702B00]/25 cursor-pointer"
                       >
                         Contacted
                       </button>
                       <button
                         onClick={() => updateInquiryStatus(inq.id, 'Closed')}
-                        className="px-2 py-1 rounded bg-emerald-50 text-emerald-700 text-[10px] font-bold hover:bg-emerald-100"
+                        className="px-2 py-1 rounded bg-[#1F4027]/10 text-[#1F4027] text-[10px] font-bold hover:bg-[#1F4027]/20 border border-[#1F4027]/25 cursor-pointer"
                       >
                         Closed
                       </button>

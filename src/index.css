@@ -1,7 +1,50 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #702B00;
+  --color-primary-hover: #542000;
+  --color-secondary: #405D47;
+  --color-secondary-hover: #324937;
+  
+  --color-forest-dark: #09240F;
+  --color-forest-deep: #1F4027;
+  --color-forest-slate: #405D47;
+  --color-sage: #677865;
+  --color-mahogany: #532001;
+  --color-rust: #702B00;
+  
+  --color-base: #F5F6F4;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #1F4027;
+  
+  --color-text-primary: #09240F;
+  --color-text-secondary: #405D47;
+  --color-text-muted: #677865;
+  
+  --color-border-subtle: rgba(103, 120, 101, 0.24);
+  --color-border-dark: rgba(103, 120, 101, 0.45);
+  
+  --color-success: #1F4027;
+  --color-warning: #702B00;
+  --color-error: #532001;
+  --color-info: #677865;
+}
+
 @layer base {
   :root {
+    --color-primary: #702B00;
+    --color-secondary: #405D47;
+    --color-bg-base: #F5F6F4;
+    --color-bg-surface: #FFFFFF;
+    --color-text-primary: #09240F;
+    --color-text-secondary: #405D47;
+    --color-text-muted: #677865;
+    --color-border: #677865;
+    --color-success: #1F4027;
+    --color-warning: #702B00;
+    --color-error: #532001;
+    --color-info: #677865;
+
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-helvetica: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   }
@@ -12,8 +55,8 @@
   }
 
   body {
-    background-color: #FDFBF7;
-    color: #0A0A0A;
+    background-color: #F5F6F4;
+    color: #09240F;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -31,6 +74,7 @@
     margin: 0;
     padding: 0;
     border: none;
+    background-color: #F5F6F4;
   }
 }
 
@@ -52,13 +96,50 @@
   letter-spacing: -0.035em;
 }
 
-/* High Intensity Text Utilities */
+/* High Contrast Strict Palette Text Utilities */
 .text-high-contrast {
-  color: #0A0A0A;
+  color: #09240F;
 }
 
 .text-medium-contrast {
-  color: #262626;
+  color: #405D47;
+}
+
+.text-muted-contrast {
+  color: #677865;
+}
+
+/* Palette Semantic Helper Classes */
+.bg-palette-base {
+  background-color: #F5F6F4;
+}
+
+.bg-palette-surface {
+  background-color: #FFFFFF;
+}
+
+.bg-palette-primary {
+  background-color: #702B00;
+}
+
+.bg-palette-secondary {
+  background-color: #405D47;
+}
+
+.bg-palette-dark {
+  background-color: #09240F;
+}
+
+.bg-palette-deep {
+  background-color: #1F4027;
+}
+
+.border-palette {
+  border-color: rgba(103, 120, 101, 0.25);
+}
+
+.border-palette-strong {
+  border-color: #677865;
 }
 
 /* Slow Spin for Brand Monogram Seal */
@@ -75,20 +156,19 @@
   animation: spinSlow 24s linear infinite;
 }
 
-
-/* Hotspot Pulse Ring */
+/* Hotspot Pulse Ring in Palette Tones */
 @keyframes pulseRing {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 0 0 rgba(112, 43, 0, 0.6);
   }
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 14px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 14px rgba(112, 43, 0, 0);
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 0 rgba(112, 43, 0, 0);
   }
 }
 
@@ -96,41 +176,18 @@
   animation: pulseRing 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Custom scrollbar */
+/* Strict Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF8F5;
+  background: #F5F6F4;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d6d3cd;
+  background: #677865;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a29e;
+  background: #405D47;
 }
-
-/* Custom Glassmorphism */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.glass-panel-luxury {
-  background: rgba(250, 248, 245, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(214, 211, 205, 0.6);
-}
-
-.glass-panel-dark {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(51, 65, 85, 0.8);
-}
-

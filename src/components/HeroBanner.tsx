@@ -212,16 +212,16 @@ export const HeroBanner: React.FC = () => {
 
             </svg>
 
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/70 backdrop-blur-md border border-white/30 flex items-center justify-center text-amber-300 shadow-2xl">
-              <Compass className="w-5 h-5 text-amber-300" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#09240F]/85 backdrop-blur-md border border-[#677865]/40 flex items-center justify-center text-[#702B00] shadow-2xl">
+              <Compass className="w-5 h-5 text-[#702B00]" />
             </div>
           </div>
 
           <div className="hidden md:block">
-            <span className="font-helvetica-bold text-xs tracking-[0.2em] uppercase text-amber-300 block">
+            <span className="font-helvetica-bold text-xs tracking-[0.2em] uppercase text-[#702B00] block">
               DIRECT DEVELOPER REPRESENTATION
             </span>
-            <span className="font-helvetica font-medium text-xs text-stone-200">
+            <span className="font-helvetica font-medium text-xs text-[#F5F6F4]/90">
               Karnataka RERA Diligence Guaranteed • 0% Brokerage
             </span>
           </div>
@@ -231,12 +231,12 @@ export const HeroBanner: React.FC = () => {
         <div className="flex flex-col items-end space-y-2">
           <a
             href="tel:+918040008000"
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-stone-900/90 hover:bg-stone-800 text-white font-helvetica-bold text-xs tracking-wider border border-white/20 backdrop-blur-md shadow-xl transition-all cursor-pointer"
+            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#09240F]/90 hover:bg-[#1F4027] text-white font-helvetica-bold text-xs tracking-wider border border-[#677865]/40 backdrop-blur-md shadow-xl transition-all cursor-pointer"
           >
-            <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
+            <PhoneCall className="w-3.5 h-3.5 text-[#702B00]" />
             <span>Advisory Desk: +91 80 4000 8000</span>
           </a>
-          <span className="text-[11px] text-stone-200 font-semibold tracking-wider uppercase">
+          <span className="text-[11px] text-[#F5F6F4]/80 font-semibold tracking-wider uppercase">
             Avg. Response Time: 15 Minutes
           </span>
         </div>
@@ -265,8 +265,8 @@ export const HeroBanner: React.FC = () => {
 
                 <span className={`w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md border-2 shadow-2xl transition-all ${
                   isSelected 
-                    ? 'bg-amber-400 text-black border-white' 
-                    : 'bg-stone-950 text-white border-white/90 hover:bg-white hover:text-black'
+                    ? 'bg-[#702B00] text-white border-white' 
+                    : 'bg-[#09240F] text-white border-[#677865]/60 hover:bg-[#1F4027]'
                 }`}>
                   <span className="font-helvetica-bold text-xs leading-none">
                     {isSelected ? '✕' : '+'}
@@ -274,28 +274,28 @@ export const HeroBanner: React.FC = () => {
                 </span>
 
                 {!isSelected && (
-                  <span className="absolute left-11 whitespace-nowrap px-3 py-1.5 rounded-lg bg-black/90 backdrop-blur-md text-xs font-helvetica-bold text-white border border-white/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-2xl">
+                  <span className="absolute left-11 whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#09240F]/95 backdrop-blur-md text-xs font-helvetica-bold text-white border border-[#677865]/40 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-2xl">
                     {hotspot.title}
                   </span>
                 )}
               </button>
 
-              {/* Floating Architectural Spec Card with High-Intensity Text */}
+              {/* Floating Architectural Spec Card */}
               {isSelected && (
-                <div className="absolute bottom-14 left-1/2 -translate-x-1/2 w-80 sm:w-88 p-5 rounded-2xl bg-black/95 backdrop-blur-2xl border border-white/30 shadow-2xl z-30 animate-in fade-in slide-in-from-bottom-3 duration-300">
+                <div className="absolute bottom-14 left-1/2 -translate-x-1/2 w-80 sm:w-88 p-5 rounded-2xl bg-[#09240F]/95 backdrop-blur-2xl border border-[#677865]/40 shadow-2xl z-30 animate-in fade-in slide-in-from-bottom-3 duration-300">
                   <div className="flex items-start justify-between mb-2.5">
-                    <span className="font-helvetica-bold text-[11px] uppercase tracking-widest text-amber-300 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-300/30">
+                    <span className="font-helvetica-bold text-[11px] uppercase tracking-widest text-[#702B00] bg-[#702B00]/15 px-2 py-0.5 rounded border border-[#702B00]/40">
                       {hotspot.category}
                     </span>
                     <button
                       onClick={() => setActiveHotspot(null)}
-                      className="text-stone-300 hover:text-white p-1 rounded cursor-pointer"
+                      className="text-[#677865] hover:text-white p-1 rounded cursor-pointer"
                     >
                       <X className="w-4 h-4" />
                     </button>
                   </div>
 
-                  <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-3.5 border border-white/20">
+                  <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-3.5 border border-[#677865]/30">
                     <img 
                       src={hotspot.imgUrl} 
                       alt={hotspot.title} 
@@ -306,18 +306,18 @@ export const HeroBanner: React.FC = () => {
                   <h4 className="font-helvetica-bold text-lg text-white leading-snug mb-1.5">
                     {hotspot.title}
                   </h4>
-                  <p className="font-helvetica text-xs text-stone-200 leading-relaxed font-normal mb-3">
+                  <p className="font-helvetica text-xs text-[#F5F6F4]/90 leading-relaxed font-normal mb-3">
                     {hotspot.subtitle}
                   </p>
 
-                  <div className="pt-3 border-t border-white/20 flex items-center justify-between text-xs">
-                    <span className="font-helvetica font-semibold text-amber-300">
+                  <div className="pt-3 border-t border-[#677865]/30 flex items-center justify-between text-xs">
+                    <span className="font-helvetica font-semibold text-[#702B00]">
                       {hotspot.specs}
                     </span>
                     {hotspot.propertyId && (
                       <button
                         onClick={() => handleOpenProperty(hotspot.propertyId)}
-                        className="font-helvetica-bold text-white bg-stone-800 hover:bg-stone-700 px-3 py-1.5 rounded-lg border border-white/20 transition-all inline-flex items-center space-x-1 cursor-pointer"
+                        className="font-helvetica-bold text-white bg-[#1F4027] hover:bg-[#405D47] px-3 py-1.5 rounded-lg border border-[#677865]/40 transition-all inline-flex items-center space-x-1 cursor-pointer"
                       >
                         <span>View Residence</span>
                         <ChevronRight className="w-3.5 h-3.5" />
@@ -331,27 +331,27 @@ export const HeroBanner: React.FC = () => {
         })}
       </div>
 
-      {/* Main Center Headline & Humanized Editorial Copy (In Pure Helvetica) */}
+      {/* Main Center Headline & Editorial Copy */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col items-center text-center">
         
         {/* Subtle pill tag */}
-        <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-amber-300 font-helvetica-bold text-xs tracking-[0.25em] uppercase mb-5">
-          <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+        <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#09240F]/80 backdrop-blur-md border border-[#677865]/40 text-[#F5F6F4] font-helvetica-bold text-xs tracking-[0.25em] uppercase mb-5">
+          <Sparkles className="w-3.5 h-3.5 text-[#702B00]" />
           <span>{t('heroTag')}</span>
         </div>
 
         {/* Big Bold Headline in Pure Helvetica */}
         <h1 className="font-helvetica-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.02] text-white max-w-5xl uppercase text-balance">
           {t('heroHeadline1')} <br className="hidden sm:inline" />
-          <span className="text-amber-300">{t('heroHeadline2')}</span>
+          <span className="text-[#702B00]">{t('heroHeadline2')}</span>
         </h1>
 
-        <p className="mt-5 font-helvetica text-stone-100 text-sm sm:text-base md:text-lg font-medium tracking-normal max-w-3xl leading-relaxed">
+        <p className="mt-5 font-helvetica text-[#F5F6F4] text-sm sm:text-base md:text-lg font-medium tracking-normal max-w-3xl leading-relaxed">
           {t('heroSubtitle')}
         </p>
 
         {/* Interactive View Toggles (Poolside, Façade, Solarium) */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/20">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-2xl bg-[#09240F]/80 backdrop-blur-xl border border-[#677865]/40">
           {ARCHITECTURAL_VIEWS.map((view, idx) => (
             <button
               key={view.id}
@@ -361,8 +361,8 @@ export const HeroBanner: React.FC = () => {
               }}
               className={`px-4 py-2 rounded-xl font-helvetica-bold text-xs tracking-wider transition-all cursor-pointer ${
                 activeViewIdx === idx 
-                  ? 'bg-white text-black shadow-lg scale-102' 
-                  : 'text-stone-300 hover:text-white hover:bg-white/10'
+                  ? 'bg-[#1F4027] text-white shadow-lg scale-102 border border-[#677865]/40' 
+                  : 'text-[#F5F6F4]/80 hover:text-white hover:bg-[#1F4027]/40'
               }`}
             >
               <span>{view.label}</span>
@@ -374,7 +374,7 @@ export const HeroBanner: React.FC = () => {
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3.5">
           <button
             onClick={scrollToCatalog}
-            className="group px-7 py-3.5 rounded-full bg-white hover:bg-stone-100 text-black font-helvetica-black text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 flex items-center space-x-2.5 shadow-2xl cursor-pointer"
+            className="group px-7 py-3.5 rounded-full bg-[#702B00] hover:bg-[#542000] text-white font-helvetica-black text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 flex items-center space-x-2.5 shadow-2xl cursor-pointer"
           >
             <span>{t('heroExploreBtn')}</span>
             <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
@@ -383,68 +383,67 @@ export const HeroBanner: React.FC = () => {
           {/* Direct Corporate Company Investment CTA */}
           <button
             onClick={() => setIsCompanyInvestModalOpen(true)}
-            className="px-7 py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-black font-helvetica-black text-xs sm:text-sm tracking-wider uppercase transition-all shadow-xl cursor-pointer border border-amber-500/40 flex items-center space-x-2 hover:scale-102"
+            className="px-7 py-3.5 rounded-full bg-[#1F4027] hover:bg-[#405D47] text-white font-helvetica-black text-xs sm:text-sm tracking-wider uppercase transition-all shadow-xl cursor-pointer border border-[#677865]/40 flex items-center space-x-2 hover:scale-102"
           >
-            <TrendingUp className="w-4 h-4" />
+            <TrendingUp className="w-4 h-4 text-[#702B00]" />
             <span>{t('heroInvestCompanyBtn')}</span>
           </button>
 
           <button
             onClick={() => handleOpenProperty('rem-prop-villa-01')}
-            className="px-6 py-3.5 rounded-full bg-stone-900/90 hover:bg-stone-800 text-white font-helvetica-bold text-xs sm:text-sm tracking-wider uppercase backdrop-blur-md border border-white/30 transition-all cursor-pointer flex items-center space-x-2"
+            className="px-6 py-3.5 rounded-full bg-[#09240F]/90 hover:bg-[#1F4027] text-white font-helvetica-bold text-xs sm:text-sm tracking-wider uppercase backdrop-blur-md border border-[#677865]/40 transition-all cursor-pointer flex items-center space-x-2"
           >
-            <Eye className="w-4 h-4 text-amber-300" />
+            <Eye className="w-4 h-4 text-[#702B00]" />
             <span>Tour Signature Villa</span>
           </button>
         </div>
-
 
         {/* Interactive Category Jump Dock */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full max-w-4xl">
           <button
             onClick={() => handleFilterClick('villa')}
-            className="p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-left transition-all cursor-pointer group"
+            className="p-3 rounded-xl bg-[#09240F]/80 hover:bg-[#1F4027]/90 border border-[#677865]/35 backdrop-blur-md text-left transition-all cursor-pointer group"
           >
-            <span className="font-helvetica-bold text-xs text-white block group-hover:text-amber-300">
+            <span className="font-helvetica-bold text-xs text-white block group-hover:text-[#702B00]">
               Private Villas
             </span>
-            <span className="font-helvetica text-[11px] text-stone-200">
+            <span className="font-helvetica text-[11px] text-[#F5F6F4]/80">
               Gated Plots &amp; Gardens
             </span>
           </button>
 
           <button
             onClick={() => handleFilterClick('penthouse')}
-            className="p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-left transition-all cursor-pointer group"
+            className="p-3 rounded-xl bg-[#09240F]/80 hover:bg-[#1F4027]/90 border border-[#677865]/35 backdrop-blur-md text-left transition-all cursor-pointer group"
           >
-            <span className="font-helvetica-bold text-xs text-white block group-hover:text-amber-300">
+            <span className="font-helvetica-bold text-xs text-white block group-hover:text-[#702B00]">
               Sky Penthouses
             </span>
-            <span className="font-helvetica text-[11px] text-stone-200">
+            <span className="font-helvetica text-[11px] text-[#F5F6F4]/80">
               Panoramic Solariums
             </span>
           </button>
 
           <button
             onClick={() => handleFilterClick('commercial')}
-            className="p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-left transition-all cursor-pointer group"
+            className="p-3 rounded-xl bg-[#09240F]/80 hover:bg-[#1F4027]/90 border border-[#677865]/35 backdrop-blur-md text-left transition-all cursor-pointer group"
           >
-            <span className="font-helvetica-bold text-xs text-white block group-hover:text-amber-300">
+            <span className="font-helvetica-bold text-xs text-white block group-hover:text-[#702B00]">
               Commercial Hubs
             </span>
-            <span className="font-helvetica text-[11px] text-stone-200">
+            <span className="font-helvetica text-[11px] text-[#F5F6F4]/80">
               8.5%+ Co-Ownership Yield
             </span>
           </button>
 
           <button
             onClick={() => handleFilterClick('prelaunch')}
-            className="p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-left transition-all cursor-pointer group"
+            className="p-3 rounded-xl bg-[#09240F]/80 hover:bg-[#1F4027]/90 border border-[#677865]/35 backdrop-blur-md text-left transition-all cursor-pointer group"
           >
-            <span className="font-helvetica-bold text-xs text-white block group-hover:text-amber-300">
+            <span className="font-helvetica-bold text-xs text-white block group-hover:text-[#702B00]">
               Pre-Launch Projects
             </span>
-            <span className="font-helvetica text-[11px] text-stone-200">
+            <span className="font-helvetica text-[11px] text-[#F5F6F4]/80">
               Early Allotment Tier
             </span>
           </button>
@@ -453,22 +452,22 @@ export const HeroBanner: React.FC = () => {
       </div>
 
       {/* Bottom Editorial Bar & Coordinates */}
-      <div className="relative z-10 w-full border-t border-white/20 bg-black/60 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-200 font-medium gap-2">
+      <div className="relative z-10 w-full border-t border-[#677865]/30 bg-[#09240F]/90 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F5F6F4]/90 font-medium gap-2">
           <div className="flex items-center space-x-3">
-            <MapPin className="w-4 h-4 text-amber-400" />
+            <MapPin className="w-4 h-4 text-[#702B00]" />
             <span className="font-helvetica-bold tracking-wider uppercase text-white">
               Indiranagar • Whitefield • Outer Ring Road • Devanahalli
             </span>
           </div>
 
-          <div className="flex items-center space-x-6 text-[11px] font-helvetica-bold tracking-wider uppercase text-stone-200">
-            <span className="flex items-center space-x-1.5 text-emerald-400">
-              <ShieldCheck className="w-3.5 h-3.5" />
+          <div className="flex items-center space-x-6 text-[11px] font-helvetica-bold tracking-wider uppercase text-[#F5F6F4]/90">
+            <span className="flex items-center space-x-1.5 text-white">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#1F4027]" />
               <span>100% RERA Diligence</span>
             </span>
             <span>•</span>
-            <span className="text-amber-300">Zero Brokerage</span>
+            <span className="text-[#702B00]">Zero Brokerage</span>
             <span>•</span>
             <span className="text-white">12° 58' N, 77° 35' E</span>
           </div>
