@@ -22,7 +22,8 @@ export const InvestModal: React.FC = () => {
     investTargetProperty,
     investInProperty,
     setActiveTab,
-    currentUser
+    currentUser,
+    t
   } = useApp();
 
   const [investAmount, setInvestAmount] = useState<number>(50000);
@@ -75,11 +76,11 @@ export const InvestModal: React.FC = () => {
             </div>
             
             <span className="text-[11px] font-bold uppercase text-[#1F4027] tracking-wider bg-[#1F4027]/10 px-3 py-1 rounded-md border border-[#1F4027]/30">
-              Co-Ownership Confirmed
+              {t('invModalCoInvestConfirmed')}
             </span>
             
             <h3 className="text-2xl font-black text-[#09240F] tracking-tight mt-2">
-              Welcome to the Property!
+              {t('invModalWelcome')}
             </h3>
             
             <p className="text-xs text-[#405D47] max-w-xs mx-auto mt-2 leading-relaxed">
@@ -89,21 +90,21 @@ export const InvestModal: React.FC = () => {
             {/* Benefit Summary Card */}
             <div className="my-5 p-4 rounded-2xl bg-[#F5F6F4] border border-[#677865]/25 text-left text-xs space-y-2.5">
               <div className="flex justify-between items-center text-[#405D47]">
-                <span>Monthly Rent to Your Bank:</span>
+                <span>{t('invModalBenefitMonthly')}</span>
                 <span className="text-sm font-black text-[#09240F]">₹{formatNumber(monthlyPayout)} / mo</span>
               </div>
               <div className="flex justify-between items-center text-[#405D47]">
-                <span>First Rent Deposit:</span>
-                <span className="font-bold text-[#09240F]">5th of next month</span>
+                <span>{t('invModalBenefitDeposit')}</span>
+                <span className="font-bold text-[#09240F]">{t('invModalDepositSchedule')}</span>
               </div>
               <div className="flex justify-between items-center text-[#405D47]">
-                <span>Estimated 4-Year Property Gain:</span>
+                <span>{t('invModalBenefitGain')}</span>
                 <span className="font-bold text-[#702B00]">+{formatINR(exitCapitalGain)}</span>
               </div>
               <div className="flex justify-between items-center pt-2 border-t border-[#677865]/25 text-[#405D47]">
-                <span>Co-Ownership Status:</span>
+                <span>{t('invModalStatusTag')}</span>
                 <span className="font-extrabold text-[#1F4027] bg-[#1F4027]/15 px-2 py-0.5 rounded border border-[#1F4027]/30">
-                  ACTIVE CO-OWNER
+                  {t('invModalActiveCoInvestor')}
                 </span>
               </div>
             </div>
@@ -118,7 +119,7 @@ export const InvestModal: React.FC = () => {
                 className="flex-1 py-3 rounded-xl bg-[#1F4027] hover:bg-[#405D47] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer flex items-center justify-center space-x-2"
               >
                 <Briefcase className="w-4 h-4" />
-                <span>View in My Portfolio</span>
+                <span>{t('invModalViewPortfolio')}</span>
               </button>
 
               <button
@@ -128,7 +129,7 @@ export const InvestModal: React.FC = () => {
                 }}
                 className="px-5 py-3 rounded-xl border border-[#677865]/35 text-[#09240F] font-bold text-xs hover:bg-[#F5F6F4] cursor-pointer"
               >
-                Done
+                {t('invModalDone')}
               </button>
             </div>
           </div>
@@ -138,43 +139,43 @@ export const InvestModal: React.FC = () => {
               <div className="inline-flex items-center space-x-1.5 text-[#702B00] bg-[#F5F6F4] border border-[#702B00]/30 px-2.5 py-0.5 rounded-md mb-2">
                 <Users className="w-3.5 h-3.5 text-[#702B00]" />
                 <span className="text-[10px] font-bold uppercase tracking-wider">
-                  Property Co-Ownership
+                  {t('invModalTitle')}
                 </span>
               </div>
               
               <h3 className="text-xl font-black text-[#09240F] tracking-tight">
-                Co-own {investTargetProperty.title}
+                {t('cardCoInvest')} • {investTargetProperty.title}
               </h3>
               
               <p className="text-xs text-[#405D47] mt-0.5">
-                {investTargetProperty.location.locality}, {investTargetProperty.location.city} • Property Value: <strong className="text-[#09240F]">{formatINR(investTargetProperty.pricing.totalPrice)}</strong>
+                {investTargetProperty.location.locality}, {investTargetProperty.location.city} • {t('modalTotalValuation')}: <strong className="text-[#09240F]">{formatINR(investTargetProperty.pricing.totalPrice)}</strong>
               </p>
             </div>
 
-            {/* Simplified Key Highlights */}
+            {/* Key Highlights */}
             <div className="grid grid-cols-3 gap-2 p-3 bg-[#F5F6F4] rounded-2xl border border-[#677865]/25 text-center">
               <div>
-                <span className="text-[10px] text-[#677865] font-bold uppercase block">Rental Yield</span>
+                <span className="text-[10px] text-[#677865] font-bold uppercase block">{t('invModalRentalYield')}</span>
                 <span className="text-xs font-black text-[#09240F] block">{yieldRate}% p.a.</span>
               </div>
               <div className="border-x border-[#677865]/25">
-                <span className="text-[10px] text-[#677865] font-bold uppercase block">Rent Frequency</span>
-                <span className="text-xs font-black text-[#702B00] block">Monthly</span>
+                <span className="text-[10px] text-[#677865] font-bold uppercase block">{t('invModalPayoutFrequency')}</span>
+                <span className="text-xs font-black text-[#702B00] block">{t('cardMonthlyDividend')}</span>
               </div>
               <div>
-                <span className="text-[10px] text-[#677865] font-bold uppercase block">Holding Period</span>
+                <span className="text-[10px] text-[#677865] font-bold uppercase block">{t('invModalHoldingPeriod')}</span>
                 <span className="text-xs font-black text-[#09240F] block">{tenureYears} Years</span>
               </div>
             </div>
 
-            {/* Choose How Much You Want to Put In */}
+            {/* Contribution Selection */}
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="text-xs font-bold text-[#09240F]">
-                  Choose your contribution:
+                  {t('invModalChooseContribution')}
                 </label>
                 <span className="text-[11px] font-medium text-[#677865]">
-                  Minimum: {formatINR(minTicket)}
+                  {t('invModalMinimum')} {formatINR(minTicket)}
                 </span>
               </div>
 
@@ -216,7 +217,7 @@ export const InvestModal: React.FC = () => {
               <div className="flex justify-between items-center text-[#405D47]">
                 <span className="flex items-center space-x-1.5">
                   <Banknote className="w-3.5 h-3.5 text-[#677865]" />
-                  <span>Estimated Monthly Rent:</span>
+                  <span>{t('invModalEstimatedMonthly')}</span>
                 </span>
                 <span className="text-sm font-black text-[#09240F]">
                   ₹{formatNumber(monthlyPayout)} / month
@@ -225,19 +226,19 @@ export const InvestModal: React.FC = () => {
               <div className="flex justify-between items-center text-[#405D47]">
                 <span className="flex items-center space-x-1.5">
                   <CalendarCheck2 className="w-3.5 h-3.5 text-[#677865]" />
-                  <span>Rent Schedule:</span>
+                  <span>{t('invModalDepositSchedule')}:</span>
                 </span>
-                <span className="font-semibold text-[#09240F]">Deposited on the 5th of each month</span>
+                <span className="font-semibold text-[#09240F]">{t('modalCreditedMonthly')}</span>
               </div>
               <div className="flex justify-between items-center text-[#405D47]">
                 <span className="flex items-center space-x-1.5">
                   <Building2 className="w-3.5 h-3.5 text-[#677865]" />
-                  <span>Your Co-Ownership Stake:</span>
+                  <span>{t('invModalStake')}</span>
                 </span>
-                <span className="font-bold text-[#09240F]">{ownershipPercentage}% of this property</span>
+                <span className="font-bold text-[#09240F]">{ownershipPercentage}%</span>
               </div>
               <div className="flex justify-between items-center pt-2 border-t border-[#677865]/25 font-bold text-[#09240F]">
-                <span>Estimated Value after {tenureYears} Years:</span>
+                <span>{t('invModalEstValue')}</span>
                 <span className="font-black text-[#702B00] text-sm">{formatINR(investAmount + exitCapitalGain)}</span>
               </div>
             </div>
@@ -245,7 +246,7 @@ export const InvestModal: React.FC = () => {
             {/* Security Assurance */}
             <div className="flex items-center space-x-2 text-[11px] text-[#405D47] bg-[#FFFFFF] p-2.5 rounded-xl border border-[#677865]/25">
               <ShieldCheck className="w-4 h-4 text-[#1F4027] shrink-0" />
-              <span>Direct co-ownership deed • Rent straight to your bank • 100% transparent</span>
+              <span>{t('invModalSecurityDeed')}</span>
             </div>
 
             {/* Agreement Checkbox */}
@@ -257,7 +258,7 @@ export const InvestModal: React.FC = () => {
                 className="mt-0.5 rounded accent-[#702B00]"
               />
               <span className="text-[11px] text-[#405D47] leading-normal">
-                I agree to the co-ownership guidelines and monthly rental distribution to my registered bank account.
+                {t('invModalAgreement')}
               </span>
             </label>
 
@@ -268,7 +269,7 @@ export const InvestModal: React.FC = () => {
                 onClick={() => setIsInvestModalOpen(false)}
                 className="flex-1 py-3 rounded-xl border border-[#677865]/35 hover:bg-[#F5F6F4] text-[#405D47] font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
               >
-                Cancel
+                {t('invModalCancel')}
               </button>
               
               <button
@@ -276,7 +277,7 @@ export const InvestModal: React.FC = () => {
                 disabled={!agreedToTerms || investAmount < minTicket}
                 className="flex-2 py-3 rounded-xl bg-[#702B00] hover:bg-[#542000] text-white font-black text-xs uppercase tracking-wider transition-all shadow-md disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center space-x-2"
               >
-                <span>Join Co-Owners ({formatINR(investAmount)})</span>
+                <span>{t('invModalJoinBtn')} ({formatINR(investAmount)})</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

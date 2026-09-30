@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
 
   // Helper to apply filters & navigate to properties tab
   const handleNavSelection = (config: {
-    listingType?: 'all' | 'sale' | 'rent';
+    listingType?: 'all' | 'sale';
     propertyType?: 'all' | 'Apartment' | 'Villa' | 'Plot' | 'Penthouse' | 'Commercial';
     category?: 'all' | 'residential' | 'commercial' | 'land_plots' | 'upcoming_launch';
     preLaunch?: boolean;
@@ -78,8 +78,8 @@ export const Navbar: React.FC = () => {
                 R
               </div>
               <div className="flex flex-col">
-                <span className="font-helvetica-black text-xl tracking-tighter text-[#09240F] leading-none uppercase">REM ESTATES</span>
-                <span className="text-[9px] text-[#405D47] font-helvetica-bold tracking-[0.25em] uppercase">Residences • Bengaluru</span>
+                <span className="font-helvetica-black text-xl tracking-tighter text-[#09240F] leading-none uppercase">{t('brandName')}</span>
+                <span className="text-[9px] text-[#405D47] font-helvetica-bold tracking-[0.25em] uppercase">{t('brandTagline')}</span>
               </div>
             </div>
 
@@ -90,7 +90,7 @@ export const Navbar: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search residences, localities..."
+                placeholder={t('navSearchPlaceholder')}
                 className="pl-8.5 pr-4 py-1.5 bg-[#FFFFFF] hover:bg-[#F5F6F4] focus:bg-[#FFFFFF] text-xs font-medium text-[#09240F] placeholder-[#677865] rounded-full border border-[#677865]/35 focus:border-[#702B00] focus:ring-1 focus:ring-[#702B00] transition-all w-56 focus:w-64 outline-none"
               />
             </div>
@@ -114,14 +114,14 @@ export const Navbar: React.FC = () => {
                     : 'text-[#09240F] hover:text-[#702B00] hover:bg-[#FFFFFF]'
                 }`}
               >
-                <span>Properties</span>
+                <span>{t('navProperties')}</span>
                 <ChevronDown className={`w-3.5 h-3.5 ${activeDropdown === 'properties' || (activeTab === 'properties' && propertyTypeFilter === 'all' && !preLaunchOnly && selectedCategory === 'all') ? 'text-white' : 'text-[#677865]'}`} />
               </button>
 
               {activeDropdown === 'properties' && (
                 <div className="absolute left-0 mt-1 w-48 bg-[#FFFFFF] rounded-2xl shadow-xl border border-[#677865]/30 py-2 z-50 animate-in fade-in duration-150">
                   <div className="px-3 py-1 text-[10px] font-bold text-[#677865] uppercase tracking-wider">
-                    Browse Properties
+                    {t('navProperties')}
                   </div>
                   <button
                     onClick={() => handleNavSelection({ listingType: 'sale', propertyType: 'all', category: 'all', preLaunch: false })}
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
                       listingTypeFilter === 'sale' && propertyTypeFilter === 'all' && !preLaunchOnly ? 'text-[#702B00] bg-[#F5F6F4] font-bold' : 'text-[#09240F]'
                     }`}
                   >
-                    <span>For Sale</span>
+                    <span>{t('cardForSale')}</span>
                     {listingTypeFilter === 'sale' && propertyTypeFilter === 'all' && !preLaunchOnly && <Check className="w-3.5 h-3.5 text-[#702B00]" />}
                   </button>
                   
@@ -139,7 +139,7 @@ export const Navbar: React.FC = () => {
                       preLaunchOnly ? 'text-[#702B00] bg-[#F5F6F4] font-bold' : 'text-[#09240F]'
                     }`}
                   >
-                    <span>Pre-Launch</span>
+                    <span>{t('navPreLaunch')}</span>
                     {preLaunchOnly && <Check className="w-3.5 h-3.5 text-[#702B00]" />}
                   </button>
                   <button
@@ -148,7 +148,7 @@ export const Navbar: React.FC = () => {
                       propertyTypeFilter === 'Commercial' ? 'text-[#702B00] bg-[#F5F6F4] font-bold' : 'text-[#09240F]'
                     }`}
                   >
-                    <span>Commercial</span>
+                    <span>{t('navCommercial')}</span>
                     {propertyTypeFilter === 'Commercial' && <Check className="w-3.5 h-3.5 text-[#702B00]" />}
                   </button>
                 </div>
@@ -168,14 +168,14 @@ export const Navbar: React.FC = () => {
                     : 'text-[#09240F] hover:text-[#702B00] hover:bg-[#FFFFFF]'
                 }`}
               >
-                <span>Buy</span>
+                <span>{t('navBuy')}</span>
                 <ChevronDown className={`w-3.5 h-3.5 ${activeDropdown === 'buy' || (listingTypeFilter === 'sale' && propertyTypeFilter !== 'all') ? 'text-white' : 'text-[#677865]'}`} />
               </button>
 
               {activeDropdown === 'buy' && (
                 <div className="absolute left-0 mt-1 w-48 bg-[#FFFFFF] rounded-2xl shadow-xl border border-[#677865]/30 py-2 z-50 animate-in fade-in duration-150">
                   <div className="px-3 py-1 text-[10px] font-bold text-[#677865] uppercase tracking-wider">
-                    Buy Residential & Plots
+                    {t('navBuy')}
                   </div>
                   <button
                     onClick={() => handleNavSelection({ listingType: 'sale', propertyType: 'Apartment', category: 'all', preLaunch: false })}
@@ -183,7 +183,7 @@ export const Navbar: React.FC = () => {
                       listingTypeFilter === 'sale' && propertyTypeFilter === 'Apartment' ? 'text-[#702B00] bg-[#F5F6F4] font-bold' : 'text-[#09240F]'
                     }`}
                   >
-                    <span>Apartments</span>
+                    <span>{t('navApartments')}</span>
                     {listingTypeFilter === 'sale' && propertyTypeFilter === 'Apartment' && <Check className="w-3.5 h-3.5 text-[#702B00]" />}
                   </button>
                   <button
@@ -192,7 +192,7 @@ export const Navbar: React.FC = () => {
                       listingTypeFilter === 'sale' && propertyTypeFilter === 'Villa' ? 'text-[#702B00] bg-[#F5F6F4] font-bold' : 'text-[#09240F]'
                     }`}
                   >
-                    <span>Villas</span>
+                    <span>{t('navVillas')}</span>
                     {listingTypeFilter === 'sale' && propertyTypeFilter === 'Villa' && <Check className="w-3.5 h-3.5 text-[#702B00]" />}
                   </button>
                   <button
@@ -201,7 +201,7 @@ export const Navbar: React.FC = () => {
                       propertyTypeFilter === 'Plot' ? 'text-[#702B00] bg-[#F5F6F4] font-bold' : 'text-[#09240F]'
                     }`}
                   >
-                    <span>Plots</span>
+                    <span>{t('navPlots')}</span>
                     {propertyTypeFilter === 'Plot' && <Check className="w-3.5 h-3.5 text-[#702B00]" />}
                   </button>
                   <button
@@ -210,14 +210,14 @@ export const Navbar: React.FC = () => {
                       propertyTypeFilter === 'Penthouse' ? 'text-[#702B00] bg-[#F5F6F4] font-bold' : 'text-[#09240F]'
                     }`}
                   >
-                    <span>Penthouses</span>
+                    <span>{t('navPenthouses')}</span>
                     {propertyTypeFilter === 'Penthouse' && <Check className="w-3.5 h-3.5 text-[#702B00]" />}
                   </button>
                 </div>
               )}
             </div>
 
-            {/* 3. INVEST IN PROPERTIES */}
+            {/* 3. INVEST IN PROPERTIES (CO-INVEST) */}
             <button
               onClick={() => setActiveTab('invest')}
               className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-black transition-all cursor-pointer ${
@@ -228,11 +228,11 @@ export const Navbar: React.FC = () => {
               title="Invest in High-Yield Pre-Leased Commercial & Residential Real Estate"
             >
               <TrendingUp className="w-3.5 h-3.5" />
-              <span>Co-Own Properties</span>
+              <span>{t('navCoInvest')}</span>
               <span className={`px-1.5 py-0.2 rounded text-[9px] font-black uppercase tracking-wider ${
                 activeTab === 'invest' ? 'bg-[#542000] text-white' : 'bg-[#1F4027] text-white'
               }`}>
-                Earn Rent
+                {t('navHighYield')}
               </span>
             </button>
           </nav>
@@ -455,13 +455,13 @@ export const Navbar: React.FC = () => {
             onClick={() => handleNavSelection({ propertyType: 'Apartment', preLaunch: false })}
             className={`px-2.5 py-1 rounded-lg shrink-0 ${propertyTypeFilter === 'Apartment' ? 'bg-[#1F4027] text-white' : 'bg-[#FFFFFF] text-[#09240F] border border-[#677865]/20'}`}
           >
-            Apartments
+            {t('navApartments')}
           </button>
           <button
             onClick={() => handleNavSelection({ preLaunch: true })}
             className={`px-2.5 py-1 rounded-lg shrink-0 ${preLaunchOnly ? 'bg-[#702B00] text-white font-bold' : 'bg-[#FFFFFF] text-[#09240F] border border-[#677865]/20'}`}
           >
-            Pre-Launch
+            {t('navPreLaunch')}
           </button>
         </div>
       </div>

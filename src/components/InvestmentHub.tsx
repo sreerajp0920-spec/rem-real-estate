@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { formatINR, formatNumber } from '../utils/formatters';
+import { formatINR } from '../utils/formatters';
 import { 
   Building2, 
   Users, 
@@ -8,13 +8,10 @@ import {
   ShieldCheck, 
   ChevronDown, 
   ChevronUp, 
-  MapPin, 
-  HeartHandshake,
-  Wallet,
-  CalendarCheck,
-  CheckCircle2,
-  IndianRupee,
-  TrendingUp
+  HeartHandshake, 
+  CheckCircle2, 
+  IndianRupee, 
+  TrendingUp 
 } from 'lucide-react';
 
 export const InvestmentHub: React.FC = () => {
@@ -24,7 +21,7 @@ export const InvestmentHub: React.FC = () => {
     setIsInvestModalOpen, 
     setInvestTargetProperty,
     setActiveTab,
-    currentUser 
+    t 
   } = useApp();
 
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(0);
@@ -34,24 +31,24 @@ export const InvestmentHub: React.FC = () => {
 
   const faqs = [
     {
-      q: "How does co-investing in a property work?",
-      a: "Instead of one person needing Crores to buy a property, multiple people come together to co-own it. Each person puts in what they're comfortable with (starting from ₹50,000). You get legal proof of your share and receive your portion of the rent every month."
+      q: t('hubFaq1Q'),
+      a: t('hubFaq1A')
     },
     {
-      q: "When and how do I receive my rent?",
-      a: "The properties are already rented out to reputable corporate or commercial tenants. Your share of the rent is transferred directly to your bank account on the 5th of every month via NEFT."
+      q: t('hubFaq2Q'),
+      a: t('hubFaq2A')
     },
     {
-      q: "How do I make a profit when the property is sold?",
-      a: "Real estate properties naturally grow in market value. After a 3 to 5 year period, the property is either sold or refinanced at the higher market value. You get your original money back plus your share of the capital gain profit."
+      q: t('hubFaq3Q'),
+      a: t('hubFaq3A')
     },
     {
-      q: "What if I want to withdraw my money early?",
-      a: "After an initial 12-month period, you can easily transfer or sell your share to another buyer through REM ESTATES portal at current market valuation."
+      q: t('hubFaq4Q'),
+      a: t('hubFaq4A')
     },
     {
-      q: "Who takes care of property repairs, tenants, and maintenance?",
-      a: "REM ESTATES handles 100% of the day-to-day operations: tenant management, rent collection, property tax, and maintenance. You simply enjoy passive monthly rent with zero landlord headaches."
+      q: t('hubFaq5Q'),
+      a: t('hubFaq5A')
     }
   ];
 
@@ -63,37 +60,37 @@ export const InvestmentHub: React.FC = () => {
         <div className="max-w-3xl">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-md bg-[#1F4027]/70 text-[#F5F6F4] text-xs font-bold uppercase tracking-wider mb-4 border border-[#677865]/40">
             <HeartHandshake className="w-4 h-4 text-[#702B00]" />
-            <span>Co-Own Real Estate With Others</span>
+            <span>{t('hubBadge')}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-            Own Great Properties Together. <br />
+            {t('hubHeading1')} <br />
             <span className="text-[#702B00]">
-              Collect Rent Every Month.
+              {t('hubHeading2')}
             </span>
           </h1>
 
           <p className="mt-4 text-[#F5F6F4]/90 text-sm sm:text-base leading-relaxed">
-            Real estate has always been one of the safest ways to grow wealth, but buying an entire commercial property alone requires Crores. Now, you can pool in with others, start with as little as <strong className="text-white font-bold">₹50,000</strong>, and get regular monthly rent sent straight to your bank account.
+            {t('hubSubtitle')}
           </p>
 
           {/* Quick Highlight Pills */}
           <div className="mt-6 flex flex-wrap gap-2.5 text-xs font-semibold text-[#F5F6F4]">
             <span className="px-3 py-1.5 rounded-xl bg-[#1F4027]/60 border border-[#677865]/35 flex items-center space-x-1.5">
               <IndianRupee className="w-3.5 h-3.5 text-[#702B00]" />
-              <span>Monthly Rent Direct to Bank</span>
+              <span>{t('hubMonthlyPayoutPill')}</span>
             </span>
             <span className="px-3 py-1.5 rounded-xl bg-[#1F4027]/60 border border-[#677865]/35 flex items-center space-x-1.5">
               <TrendingUp className="w-3.5 h-3.5 text-[#702B00]" />
-              <span>Share in Property Value Growth</span>
+              <span>{t('hubGrowthPill')}</span>
             </span>
             <span className="px-3 py-1.5 rounded-xl bg-[#1F4027]/60 border border-[#677865]/35 flex items-center space-x-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-[#702B00]" />
-              <span>100% Verified Legal Ownership</span>
+              <span>{t('hubLegalTitlePill')}</span>
             </span>
             <span className="px-3 py-1.5 rounded-xl bg-[#1F4027]/60 border border-[#677865]/35 flex items-center space-x-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#702B00]" />
-              <span>Zero Landlord Work</span>
+              <span>{t('hubZeroHasslePill')}</span>
             </span>
           </div>
 
@@ -105,7 +102,7 @@ export const InvestmentHub: React.FC = () => {
               }}
               className="px-7 py-3 rounded-xl bg-[#702B00] hover:bg-[#542000] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg cursor-pointer flex items-center space-x-2"
             >
-              <span>See Available Properties</span>
+              <span>{t('hubSeePropertiesBtn')}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
@@ -114,7 +111,7 @@ export const InvestmentHub: React.FC = () => {
               className="px-6 py-3 rounded-xl bg-[#1F4027] hover:bg-[#405D47] text-white font-bold text-xs uppercase tracking-wider border border-[#677865]/40 transition-all cursor-pointer flex items-center space-x-1.5"
             >
               <Users className="w-4 h-4 text-[#702B00]" />
-              <span>My Investments</span>
+              <span>{t('hubMyInvestmentsBtn')}</span>
             </button>
           </div>
         </div>
@@ -123,12 +120,12 @@ export const InvestmentHub: React.FC = () => {
       {/* 2. 3 Easy Steps */}
       <div className="bg-[#FFFFFF] rounded-3xl p-6 sm:p-10 border-2 border-[#677865]/25 shadow-xs">
         <div className="text-center max-w-xl mx-auto mb-8">
-          <span className="text-xs font-bold text-[#702B00] uppercase tracking-wider block">Simple &amp; Transparent</span>
+          <span className="text-xs font-bold text-[#702B00] uppercase tracking-wider block">{t('hubHowItWorksTag')}</span>
           <h2 className="text-2xl font-black text-[#09240F] tracking-tight mt-1">
-            How It Works in 3 Simple Steps
+            {t('hubHowItWorksHeading')}
           </h2>
           <p className="text-xs text-[#405D47] mt-1">
-            No complicated jargon, no hidden fees. Just straightforward property co-ownership.
+            {t('hubHowItWorksSubtitle')}
           </p>
         </div>
 
@@ -138,10 +135,10 @@ export const InvestmentHub: React.FC = () => {
               1
             </div>
             <h3 className="text-base font-bold text-[#09240F] mb-1.5">
-              Pick a Property You Like
+              {t('hubStep1Title')}
             </h3>
             <p className="text-xs text-[#405D47] leading-relaxed">
-              Explore handpicked tech offices, retail spaces, and suites with established tenants already paying rent.
+              {t('hubStep1Desc')}
             </p>
           </div>
 
@@ -150,10 +147,10 @@ export const InvestmentHub: React.FC = () => {
               2
             </div>
             <h3 className="text-base font-bold text-[#09240F] mb-1.5">
-              Choose How Much to Put In
+              {t('hubStep2Title')}
             </h3>
             <p className="text-xs text-[#405D47] leading-relaxed">
-              Start with whatever fits your budget, from ₹50,000 to ₹5 Lakhs+. You receive official legal documentation for your share.
+              {t('hubStep2Desc')}
             </p>
           </div>
 
@@ -162,10 +159,10 @@ export const InvestmentHub: React.FC = () => {
               3
             </div>
             <h3 className="text-base font-bold text-[#09240F] mb-1.5">
-              Relax &amp; Collect Your Rent
+              {t('hubStep3Title')}
             </h3>
             <p className="text-xs text-[#405D47] leading-relaxed">
-              Your share of the rent arrives in your bank account every month. When the property is sold later, you receive your full capital profit.
+              {t('hubStep3Desc')}
             </p>
           </div>
         </div>
@@ -176,14 +173,14 @@ export const InvestmentHub: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 className="text-2xl font-black text-[#09240F] tracking-tight">
-              Properties Open for Co-Investing
+              {t('hubCatalogHeading')}
             </h2>
             <p className="text-xs text-[#405D47] mt-0.5">
-              Pre-vetted properties with verified titles and reliable rental tenants in Bengaluru.
+              {t('hubCatalogSubtitle')}
             </p>
           </div>
           <span className="text-xs font-bold px-3 py-1.5 bg-[#F5F6F4] text-[#09240F] rounded-md border border-[#677865]/30 self-start sm:self-auto">
-            {investableProperties.length} Properties Available
+            {investableProperties.length} {t('hubAvailableCount')}
           </span>
         </div>
 
@@ -211,22 +208,22 @@ export const InvestmentHub: React.FC = () => {
                     
                     <div className="absolute top-3 left-3">
                       <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#702B00] text-white shadow-xs">
-                        ~{inv.grossRentalYieldPercentage}% Yearly Rent
+                        ~{inv.grossRentalYieldPercentage}% {t('hubExpectedAnnualYield')}
                       </span>
                     </div>
 
                     <div className="absolute top-3 right-3">
                       <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#09240F]/85 text-white backdrop-blur-md">
-                        Start with {formatINR(minTicket)}
+                        {t('hubStartWith')} {formatINR(minTicket)}
                       </span>
                     </div>
 
                     <div className="absolute bottom-3 inset-x-3 text-white">
                       <span className="text-[10px] font-bold text-[#702B00] uppercase tracking-wider block">
-                        Tenant
+                        {t('hubTenant')}
                       </span>
                       <p className="text-xs font-bold text-white line-clamp-1">
-                        {inv.tenantProfile || 'Blue-Chip Corporate Tenant'}
+                        {inv.tenantProfile || 'Tier-1 Institutional Tenant'}
                       </p>
                     </div>
                   </div>
@@ -251,14 +248,14 @@ export const InvestmentHub: React.FC = () => {
                       {property.tagline || property.description}
                     </p>
 
-                    {/* Progress Bar & Community Co-Owners */}
+                    {/* Progress Bar & Community Co-Investors */}
                     <div className="mt-4 p-3.5 bg-[#F5F6F4] rounded-2xl border border-[#677865]/25">
                       <div className="flex justify-between items-center text-xs font-bold mb-2">
                         <span className="text-[#09240F] flex items-center space-x-1.5">
                           <Users className="w-3.5 h-3.5 text-[#702B00]" />
-                          <span>Joined by {coInvestorsCount} co-owners</span>
+                          <span>{t('hubJoinedBy')} {coInvestorsCount}</span>
                         </span>
-                        <span className="text-[#702B00] font-black">{fundedPct}% Funded</span>
+                        <span className="text-[#702B00] font-black">{fundedPct}% {t('modalFunded')}</span>
                       </div>
                       
                       <div className="w-full h-2 bg-[#D8DED7] rounded-md overflow-hidden">
@@ -269,22 +266,22 @@ export const InvestmentHub: React.FC = () => {
                       </div>
                       
                       <div className="mt-2 text-[10px] text-[#677865] flex justify-between font-semibold">
-                        <span>Total Property: {formatINR(property.pricing.totalPrice)}</span>
-                        <span>Rent Paid: Monthly (5th)</span>
+                        <span>{t('modalTotalValuation')}: {formatINR(property.pricing.totalPrice)}</span>
+                        <span>{t('modalCreditedMonthly')}</span>
                       </div>
                     </div>
 
                     {/* Stats Highlights */}
                     <div className="grid grid-cols-2 gap-2 mt-4 text-center">
                       <div className="p-2.5 rounded-xl bg-[#F5F6F4] border border-[#677865]/20">
-                        <span className="text-[10px] font-bold text-[#677865] uppercase block">Minimum to Join</span>
+                        <span className="text-[10px] font-bold text-[#677865] uppercase block">{t('modalMinInvestment')}</span>
                         <span className="text-sm font-black text-[#09240F]">
                           {formatINR(minTicket)}
                         </span>
                       </div>
 
                       <div className="p-2.5 rounded-xl bg-[#F5F6F4] border border-[#702B00]/30">
-                        <span className="text-[10px] font-bold text-[#702B00] uppercase block">Expected Annual Rent</span>
+                        <span className="text-[10px] font-bold text-[#702B00] uppercase block">{t('hubExpectedAnnualYield')}</span>
                         <span className="text-sm font-black text-[#702B00]">
                           {inv.grossRentalYieldPercentage}% / yr
                         </span>
@@ -300,7 +297,7 @@ export const InvestmentHub: React.FC = () => {
                     onClick={() => setSelectedProperty(property)}
                     className="flex-1 py-2.5 rounded-xl bg-[#F5F6F4] hover:bg-[#FFFFFF] text-[#09240F] border border-[#677865]/30 text-xs font-bold transition-all cursor-pointer"
                   >
-                    View Details
+                    {t('hubViewDetails')}
                   </button>
 
                   <button
@@ -310,7 +307,7 @@ export const InvestmentHub: React.FC = () => {
                     }}
                     className="flex-1 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#542000] text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all cursor-pointer flex items-center justify-center space-x-1"
                   >
-                    <span>Invest in Property</span>
+                    <span>{t('hubInvestInProp')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -327,13 +324,13 @@ export const InvestmentHub: React.FC = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <span className="text-xs font-bold uppercase text-[#677865] tracking-wider">
-              Clear &amp; Simple
+              {t('hubFaqTag')}
             </span>
             <h3 className="text-2xl font-black text-[#09240F] tracking-tight mt-1">
-              Common Questions About Co-Investing
+              {t('hubFaqHeading')}
             </h3>
             <p className="text-xs text-[#405D47] mt-1">
-              Everything you and your friends need to know to get started.
+              {t('hubFaqSubtitle')}
             </p>
           </div>
 
@@ -372,15 +369,15 @@ export const InvestmentHub: React.FC = () => {
             <div className="flex items-center space-x-3">
               <ShieldCheck className="w-7 h-7 text-[#1F4027] shrink-0" />
               <div>
-                <h4 className="text-xs font-bold text-[#09240F]">Want to invest together with friends?</h4>
-                <p className="text-[11px] text-[#405D47]">Our concierge team can help structure private group investments.</p>
+                <h4 className="text-xs font-bold text-[#09240F]">{t('hubFriendsHelp')}</h4>
+                <p className="text-[11px] text-[#405D47]">{t('hubFriendsHelpDesc')}</p>
               </div>
             </div>
             <a
               href="mailto:concierge@remestates.in"
               className="px-4 py-2 bg-[#702B00] hover:bg-[#542000] text-white text-xs font-bold rounded-xl whitespace-nowrap transition-colors"
             >
-              Talk to Us
+              {t('hubTalkToUs')}
             </a>
           </div>
 

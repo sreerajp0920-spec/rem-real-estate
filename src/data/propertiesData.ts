@@ -6,7 +6,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     title: 'REM Silicon Nexus Commercial Tech Hub (Floor 4)',
     developer: 'REM Commercial Assets',
     tagline: '₹1 Crore Grade-A Tech Hub pre-leased to Fortune 500 MNC • 10-Share Pool @ ₹10L/Share',
-    description: 'A Grade-A institutional IT park workspace in Bengaluru’s high-growth Outer Ring Road corridor. 100% pre-leased to Deloitte Digital & AWS Innovation Lab under a 9-year corporate lock-in lease with 15% escalation every 3 years. Structured as an exclusive 10-share fractional pool for 10 co-owners.',
+    description: 'A Grade-A institutional IT park workspace in Bengaluru’s high-growth Outer Ring Road corridor. 100% pre-leased to Deloitte Digital & AWS Innovation Lab under a 9-year corporate lock-in lease with 15% escalation every 3 years. Structured as an exclusive 10-share fractional pool for 10 co-investors.',
     category: 'high_yield_investment',
     status: 'High Yield Active',
     isUpcoming: false,
@@ -50,9 +50,9 @@ export const INITIAL_PROPERTIES: Property[] = [
       appreciationPotential: 96,
       reraId: 'PRM/KA/RERA/COMM/2024/009121',
       pros: [
-        '10-person fractional ownership: exactly 10 equal shares of ₹10 Lakhs each',
-        '9-year corporate lease with Fortune 500 tech tenant with zero rent default risk',
-        'Direct monthly rental payout credited to your bank account on the 5th of every month',
+        '10-person fractional co-investment: exactly 10 equal shares of ₹10 Lakhs each',
+        '9-year corporate lease with Fortune 500 tech tenant with zero tenant default risk',
+        'Direct monthly yield payout credited to your bank account on the 5th of every month',
         'Clear title deed registered under a dedicated SPV with full RERA compliance'
       ],
       cons: [
@@ -101,8 +101,8 @@ export const INITIAL_PROPERTIES: Property[] = [
     floorPlanUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
     amenities: [
       'Pre-Leased to Blue-Chip Fortune 500 Tenant',
-      'Direct SPV Legal Co-Ownership Certificate',
-      'Monthly Rental Payout on 5th via NEFT',
+      'Direct SPV Legal Co-Investment Certificate',
+      'Monthly Yield Payout on 5th via NEFT',
       '4-Year Liquidity Exit Guarantee',
       '100% DG Power & Leased Fiber Grid'
     ],
@@ -166,7 +166,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       pros: [
         '10-share syndication pool for ₹1 Crore high-demand retail asset',
         'Top-tier coffee & lifestyle retailer pre-leased for 7 years',
-        '10.2% gross rental yield with monthly payouts of ₹8,500 per share',
+        '10.2% gross annual yield with monthly payouts of ₹8,500 per share',
         'Projected exit appreciation to ₹14.8 Lakhs per share (+48% gain)'
       ],
       cons: [
@@ -212,8 +212,8 @@ export const INITIAL_PROPERTIES: Property[] = [
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
     amenities: [
       'Prime Double-Height Corner Frontage',
-      'Direct SPV Legal Co-Ownership Certificate',
-      'Monthly Rental Payout on 5th via NEFT',
+      'Direct SPV Legal Co-Investment Certificate',
+      'Monthly Yield Payout on 5th via NEFT',
       'Escalator & High Footfall Nexus',
       '24/7 Power Backup & VRV Air Conditioning'
     ],
@@ -275,9 +275,9 @@ export const INITIAL_PROPERTIES: Property[] = [
       appreciationPotential: 98,
       reraId: 'PRM/KA/RERA/VILLA/2024/005831',
       pros: [
-        '10-person fractional ownership: exactly 10 equal shares of ₹10 Lakhs each',
+        '10-person fractional co-investment: exactly 10 equal shares of ₹10 Lakhs each',
         'Airport corridor property with massive land capital appreciation potential',
-        '9.0% net rental distribution plus free 14-day owner stay voucher per year',
+        '9.0% net yield distribution plus free 14-day owner stay voucher per year',
         'Exit projection to ₹14.2 Lakhs per share in 4 years (+42% appreciation gain)'
       ],
       cons: [
@@ -326,8 +326,8 @@ export const INITIAL_PROPERTIES: Property[] = [
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1000&q=80',
     amenities: [
       '14-Day Owner Stay Voucher Every Year',
-      'Direct SPV Legal Co-Ownership Certificate',
-      'Monthly Rental Payout on 5th via NEFT',
+      'Direct SPV Legal Co-Investment Certificate',
+      'Monthly Yield Payout on 5th via NEFT',
       'Clubhouse, Infinity Pool & Concierge',
       'High-Growth Airport Investment Corridor'
     ],
@@ -405,7 +405,8 @@ export const INITIAL_PROPERTIES: Property[] = [
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80'
     ],
-    videoTourUrl: 'https://assets.mixkit.co/videos/preview/mixkit-living-room-in-a-luxury-home-42407-large.mp4',
+    videos: ['./videos/walkthrough-hd.mp4'],
+    videoTourUrl: './videos/walkthrough-hd.mp4',
     floorPlanUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1000&q=80',
     amenities: [
       'Heated Rooftop Infinity Pool',
@@ -1014,13 +1015,13 @@ export const INITIAL_PROPERTIES: Property[] = [
       projectEfficiency: 89,
       legalClearance: 98,
       appreciationPotential: 90,
-      reraId: 'PRM/KA/RERA/RENT/2024/00188',
+      reraId: 'PRM/KA/RERA/RES/2024/00188',
       pros: [
         '100% turnkey fully furnished with high-end designer furniture',
         'Just 600m to MG Road Metro interchange'
       ],
       cons: [
-        '10-month rental security deposit required'
+        'Premium interior handover requires 15-day notice'
       ]
     },
     images: [

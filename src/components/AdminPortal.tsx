@@ -23,6 +23,7 @@ import {
   Video,
   Plus,
   X,
+  Upload,
   LogOut
 } from 'lucide-react';
 
@@ -765,28 +766,72 @@ export const AdminPortal: React.FC = () => {
                 <span className="text-[10px] font-semibold text-[#677865]">Add multiple video tour walkthrough URLs</span>
               </div>
 
-              <button
-                type="button"
-                onClick={() => {
-                  const sampleVideos = [
-                    'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-living-room-and-kitchen-42777-large.mp4',
-                    'https://assets.mixkit.co/videos/preview/mixkit-living-room-in-a-luxury-home-42407-large.mp4',
-                    'https://assets.mixkit.co/videos/preview/mixkit-modern-office-space-with-tables-and-chairs-41682-large.mp4',
-                    'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-countryside-residence-42868-large.mp4'
-                  ];
-                  const currentVids = formData.videos || (formData.videoTourUrl ? [formData.videoTourUrl] : []);
-                  const nextVid = sampleVideos[currentVids.length % sampleVideos.length];
-                  const updated = [...currentVids, nextVid];
-                  setFormData({
-                    ...formData,
-                    videos: updated,
-                    videoTourUrl: updated[0] || ''
-                  });
-                }}
-                className="text-[11px] font-bold text-[#09240F] hover:text-[#702B00] bg-[#F5F6F4] hover:bg-[#677865]/20 px-2.5 py-1 rounded-lg transition-all cursor-pointer self-start sm:self-center border border-[#677865]/20"
-              >
-                + Add Sample Video
-              </button>
+              <div className="flex flex-wrap items-center gap-1.5 self-start sm:self-center">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const currentVids = formData.videos || (formData.videoTourUrl ? [formData.videoTourUrl] : []);
+                    const updated = ['./videos/walkthrough-hd.mp4', ...currentVids.filter(v => v !== './videos/walkthrough-hd.mp4')];
+                    setFormData({
+                      ...formData,
+                      videos: updated,
+                      videoTourUrl: updated[0] || ''
+                    });
+                  }}
+                  className="text-[11px] font-bold text-white bg-blue-600 hover:bg-blue-700 px-2.5 py-1 rounded-lg transition-all cursor-pointer flex items-center space-x-1"
+                  title="Attach the local 1080p HD walkthrough video"
+                >
+                  <Video className="w-3 h-3" />
+                  <span>+ Use HD Video</span>
+                </button>
+
+                <label className="text-[11px] font-bold text-[#09240F] hover:text-[#702B00] bg-[#F5F6F4] hover:bg-[#677865]/20 px-2.5 py-1 rounded-lg transition-all cursor-pointer border border-[#677865]/20 flex items-center space-x-1">
+                  <Upload className="w-3 h-3 text-[#702B00]" />
+                  <span>Upload MP4</span>
+                  <input
+                    type="file"
+                    accept="video/mp4,video/webm"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const url = URL.createObjectURL(file);
+                        const currentVids = formData.videos || (formData.videoTourUrl ? [formData.videoTourUrl] : []);
+                        const updated = [url, ...currentVids];
+                        setFormData({
+                          ...formData,
+                          videos: updated,
+                          videoTourUrl: updated[0] || ''
+                        });
+                        e.target.value = '';
+                      }
+                    }}
+                  />
+                </label>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    const sampleVideos = [
+                      'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-living-room-and-kitchen-42777-large.mp4',
+                      'https://assets.mixkit.co/videos/preview/mixkit-living-room-in-a-luxury-home-42407-large.mp4',
+                      'https://assets.mixkit.co/videos/preview/mixkit-modern-office-space-with-tables-and-chairs-41682-large.mp4',
+                      'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-countryside-residence-42868-large.mp4'
+                    ];
+                    const currentVids = formData.videos || (formData.videoTourUrl ? [formData.videoTourUrl] : []);
+                    const nextVid = sampleVideos[currentVids.length % sampleVideos.length];
+                    const updated = [...currentVids, nextVid];
+                    setFormData({
+                      ...formData,
+                      videos: updated,
+                      videoTourUrl: updated[0] || ''
+                    });
+                  }}
+                  className="text-[11px] font-bold text-[#09240F] hover:text-[#702B00] bg-[#F5F6F4] hover:bg-[#677865]/20 px-2.5 py-1 rounded-lg transition-all cursor-pointer border border-[#677865]/20"
+                >
+                  + Sample Video
+                </button>
+              </div>
             </div>
 
             {/* Add Video Input */}

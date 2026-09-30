@@ -46,7 +46,8 @@ export const PropertyDetailModal: React.FC<PropertyDetailModalProps> = ({
     toggleCompare, 
     bookSiteVisit,
     setIsInvestModalOpen,
-    setInvestTargetProperty
+    setInvestTargetProperty,
+    t
   } = useApp();
 
   const [activeMediaTab, setActiveMediaTab] = useState<'photos' | 'video' | 'floorplan'>('photos');
@@ -166,7 +167,7 @@ Certified by REM Advisory & Legal Compliance Division.
               className="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#F5F6F4] hover:bg-[#677865]/20 text-[#09240F] text-xs font-bold transition-all border border-[#677865]/20 cursor-pointer"
             >
               <Download className="w-3.5 h-3.5 text-[#702B00]" />
-              <span>Download Brochure</span>
+              <span>{t('modalDownloadBrochure')}</span>
             </button>
 
             <button
@@ -224,7 +225,7 @@ Certified by REM Advisory & Legal Compliance Division.
                   }`}
                 >
                   <ImageIcon className="w-3.5 h-3.5" />
-                  <span>HD Gallery ({property.images.length})</span>
+                  <span>{t('modalHdGallery')} ({property.images.length})</span>
                 </button>
 
                 <button
@@ -236,7 +237,7 @@ Certified by REM Advisory & Legal Compliance Division.
                   }`}
                 >
                   <Play className="w-3.5 h-3.5" />
-                  <span>Video Walkthrough</span>
+                  <span>{t('modalVideoTour')}</span>
                 </button>
 
                 <button
@@ -248,12 +249,12 @@ Certified by REM Advisory & Legal Compliance Division.
                   }`}
                 >
                   <Layout className="w-3.5 h-3.5" />
-                  <span>2D/3D Floor Plans</span>
+                  <span>{t('modalFloorPlans')}</span>
                 </button>
               </div>
 
               <div className="hidden sm:block text-xs font-mono text-[#677865]">
-                Verified On-Site by REM Visual Team
+                {t('modalVerifiedOnSite')}
               </div>
             </div>
 
@@ -272,13 +273,15 @@ Certified by REM Advisory & Legal Compliance Division.
                   {propertyVideos.length > 0 ? (
                     <video
                       key={propertyVideos[selectedVideoIndex]}
-                      src={propertyVideos[selectedVideoIndex]}
                       controls
                       autoPlay
                       loop
                       muted
+                      playsInline
+                      preload="metadata"
                       className="w-full h-full max-h-[420px] rounded-xl object-cover shadow-2xl"
                     >
+                      <source src={propertyVideos[selectedVideoIndex]} type="video/mp4" />
                       Your browser does not support video walkthroughs.
                     </video>
                   ) : (
@@ -379,7 +382,7 @@ Certified by REM Advisory & Legal Compliance Division.
           <div className="p-6 rounded-3xl bg-white border border-[#677865]/20 shadow-xs">
             <h3 className="text-lg font-bold text-[#09240F] mb-4 flex items-center space-x-2 font-helvetica-bold">
               <Maximize2 className="w-5 h-5 text-[#702B00]" />
-              <span>Full Dimensions &amp; Construction Specifications</span>
+              <span>{t('modalSpatialSpecs')}</span>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -416,7 +419,7 @@ Certified by REM Advisory & Legal Compliance Division.
               {/* Construction Specs Table */}
               <div className="border border-[#677865]/20 rounded-2xl overflow-hidden text-xs">
                 <div className="p-3 bg-[#F5F6F4] font-bold text-[#09240F] border-b border-[#677865]/20 font-helvetica-bold">
-                  Engineering &amp; Material Specifications
+                  {t('modalEngineeringSpecs')}
                 </div>
                 <div className="divide-y divide-[#677865]/15">
                   <div className="flex justify-between p-3">
@@ -450,7 +453,7 @@ Certified by REM Advisory & Legal Compliance Division.
           <div className="p-6 rounded-3xl bg-[#F5F6F4] border border-[#677865]/20">
             <h3 className="text-base font-bold text-[#09240F] mb-3 flex items-center space-x-2 font-helvetica-bold">
               <Sparkles className="w-4 h-4 text-[#702B00]" />
-              <span>Lifestyle &amp; Project Amenities</span>
+              <span>{t('modalLifestyleAmenities')}</span>
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
               {property.amenities.map((amenity, i) => (
@@ -469,23 +472,23 @@ Certified by REM Advisory & Legal Compliance Division.
                 <div>
                   <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-md bg-[#702B00]/20 text-[#F5F6F4] text-[11px] font-bold uppercase tracking-wider mb-2 border border-[#702B00]/40">
                     <TrendingUp className="w-3.5 h-3.5 text-[#702B00]" />
-                    <span>High-Yield Property Investment</span>
+                    <span>{t('navHighYield')}</span>
                   </div>
                   <h3 className="text-2xl font-black tracking-tight text-white font-helvetica-black">
-                    Co-Own This Asset &amp; Earn Passive Returns
+                    {t('modalCoInvestSectionTitle')}
                   </h3>
                   <p className="text-xs text-[#F5F6F4]/70 mt-1 max-w-xl leading-relaxed">
-                    Pre-leased to {property.investment.tenantProfile || 'Tier-1 Multinational Tenant'}. Earn monthly rental dividends deposited via NEFT + exit capital appreciation profit.
+                    {t('modalCoInvestSectionSub')}
                   </p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white/10 border border-[#1F4027]/40 text-right sm:text-right shrink-0">
-                  <span className="text-[10px] font-bold text-[#677865] uppercase block">Min. Investment</span>
+                  <span className="text-[10px] font-bold text-[#677865] uppercase block">{t('modalMinInvestment')}</span>
                   <span className="text-2xl font-black text-white block font-helvetica-bold">
                     {formatINR(property.investment.minTicketSize || 50000)}
                   </span>
                   <span className="text-[11px] text-[#F5F6F4]/80 font-semibold block mt-0.5">
-                    {property.investment.grossRentalYieldPercentage}% Gross Yield
+                    {property.investment.grossRentalYieldPercentage}% {t('modalGrossYield')}
                   </span>
                 </div>
               </div>
@@ -493,8 +496,8 @@ Certified by REM Advisory & Legal Compliance Division.
               {/* Funding Progress Bar */}
               <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
                 <div className="flex justify-between items-center text-xs font-bold mb-2">
-                  <span className="text-[#F5F6F4]/80">Syndicate Funding Progress</span>
-                  <span className="text-[#F5F6F4] font-bold">{property.investment.fundedPercentage || 70}% Funded</span>
+                  <span className="text-[#F5F6F4]/80">{t('modalFundingProgress')}</span>
+                  <span className="text-[#F5F6F4] font-bold">{property.investment.fundedPercentage || 70}% {t('modalFunded')}</span>
                 </div>
                 <div className="w-full h-3 bg-white/10 rounded-md overflow-hidden">
                   <div 
@@ -503,31 +506,31 @@ Certified by REM Advisory & Legal Compliance Division.
                   />
                 </div>
                 <div className="mt-2 text-[11px] text-[#677865] flex justify-between font-medium">
-                  <span>Total Valuation: {formatINR(property.pricing.totalPrice)}</span>
-                  <span>Target IRR: {property.investment.projectedIRRPercentage}%</span>
+                  <span>{t('modalTotalValuation')}: {formatINR(property.pricing.totalPrice)}</span>
+                  <span>{t('modalTargetIRR')}: {property.investment.projectedIRRPercentage}%</span>
                 </div>
               </div>
 
               {/* Financial Metrics */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 text-center">
                 <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="text-[10px] font-bold text-[#677865] uppercase block">Rental Yield</span>
+                  <span className="text-[10px] font-bold text-[#677865] uppercase block">{t('modalAnnualYield')}</span>
                   <span className="text-base font-black text-[#F5F6F4] font-helvetica-bold">
                     {property.investment.grossRentalYieldPercentage}% p.a.
                   </span>
-                  <span className="text-[9px] text-[#677865] block mt-0.5">Credited 5th of every month</span>
+                  <span className="text-[9px] text-[#677865] block mt-0.5">{t('modalCreditedMonthly')}</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="text-[10px] font-bold text-[#677865] uppercase block">Tenure</span>
+                  <span className="text-[10px] font-bold text-[#677865] uppercase block">{t('modalTenure')}</span>
                   <span className="text-base font-black text-white font-helvetica-bold">
                     {property.investment.tenureYears || 4} Years
                   </span>
-                  <span className="text-[9px] text-[#F5F6F4]/70 block mt-0.5">+45% Capital Appreciation</span>
+                  <span className="text-[9px] text-[#F5F6F4]/70 block mt-0.5">+{property.investment.projectedAppreciationPercentage || 45}% {t('modalCapitalAppreciation')}</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="text-[10px] font-bold text-[#677865] uppercase block">Legal Title</span>
+                  <span className="text-[10px] font-bold text-[#677865] uppercase block">{t('modalLegalTitle')}</span>
                   <span className="text-base font-black text-[#F5F6F4] font-helvetica-bold">100% SPV Equity</span>
                   <span className="text-[9px] text-[#677865] block mt-0.5">RERA &amp; SEBI Escrow</span>
                 </div>
@@ -535,7 +538,7 @@ Certified by REM Advisory & Legal Compliance Division.
 
               <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="text-xs text-[#677865]">
-                  Minimum investment starting from {formatINR(property.investment.minTicketSize || 50000)}.
+                  {t('modalMinInvestment')}: {formatINR(property.investment.minTicketSize || 50000)}.
                 </div>
                 <button
                   type="button"
@@ -546,7 +549,7 @@ Certified by REM Advisory & Legal Compliance Division.
                   className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-[#702B00]/20 transition-all cursor-pointer flex items-center justify-center space-x-1.5"
                 >
                   <TrendingUp className="w-4 h-4" />
-                  <span>Invest in Property</span>
+                  <span>{t('cardInvestBtn')}</span>
                 </button>
               </div>
             </div>
@@ -556,9 +559,15 @@ Certified by REM Advisory & Legal Compliance Division.
           <div className="p-6 sm:p-8 rounded-3xl bg-[#F5F6F4] border border-[#677865]/20">
             <div className="max-w-xl mx-auto">
               <div className="text-center mb-6">
-                <span className="text-xs font-bold text-[#702B00] uppercase tracking-widest block font-helvetica-bold">Concierge Site Tours</span>
-                <h4 className="text-xl font-black text-[#09240F] mt-1 font-helvetica-black">Book an Exclusive VIP Site Walkthrough</h4>
-                <p className="text-xs text-[#405D47] mt-1">Experience the property with a senior REM architectural relationship manager. No pressure, 0% brokerage.</p>
+                <span className="text-xs font-bold text-[#702B00] uppercase tracking-widest block font-helvetica-bold">
+                  {t('modalConciergeTours')}
+                </span>
+                <h4 className="text-xl font-black text-[#09240F] mt-1 font-helvetica-black">
+                  {t('modalBookVipWalkthrough')}
+                </h4>
+                <p className="text-xs text-[#405D47] mt-1">
+                  {t('modalWalkthroughDesc')}
+                </p>
               </div>
 
               {bookingSuccess ? (
@@ -571,7 +580,7 @@ Certified by REM Advisory & Legal Compliance Division.
                 <form onSubmit={handleBookVisit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-xs font-bold text-[#09240F] block mb-1">Preferred Date</label>
+                      <label className="text-xs font-bold text-[#09240F] block mb-1">{t('modalPreferredDate')}</label>
                       <input
                         type="date"
                         required
@@ -582,7 +591,7 @@ Certified by REM Advisory & Legal Compliance Division.
                     </div>
 
                     <div>
-                      <label className="text-xs font-bold text-[#09240F] block mb-1">Preferred Time Slot</label>
+                      <label className="text-xs font-bold text-[#09240F] block mb-1">{t('modalPreferredTime')}</label>
                       <select
                         value={visitSlot}
                         onChange={(e) => setVisitSlot(e.target.value)}
@@ -606,7 +615,7 @@ Certified by REM Advisory & Legal Compliance Division.
                           : 'bg-white text-[#405D47] border-[#677865]/25 hover:bg-[#F5F6F4]'
                       }`}
                     >
-                      Physical On-Site Visit
+                      {t('modalPhysicalVisit')}
                     </button>
                     <button
                       type="button"
@@ -617,7 +626,7 @@ Certified by REM Advisory & Legal Compliance Division.
                           : 'bg-white text-[#405D47] border-[#677865]/25 hover:bg-[#F5F6F4]'
                       }`}
                     >
-                      Live Virtual Walkthrough
+                      {t('modalVirtualVisit')}
                     </button>
                   </div>
 
@@ -625,7 +634,7 @@ Certified by REM Advisory & Legal Compliance Division.
                     type="submit"
                     className="w-full py-3 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
                   >
-                    Confirm VIP Site Visit
+                    {t('modalConfirmVisit')}
                   </button>
                 </form>
               )}
@@ -661,7 +670,7 @@ Certified by REM Advisory & Legal Compliance Division.
                 className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#09240F] hover:bg-[#1F4027] text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer flex items-center justify-center space-x-1 border border-[#1F4027]/30"
               >
                 <TrendingUp className="w-3.5 h-3.5 text-[#702B00]" />
-                <span>Claim 1 Share ({formatINR(property.investment.sharePrice || 1000000)})</span>
+                <span>{t('modalClaimShare')} ({formatINR(property.investment.sharePrice || 1000000)})</span>
               </button>
             )}
 
@@ -671,7 +680,7 @@ Certified by REM Advisory & Legal Compliance Division.
               }}
               className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-black text-xs uppercase tracking-wider shadow-md shadow-[#702B00]/20 transition-all cursor-pointer"
             >
-              Book Priority Token
+              {t('modalBookPriorityToken')}
             </button>
           </div>
         </div>

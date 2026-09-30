@@ -41,16 +41,17 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
     propertyTypeFilter,
     setPropertyTypeFilter,
     preLaunchOnly,
-    setPreLaunchOnly
+    setPreLaunchOnly,
+    t
   } = useApp();
 
   const propertyTypes: { label: string; value: PropertyTypeFilter }[] = [
-    { label: 'All Types', value: 'all' },
-    { label: 'Apartments', value: 'Apartment' },
-    { label: 'Villas', value: 'Villa' },
-    { label: 'Plots', value: 'Plot' },
-    { label: 'Penthouses', value: 'Penthouse' },
-    { label: 'Commercial', value: 'Commercial' },
+    { label: t('catAll'), value: 'all' },
+    { label: t('navApartments'), value: 'Apartment' },
+    { label: t('navVillas'), value: 'Villa' },
+    { label: t('navPlots'), value: 'Plot' },
+    { label: t('navPenthouses'), value: 'Penthouse' },
+    { label: t('navCommercial'), value: 'Commercial' },
   ];
 
   const bhkOptions = [
@@ -63,7 +64,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   ];
 
   const cities = [
-    { label: 'Location', value: 'all' },
+    { label: t('filterLocation'), value: 'all' },
     { label: 'South Bengaluru', value: 'South Bengaluru' },
     { label: 'North Bengaluru', value: 'North Bengaluru' },
   ];
@@ -105,14 +106,14 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h3 className="text-sm font-extrabold text-[#09240F] tracking-tight">Property Filters</h3>
+              <h3 className="text-sm font-extrabold text-[#09240F] tracking-tight">{t('filterTitle')}</h3>
               {activeFilterCount > 0 && (
                 <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-[#702B00] text-white">
-                  {activeFilterCount} Active
+                  {activeFilterCount} {t('filterActive')}
                 </span>
               )}
             </div>
-            <p className="text-[11px] text-[#405D47] font-medium">Refine listings by property type, BHK, budget &amp; location</p>
+            <p className="text-[11px] text-[#405D47] font-medium">{t('filterSubtitle')}</p>
           </div>
         </div>
 
@@ -124,7 +125,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
               title="Reset all filters"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Reset</span>
+              <span>{t('filterReset')}</span>
             </button>
           )}
         </div>
@@ -133,7 +134,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
       {/* Row 1: Property Type Pills */}
       <div>
         <label className="text-[11px] font-bold text-[#677865] uppercase tracking-wider block mb-1.5">
-          Property Type
+          {t('filterPropertyType')}
         </label>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {propertyTypes.map(t => {
@@ -158,7 +159,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
       {/* Row 2: BHK Configuration Pills */}
       <div>
         <label className="text-[11px] font-bold text-[#677865] uppercase tracking-wider block mb-1.5">
-          Unit Configuration (BHK)
+          {t('filterUnitConfig')}
         </label>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {bhkOptions.map(bhk => {
@@ -187,7 +188,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
         <div className="md:col-span-3">
           <label className="flex items-center space-x-1.5 text-xs font-bold text-[#09240F] mb-1">
             <MapPin className="w-3.5 h-3.5 text-[#405D47]" />
-            <span>Location</span>
+            <span>{t('filterLocation')}</span>
           </label>
           <select
             value={cityFilter}
@@ -204,7 +205,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
         <div className="md:col-span-3">
           <label className="flex items-center space-x-1.5 text-xs font-bold text-[#09240F] mb-1">
             <Calendar className="w-3.5 h-3.5 text-[#405D47]" />
-            <span>Construction Stage</span>
+            <span>{t('filterStage')}</span>
           </label>
           <select
             value={statusFilter}
@@ -221,16 +222,16 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
         <div className="md:col-span-3">
           <label className="flex items-center space-x-1.5 text-xs font-bold text-[#09240F] mb-1">
             <ArrowUpDown className="w-3.5 h-3.5 text-[#405D47]" />
-            <span>Sort Listings</span>
+            <span>{t('filterSort')}</span>
           </label>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
             className="w-full text-xs font-bold text-[#09240F] bg-[#F5F6F4] hover:bg-[#F5F6F4]/80 border border-[#677865]/30 rounded-xl px-3 py-2 outline-none focus:ring-1 focus:ring-[#702B00] cursor-pointer transition-all"
           >
-            <option value="price_asc">Price: Low to High</option>
-            <option value="price_desc">Price: High to Low</option>
-            <option value="area_desc">Largest Carpet Area</option>
+            <option value="price_asc">{t('filterPriceLowHigh')}</option>
+            <option value="price_desc">{t('filterPriceHighLow')}</option>
+            <option value="area_desc">{t('filterAreaLargest')}</option>
           </select>
         </div>
 
@@ -245,7 +246,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             }`}
           >
             <Sparkles className={`w-3.5 h-3.5 ${preLaunchOnly ? 'text-white fill-white' : 'text-[#677865]'}`} />
-            <span>Pre-Launch Deals Only</span>
+            <span>{t('filterPreLaunchOnly')}</span>
           </button>
         </div>
 
@@ -255,7 +256,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
       <div className="pt-2.5 border-t border-[#677865]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
         <div className="flex items-center space-x-1.5 text-xs font-bold text-[#09240F]">
           <DollarSign className="w-3.5 h-3.5 text-[#702B00]" />
-          <span>Purchase Budget Range</span>
+          <span>{t('filterBudget')}</span>
         </div>
 
         <div className="w-full sm:w-[45%] sm:max-w-md ml-auto">
@@ -263,7 +264,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             <span className="text-[11px] font-semibold text-[#677865]">Max Budget:</span>
             <span className="text-xs font-black text-[#702B00] bg-[#F5F6F4] px-2.5 py-0.5 rounded-lg border border-[#702B00]/30">
               {maxBudgetFilter >= 50000000 
-                ? 'Any Budget' 
+                ? t('filterAnyBudget') 
                 : `< ${formatINR(maxBudgetFilter)}`}
             </span>
           </div>
@@ -350,7 +351,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             onClick={handleReset}
             className="text-[11px] font-bold text-[#532001] hover:underline cursor-pointer ml-auto"
           >
-            Clear All
+            {t('filterClearAll')}
           </button>
         </div>
       )}

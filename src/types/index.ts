@@ -75,7 +75,7 @@ export interface InvestmentMetrics {
   fundedPercentage: number; // e.g. 70%
   tenantProfile?: string; // e.g. 'Amazon India Dev Center', 'Deloitte Digital'
   capitalAppreciationForecast: { year: number; projectedValue: number }[];
-  // 10-Share Co-Ownership Pool Details
+  // 10-Share Co-Investment Pool Details
   isFractionalPool?: boolean;
   totalShares?: number; // 10
   soldShares?: number; // e.g. 7
@@ -83,6 +83,7 @@ export interface InvestmentMetrics {
   poolTotalValuation?: number; // 1,00,00,000 (1 Crore)
   monthlyPayoutPerShare?: number; // e.g. 8000
   projectedExitPayoutPerShare?: number; // e.g. 1450000
+  projectedAppreciationPercentage?: number; // e.g. 45
   coInvestors?: CoInvestorSlot[];
 }
 
@@ -107,7 +108,7 @@ export interface Property {
   videos?: string[]; // Multiple video walkthrough links
   floorPlanUrl: string;
   amenities: string[];
-  listingType?: 'sale' | 'rent';
+  listingType?: 'sale';
   propertyType?: 'Apartment' | 'Villa' | 'Plot' | 'Penthouse' | 'Commercial';
   monthlyRent?: number;
   specs: {
@@ -120,7 +121,7 @@ export interface Property {
   createdAt: string;
 }
 
-export type ListingTypeFilter = 'all' | 'sale' | 'rent';
+export type ListingTypeFilter = 'all' | 'sale';
 export type PropertyTypeFilter = 'all' | 'Apartment' | 'Villa' | 'Plot' | 'Penthouse' | 'Commercial';
 
 export interface UserInvestment {

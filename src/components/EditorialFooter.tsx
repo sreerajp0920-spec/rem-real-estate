@@ -3,7 +3,7 @@ import { Compass, ShieldCheck, Mail, MapPin, Lock, ArrowUp } from 'lucide-react'
 import { useApp } from '../context/AppContext';
 
 export const EditorialFooter: React.FC = () => {
-  const { setActiveTab, currentUser, setIsAdminAuthModalOpen, setIsCompanyInvestModalOpen } = useApp();
+  const { setActiveTab, currentUser, setIsAdminAuthModalOpen, setIsCompanyInvestModalOpen, t } = useApp();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -26,7 +26,7 @@ export const EditorialFooter: React.FC = () => {
           </div>
 
           <span className="font-helvetica-bold text-xs uppercase tracking-[0.3em] text-[#702B00] mb-3 block">
-            PRIVATE CLIENT CONCIERGE &amp; SALES SUITE
+            {t('footerSalesSuite')}
           </span>
 
           {/* Giant Helvetica Phone Number */}
@@ -66,14 +66,14 @@ export const EditorialFooter: React.FC = () => {
               </div>
             </div>
             <p className="font-helvetica text-[#F5F6F4]/80 text-xs leading-relaxed font-normal">
-              Direct developer curation. 0% buyer brokerage. All properties verified for land title, RERA sanctions, and carpet efficiency.
+              {t('footerDirectDev')}
             </p>
             <div className="pt-2">
               <button
                 onClick={() => setIsCompanyInvestModalOpen(true)}
                 className="inline-flex items-center space-x-1.5 text-xs text-[#702B00] hover:text-white font-helvetica-bold tracking-wider uppercase border-b border-[#702B00]/60 pb-0.5 transition-colors cursor-pointer"
               >
-                <span>Invest in REM Estates Equity</span>
+                <span>{t('footerInvestEquity')}</span>
                 <span>→</span>
               </button>
             </div>
@@ -82,7 +82,7 @@ export const EditorialFooter: React.FC = () => {
           {/* Col 2: Portfolio Links */}
           <div className="space-y-2">
             <h4 className="text-[10px] uppercase font-bold tracking-[0.25em] text-[#677865] mb-3">
-              Curated Collections
+              {t('footerCuratedCollections')}
             </h4>
             <ul className="space-y-2 text-[#F5F6F4]/80 text-[12px] font-light">
               <li>
@@ -93,7 +93,7 @@ export const EditorialFooter: React.FC = () => {
                   }}
                   className="hover:text-[#702B00] transition-colors cursor-pointer"
                 >
-                  Sky Penthouses
+                  {t('footerSkyPenthouses')}
                 </button>
               </li>
               <li>
@@ -104,7 +104,7 @@ export const EditorialFooter: React.FC = () => {
                   }}
                   className="hover:text-[#702B00] transition-colors cursor-pointer"
                 >
-                  Bespoke Garden Villas
+                  {t('footerGardenVillas')}
                 </button>
               </li>
               <li>
@@ -115,7 +115,7 @@ export const EditorialFooter: React.FC = () => {
                   }}
                   className="hover:text-[#702B00] transition-colors cursor-pointer"
                 >
-                  High-Yield Commercial Tech Parks
+                  {t('footerCommercialHubs')}
                 </button>
               </li>
             </ul>
@@ -124,7 +124,7 @@ export const EditorialFooter: React.FC = () => {
           {/* Col 3: Legal & Trust */}
           <div className="space-y-2">
             <h4 className="text-[10px] uppercase font-bold tracking-[0.25em] text-[#677865] mb-3">
-              Compliance &amp; Trust
+              {t('footerCompliance')}
             </h4>
             <ul className="space-y-2 text-[#F5F6F4]/80 text-[12px] font-light">
               <li>
@@ -135,7 +135,7 @@ export const EditorialFooter: React.FC = () => {
                   }}
                   className="hover:text-[#702B00] transition-colors cursor-pointer"
                 >
-                  Privacy Policy (DPDPA 2023)
+                  {t('footerPrivacyPolicy')}
                 </button>
               </li>
               <li>
@@ -146,11 +146,11 @@ export const EditorialFooter: React.FC = () => {
                   }}
                   className="hover:text-[#702B00] transition-colors cursor-pointer"
                 >
-                  Terms &amp; Conditions (RERA Compliant)
+                  {t('footerTermsConditions')}
                 </button>
               </li>
               <li className="text-[#677865]">
-                100% Refundable Token Policy
+                {t('footerRefundPolicy')}
               </li>
             </ul>
           </div>
@@ -158,10 +158,10 @@ export const EditorialFooter: React.FC = () => {
           {/* Col 4: Private Consultation */}
           <div className="space-y-3">
             <h4 className="text-[10px] uppercase font-bold tracking-[0.25em] text-[#677865] mb-3">
-              Inquire Directly
+              {t('footerInquireDirectly')}
             </h4>
             <p className="text-[#F5F6F4]/80 text-[11px] font-light leading-relaxed">
-              Schedule a confidential consultation or chauffeur-driven private site inspection.
+              {t('footerScheduleConsultation')}
             </p>
             <a
               href="mailto:concierge@remestates.in"
@@ -176,7 +176,7 @@ export const EditorialFooter: React.FC = () => {
 
         {/* Bottom Bar: Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#677865] font-light gap-4">
-          <p>© 2026 REM Estates India Pvt. Ltd. All rights reserved.</p>
+          <p>{t('footerRights')}</p>
 
           <div className="flex items-center space-x-6">
             <button
@@ -191,14 +191,14 @@ export const EditorialFooter: React.FC = () => {
               title="Staff Portal"
             >
               <Lock className="w-3 h-3" />
-              <span>Staff Access</span>
+              <span>{t('footerStaffAccess')}</span>
             </button>
 
             <button
               onClick={scrollToTop}
               className="hover:text-[#702B00] flex items-center space-x-1.5 cursor-pointer transition-colors"
             >
-              <span>Back to Top</span>
+              <span>{t('footerBackToTop')}</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>

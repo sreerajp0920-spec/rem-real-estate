@@ -47,7 +47,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
             REM Estates (&quot;REM&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates the real estate discovery and co-investment platform accessible at remestates.in and its affiliated digital properties. We are committed to safeguarding personal data in compliance with India&apos;s Digital Personal Data Protection Act (DPDPA), 2023, the Information Technology Act, 2000, and the Real Estate (Regulation and Development) Act (RERA).
           </p>
           <p className="text-xs sm:text-sm text-[#405D47] leading-relaxed">
-            This Privacy Policy explains how we collect, verify, process, and protect your information when you browse property listings, book site inspections, or participate in co-ownership syndicates.
+            This Privacy Policy explains how we collect, verify, process, and protect your information when you browse property listings, book site inspections, or participate in co-investment syndicates.
           </p>
         </section>
 
@@ -59,7 +59,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
           <ul className="space-y-2 text-xs sm:text-sm text-[#405D47] list-disc pl-5">
             <li><strong className="text-[#09240F]">Contact Credentials:</strong> Full legal name, official email address, telephone number, and communication preferences.</li>
             <li><strong className="text-[#09240F]">Property Search &amp; Preferences:</strong> Budget bands, preferred micromarkets, unit typologies (e.g. 3 BHK apartments, commercial floor plates), and scheduled site visit timestamps.</li>
-            <li><strong className="text-[#09240F]">Co-Ownership Verification (KYC):</strong> Government-issued identity (PAN, Aadhaar/Passport) and accredited investor status documents required under anti-money laundering and RERA rules before completing co-investment allocations.</li>
+            <li><strong className="text-[#09240F]">Co-Investment Verification (KYC):</strong> Government-issued identity (PAN, Aadhaar/Passport) and accredited investor status documents required under anti-money laundering and RERA rules before completing co-investment allocations.</li>
             <li><strong className="text-[#09240F]">Technical Telemetry:</strong> Anonymized device identifiers, browser specifications, and IP logs used strictly for network security and fraud prevention.</li>
           </ul>
         </section>

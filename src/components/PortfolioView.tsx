@@ -24,7 +24,8 @@ export const PortfolioView: React.FC = () => {
     properties, 
     setSelectedProperty, 
     setActiveTab, 
-    toggleFavorite 
+    toggleFavorite,
+    t 
   } = useApp();
 
   const [activeSubTab, setActiveSubTab] = useState<'holdings' | 'shortlist' | 'visits'>('holdings');
@@ -43,10 +44,10 @@ export const PortfolioView: React.FC = () => {
   const handleDownloadCertificate = (investmentTitle: string) => {
     const cert = `
 ======================================================
-REM ESTATES - SPV CO-OWNERSHIP CERTIFICATE
+REM ESTATES - SPV CO-INVESTMENT CERTIFICATE
 ======================================================
 Certificate ID: CERT-${Math.random().toString(36).substring(2, 9).toUpperCase()}
-Beneficial Owner: ${currentUser.name}
+Beneficial Co-Investor: ${currentUser.name}
 Email: ${currentUser.email}
 Asset: ${investmentTitle}
 Date of Allotment: ${new Date().toISOString().split('T')[0]}
@@ -55,7 +56,7 @@ Status: ACTIVE HOLDING (RERA Verified)
 Custody: Tier-1 Escrow Trustee Registered with SEBI
 Distribution Schedule: Monthly on 5th via NEFT/RTGS
 
-This document certifies legal title interest in the SPV holding the underlying real estate asset.
+This document certifies legal fractional co-investment interest in the SPV holding the underlying real estate asset.
 ======================================================
     `.trim();
 
@@ -82,7 +83,9 @@ This document certifies legal title interest in the SPV holding the underlying r
           />
           <div>
             <div className="flex items-center space-x-2">
-              <h1 className="text-2xl font-black text-[#09240F] tracking-tight font-helvetica-black">{currentUser.name}'s Portfolio</h1>
+              <h1 className="text-2xl font-black text-[#09240F] tracking-tight font-helvetica-black">
+                {currentUser.name}{t('portPortfolioOf')}
+              </h1>
               <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#702B00]/10 text-[#702B00] border border-[#702B00]/25">
                 {currentUser.role}
               </span>
@@ -99,7 +102,7 @@ This document certifies legal title interest in the SPV holding the underlying r
             className="px-5 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-[#702B00]/20 transition-all cursor-pointer flex items-center space-x-2"
           >
             <TrendingUp className="w-4 h-4" />
-            <span>Invest in New Asset</span>
+            <span>{t('portInvestNewAsset')}</span>
           </button>
         </div>
       </div>
@@ -109,45 +112,45 @@ This document certifies legal title interest in the SPV holding the underlying r
         
         {/* Total Capital Invested */}
         <div className="p-5 rounded-2xl bg-white border border-[#677865]/20 shadow-2xs">
-          <span className="text-xs font-bold text-[#677865] uppercase tracking-wider block">Capital Invested</span>
+          <span className="text-xs font-bold text-[#677865] uppercase tracking-wider block">{t('portCapitalInvested')}</span>
           <span className="text-2xl font-black text-[#09240F] mt-1 block font-helvetica-bold">
             {formatINR(totalInvested)}
           </span>
           <span className="text-xs text-[#405D47] font-medium block mt-0.5">
-            Across {currentUser.investments.length} Active Asset{currentUser.investments.length === 1 ? '' : 's'}
+            {currentUser.investments.length} {t('portAcrossAssets')}
           </span>
         </div>
 
         {/* Current Portfolio Valuation */}
         <div className="p-5 rounded-2xl bg-[#F5F6F4] border border-[#677865]/20 shadow-2xs">
-          <span className="text-xs font-bold text-[#405D47] uppercase tracking-wider block">Current Valuation</span>
+          <span className="text-xs font-bold text-[#405D47] uppercase tracking-wider block">{t('portCurrentValuation')}</span>
           <span className="text-2xl font-black text-[#09240F] mt-1 block font-helvetica-bold">
             {formatINR(currentValuation)}
           </span>
           <span className="text-xs font-bold text-[#1F4027] block mt-0.5">
-            +{formatINR(unrealizedGain)} (+{gainPercentage}%) Unrealized Gain
+            +{formatINR(unrealizedGain)} (+{gainPercentage}%) {t('portUnrealizedGain')}
           </span>
         </div>
 
         {/* Monthly Passive Rental Income */}
         <div className="p-5 rounded-2xl bg-[#1F4027]/10 border border-[#1F4027]/25 shadow-2xs">
-          <span className="text-xs font-bold text-[#1F4027] uppercase tracking-wider block">Monthly Rental Income</span>
+          <span className="text-xs font-bold text-[#1F4027] uppercase tracking-wider block">{t('portMonthlyIncome')}</span>
           <span className="text-2xl font-black text-[#1F4027] mt-1 block font-helvetica-bold">
             ₹{formatNumber(monthlyCashflow)} <span className="text-xs font-normal">/ mo</span>
           </span>
           <span className="text-xs text-[#405D47] font-medium block mt-0.5">
-            Next Payout: 5th of next month
+            {t('portNextPayout')}
           </span>
         </div>
 
         {/* Total Payouts Received to Date */}
         <div className="p-5 rounded-2xl bg-[#09240F] text-white border border-[#1F4027]/40 shadow-2xs">
-          <span className="text-xs font-bold text-[#677865] uppercase tracking-wider block">Cumulative Distributions</span>
+          <span className="text-xs font-bold text-[#677865] uppercase tracking-wider block">{t('portCumulativeDistributions')}</span>
           <span className="text-2xl font-black text-[#F5F6F4] mt-1 block font-helvetica-bold">
             {formatINR(totalPayouts)}
           </span>
           <span className="text-xs text-[#677865] font-medium block mt-0.5">
-            100% credited to bank
+            {t('portCreditedToBank')}
           </span>
         </div>
 
@@ -163,7 +166,7 @@ This document certifies legal title interest in the SPV holding the underlying r
               : 'text-[#677865] hover:text-[#09240F]'
           }`}
         >
-          <span>Real Estate Holdings ({currentUser.investments.length})</span>
+          <span>{t('portTabHoldings')} ({currentUser.investments.length})</span>
         </button>
 
         <button
@@ -174,7 +177,7 @@ This document certifies legal title interest in the SPV holding the underlying r
               : 'text-[#677865] hover:text-[#09240F]'
           }`}
         >
-          <span>Saved Shortlist ({savedProperties.length})</span>
+          <span>{t('portTabShortlist')} ({savedProperties.length})</span>
         </button>
 
         <button
@@ -185,7 +188,7 @@ This document certifies legal title interest in the SPV holding the underlying r
               : 'text-[#677865] hover:text-[#09240F]'
           }`}
         >
-          <span>Scheduled Site Visits ({currentUser.scheduledVisits.length})</span>
+          <span>{t('portTabVisits')} ({currentUser.scheduledVisits.length})</span>
         </button>
       </div>
 
@@ -195,15 +198,15 @@ This document certifies legal title interest in the SPV holding the underlying r
           {currentUser.investments.length === 0 ? (
             <div className="p-12 text-center bg-white rounded-3xl border border-[#677865]/20">
               <Building2 className="w-12 h-12 text-[#677865]/40 mx-auto mb-3" />
-              <h3 className="text-lg font-bold text-[#09240F] font-helvetica-bold">No active real estate holdings yet</h3>
+              <h3 className="text-lg font-bold text-[#09240F] font-helvetica-bold">{t('portNoHoldings')}</h3>
               <p className="text-xs text-[#405D47] max-w-md mx-auto mt-1 mb-6">
-                Start building your passive income portfolio with institutional pre-leased commercial real estate starting at ₹5 Lakhs.
+                {t('portNoHoldingsDesc')}
               </p>
               <button
                 onClick={() => setActiveTab('invest')}
                 className="px-6 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
               >
-                Browse Investment Opportunities
+                {t('portBrowseInvestments')}
               </button>
             </div>
           ) : (
@@ -216,10 +219,10 @@ This document certifies legal title interest in the SPV holding the underlying r
                   <div>
                     <div className="flex items-center justify-between pb-3 border-b border-[#677865]/15">
                       <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-[#1F4027]/10 text-[#1F4027] border border-[#1F4027]/25">
-                        {inv.status} Holding
+                        {inv.status} {t('portHoldingStatus')}
                       </span>
                       <span className="text-xs text-[#677865] font-medium">
-                        Invested on {inv.investmentDate}
+                        {t('portInvestedOn')} {inv.investmentDate}
                       </span>
                     </div>
 
@@ -231,38 +234,38 @@ This document certifies legal title interest in the SPV holding the underlying r
 
                     <div className="grid grid-cols-3 gap-3 my-4 p-3.5 bg-[#F5F6F4] rounded-2xl text-center border border-[#677865]/15">
                       <div>
-                        <span className="text-[10px] text-[#677865] font-bold uppercase block">Invested</span>
+                        <span className="text-[10px] text-[#677865] font-bold uppercase block">{t('portCapitalInvested')}</span>
                         <span className="text-xs font-black text-[#09240F] block">{formatINR(inv.investedAmount)}</span>
                       </div>
                       <div className="border-x border-[#677865]/20">
-                        <span className="text-[10px] text-[#677865] font-bold uppercase block">Valuation</span>
+                        <span className="text-[10px] text-[#677865] font-bold uppercase block">{t('portCurrentValuation')}</span>
                         <span className="text-xs font-black text-[#09240F] block">{formatINR(inv.currentValuation)}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] text-[#677865] font-bold uppercase block">Monthly Payout</span>
+                        <span className="text-[10px] text-[#677865] font-bold uppercase block">{t('portMonthlyPayout')}</span>
                         <span className="text-xs font-black text-[#1F4027] block">₹{formatNumber(inv.monthlyPayout)}</span>
                       </div>
                     </div>
 
                     <div className="text-xs text-[#405D47] space-y-1.5 bg-[#F5F6F4]/60 p-3 rounded-xl border border-[#677865]/15">
                       <div className="flex justify-between">
-                        <span>Syndicate Shareholding:</span>
+                        <span>{t('portSyndicateShare')}</span>
                         <span className="font-bold text-[#09240F]">
                           {inv.sharesCount ? `${inv.sharesCount} of 10 Shares (${inv.ownershipPercentage}%)` : `${inv.ownershipPercentage}% Equity`}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Total Rental Dividends Earned:</span>
+                        <span>{t('portTotalDividends')}</span>
                         <span className="font-bold text-[#1F4027]">₹{formatNumber(inv.totalPayoutsReceived)}</span>
                       </div>
                       {inv.projectedExitValuation && (
                         <div className="flex justify-between">
-                          <span>Target 4-Yr Exit Return:</span>
+                          <span>{t('portTargetExit')}</span>
                           <span className="font-bold text-[#702B00]">{formatINR(inv.projectedExitValuation)}</span>
                         </div>
                       )}
                       <div className="flex justify-between">
-                        <span>Next Distribution:</span>
+                        <span>{t('portNextDistribution')}</span>
                         <span className="font-bold text-[#09240F]">{inv.nextPayoutDate} (via NEFT)</span>
                       </div>
                     </div>
@@ -274,7 +277,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                       className="flex-1 py-2 rounded-xl bg-[#F5F6F4] hover:bg-[#677865]/20 text-[#09240F] text-xs font-bold transition-all flex items-center justify-center space-x-1.5 cursor-pointer border border-[#677865]/20"
                     >
                       <Download className="w-3.5 h-3.5 text-[#702B00]" />
-                      <span>SPV Certificate</span>
+                      <span>{t('portSpvCertificate')}</span>
                     </button>
 
                     <button
@@ -284,7 +287,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                       }}
                       className="flex-1 py-2 rounded-xl bg-[#702B00]/10 hover:bg-[#702B00]/20 text-[#702B00] text-xs font-bold transition-all cursor-pointer border border-[#702B00]/25"
                     >
-                      Asset Details
+                      {t('portAssetDetails')}
                     </button>
                   </div>
                 </div>
@@ -300,15 +303,15 @@ This document certifies legal title interest in the SPV holding the underlying r
           {savedProperties.length === 0 ? (
             <div className="p-12 text-center bg-white rounded-3xl border border-[#677865]/20">
               <Heart className="w-12 h-12 text-[#677865]/40 mx-auto mb-3" />
-              <h3 className="text-lg font-bold text-[#09240F] font-helvetica-bold">Your shortlist is empty</h3>
+              <h3 className="text-lg font-bold text-[#09240F] font-helvetica-bold">{t('portEmptyShortlist')}</h3>
               <p className="text-xs text-[#405D47] max-w-md mx-auto mt-1 mb-6">
-                Click the heart icon on any property card to save and track price movements.
+                {t('portEmptyShortlistDesc')}
               </p>
               <button
                 onClick={() => setActiveTab('properties')}
                 className="px-6 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
               >
-                Browse Properties
+                {t('portBrowseProperties')}
               </button>
             </div>
           ) : (
@@ -333,7 +336,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                         onClick={() => setSelectedProperty(property)}
                         className="text-xs font-bold text-[#702B00] hover:text-[#532001]"
                       >
-                        View Details →
+                        {t('hubViewDetails')} →
                       </button>
                     </div>
                   </div>
@@ -350,15 +353,15 @@ This document certifies legal title interest in the SPV holding the underlying r
           {currentUser.scheduledVisits.length === 0 ? (
             <div className="p-12 text-center bg-white rounded-3xl border border-[#677865]/20">
               <Calendar className="w-12 h-12 text-[#677865]/40 mx-auto mb-3" />
-              <h3 className="text-lg font-bold text-[#09240F] font-helvetica-bold">No scheduled visits</h3>
+              <h3 className="text-lg font-bold text-[#09240F] font-helvetica-bold">{t('portNoVisits')}</h3>
               <p className="text-xs text-[#405D47] max-w-md mx-auto mt-1 mb-6">
-                You can book an in-person VIP site visit or virtual walkthrough from any property page.
+                {t('portNoVisitsDesc')}
               </p>
               <button
                 onClick={() => setActiveTab('properties')}
                 className="px-6 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#532001] text-white font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
               >
-                Find Properties
+                {t('portFindProperties')}
               </button>
             </div>
           ) : (
@@ -391,7 +394,7 @@ This document certifies legal title interest in the SPV holding the underlying r
                     <div className="text-sm font-black text-[#09240F] font-helvetica-bold">{visit.date}</div>
                     <div className="text-xs text-[#677865] font-medium">{visit.timeSlot}</div>
                     <span className="inline-block mt-2 text-[11px] font-bold text-[#1F4027] bg-[#1F4027]/10 border border-[#1F4027]/25 px-2 py-0.5 rounded">
-                      Concierge Assigned
+                      {t('portConciergeAssigned')}
                     </span>
                   </div>
                 </div>

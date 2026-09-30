@@ -70,14 +70,14 @@ export const TermsConditions: React.FC<TermsConditionsProps> = ({ onBack }) => {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-base font-bold text-[#09240F] font-helvetica-bold">4. Co-Ownership &amp; Fractional Syndicates</h2>
+          <h2 className="text-base font-bold text-[#09240F] font-helvetica-bold">4. Co-Investment &amp; Fractional Syndicates</h2>
           <p className="text-xs sm:text-sm text-[#405D47] leading-relaxed">
             Participation in fractional property pools and high-yield commercial co-investments is subject to specialized regulatory frameworks:
           </p>
           <ul className="space-y-2 text-xs sm:text-sm text-[#405D47] list-disc pl-5">
             <li>Each pool is held under an independent Special Purpose Vehicle (SPV / LLP or Private Limited) incorporated under the Companies Act, 2013.</li>
-            <li>Rental distributions are credited on a scheduled monthly or quarterly basis directly to your verified bank account after mandatory statutory deductions (TDS).</li>
-            <li>Past rental yields and projected internal rates of return (IRR) are based on historical tenant agreements and do not represent guaranteed bank returns.</li>
+            <li>Investment yield distributions are credited on a scheduled monthly or quarterly basis directly to your verified bank account after mandatory statutory deductions (TDS).</li>
+            <li>Past investment yields and projected internal rates of return (IRR) are based on historical tenant agreements and do not represent guaranteed bank returns.</li>
           </ul>
         </section>
 

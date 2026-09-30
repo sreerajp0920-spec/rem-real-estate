@@ -78,7 +78,7 @@ const MICROMARKETS: MicromarketDetail[] = [
 ];
 
 export const EditorialConcept: React.FC = () => {
-  const { setSelectedProperty, properties, setCityFilter } = useApp();
+  const { setSelectedProperty, properties, setCityFilter, t } = useApp();
   const [selectedMarketId, setSelectedMarketId] = useState<string>('indiranagar');
 
   const selectedMarket = MICROMARKETS.find(m => m.id === selectedMarketId) || MICROMARKETS[0];
@@ -118,27 +118,27 @@ export const EditorialConcept: React.FC = () => {
           <div className="flex items-center space-x-3">
             <span className="w-2.5 h-2.5 rounded-full bg-[#702B00]" />
             <span className="font-helvetica-bold text-xs uppercase tracking-[0.25em] text-[#09240F]">
-              THE ARCHITECTURAL STANDARD
+              {t('conceptPreTitle')}
             </span>
           </div>
 
           <div className="hidden sm:flex items-center space-x-3 text-xs font-helvetica-bold tracking-widest text-[#405D47] uppercase">
-            <span>DIRECT DEVELOPER PORTFOLIO</span>
+            <span>{t('heroDirectDeveloper')}</span>
             <span>•</span>
-            <span className="text-[#702B00]">ZERO BROKERAGE</span>
+            <span className="text-[#702B00]">{t('heroZeroBrokerage')}</span>
           </div>
         </div>
 
         {/* Section Headline in Bold Helvetica */}
         <div className="max-w-4xl mx-auto text-center mb-16 sm:mb-20">
           <h2 className="font-helvetica-black text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-[#09240F] tracking-tight leading-[1.08] text-balance">
-            RESIDENCES DESIGNED FOR PRIVACY, LIGHT AND TIMELESS LIVING.
+            {t('conceptHeading')}
           </h2>
 
           <div className="w-16 h-1 bg-[#702B00] mx-auto my-7" />
 
           <p className="font-helvetica text-[#405D47] text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-3xl mx-auto">
-            We represent an exclusive collection of verified architectural villas, sky penthouses, and pre-leased tech parks. Every home is vetted by senior advocates with complete 30-year title reports, occupancy certificates, and RERA Karnataka compliance.
+            {t('conceptDescription')}
           </p>
         </div>
 
@@ -161,7 +161,7 @@ export const EditorialConcept: React.FC = () => {
                     CRAFTED RESIDENCE
                   </span>
                   <h3 className="font-helvetica-black text-2xl sm:text-3xl uppercase font-black tracking-tight text-white">
-                    Sovereign Crest Sky Villa
+                    {t('conceptCraftedTitle')}
                   </h3>
                   <p className="font-helvetica text-xs text-[#F5F6F4]/90 mt-0.5 font-medium">
                     Indiranagar, South Bengaluru • 4,850 sq ft
@@ -172,7 +172,7 @@ export const EditorialConcept: React.FC = () => {
                   onClick={handleSelectFeatured}
                   className="px-5 py-2.5 rounded-full bg-[#702B00] hover:bg-[#542000] text-white font-helvetica-black text-xs uppercase tracking-wider transition-all flex items-center space-x-1.5 shadow-xl cursor-pointer"
                 >
-                  <span>Explore Unit</span>
+                  <span>{t('conceptExploreUnit')}</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
@@ -181,10 +181,10 @@ export const EditorialConcept: React.FC = () => {
             {/* Overlapping Spec Badge */}
             <div className="hidden md:block absolute -bottom-6 -right-6 w-64 p-4 rounded-xl bg-[#FFFFFF] shadow-2xl border-2 border-[#1F4027]">
               <span className="font-helvetica-bold text-[10px] uppercase tracking-[0.2em] text-[#702B00] block mb-1">
-                AUTHENTIC SPECIFICATION
+                {t('conceptAuthenticTitle')}
               </span>
               <p className="font-helvetica text-xs font-bold text-[#09240F] leading-snug">
-                Native Sadahalli granite, exposed architectural concrete, double-glazed acoustic curtain walls.
+                {t('conceptAuthenticSub')}
               </p>
             </div>
           </div>
@@ -193,13 +193,13 @@ export const EditorialConcept: React.FC = () => {
           <div className="lg:col-span-5 lg:pl-4 space-y-6">
             <div>
               <span className="font-helvetica-bold text-xs uppercase tracking-[0.25em] text-[#677865] block mb-2">
-                OUR DUE DILIGENCE GUARANTEE
+                {t('conceptGuaranteePre')}
               </span>
               <h3 className="font-helvetica-black text-3xl sm:text-4xl font-black text-[#09240F] uppercase leading-tight">
-                Authentic materials. Verified legal titles.
+                {t('conceptGuaranteeHeading')}
               </h3>
               <p className="mt-3 font-helvetica text-sm text-[#405D47] font-medium leading-relaxed">
-                We remove the ambiguity from Bengaluru real estate. No inflated super built-up claims, zero hidden development charges, and 100% transparent RERA carpet efficiency ratios.
+                {t('conceptGuaranteeDesc')}
               </p>
             </div>
 
@@ -209,10 +209,10 @@ export const EditorialConcept: React.FC = () => {
                   14 FT
                 </span>
                 <span className="font-helvetica-bold text-xs text-[#405D47] uppercase tracking-wider block">
-                  Ceiling Clearances
+                  {t('conceptTitle1')}
                 </span>
                 <span className="font-helvetica text-[11px] text-[#677865] mt-1 block">
-                  Double-height living volumes
+                  {t('conceptSubtitle1')}
                 </span>
               </div>
 
@@ -221,10 +221,10 @@ export const EditorialConcept: React.FC = () => {
                   100%
                 </span>
                 <span className="font-helvetica-bold text-xs text-[#405D47] uppercase tracking-wider block">
-                  Clear RERA Titles
+                  {t('conceptTitle2')}
                 </span>
                 <span className="font-helvetica text-[11px] text-[#677865] mt-1 block">
-                  30-year advocate title search
+                  {t('conceptSubtitle2')}
                 </span>
               </div>
             </div>
@@ -233,10 +233,10 @@ export const EditorialConcept: React.FC = () => {
               <ShieldCheck className="w-6 h-6 text-[#702B00] shrink-0" />
               <div>
                 <span className="font-helvetica-bold text-xs uppercase tracking-wider text-white block">
-                  Direct Developer Representation
+                  {t('conceptDirectRepTitle')}
                 </span>
                 <span className="font-helvetica text-xs text-[#F5F6F4]/90 font-normal">
-                  Zero buyer brokerage • Price-match guarantee directly with builders
+                  {t('conceptDirectRepDesc')}
                 </span>
               </div>
             </div>
@@ -249,15 +249,15 @@ export const EditorialConcept: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
               <span className="font-helvetica-bold text-xs uppercase tracking-[0.25em] text-[#677865] block mb-1">
-                INTERACTIVE MICROMARKET EXPLORER
+                {t('microExplorerTag')}
               </span>
               <h4 className="font-helvetica-black text-2xl sm:text-3xl font-black uppercase text-[#09240F]">
-                Click any zone to inspect drive times &amp; pricing
+                {t('microExplorerHeading')}
               </h4>
             </div>
 
             <span className="text-xs font-helvetica-bold text-[#405D47] uppercase tracking-wider">
-              Bengaluru Metro &amp; Arterial Network
+              {t('microSubhead')}
             </span>
           </div>
 
@@ -315,7 +315,7 @@ export const EditorialConcept: React.FC = () => {
               </p>
 
               <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-helvetica-bold text-[#09240F]">
-                <span className="text-[#677865] uppercase text-[11px] font-bold">Key Anchors:</span>
+                <span className="text-[#677865] uppercase text-[11px] font-bold">{t('microKeyAnchors')}</span>
                 {selectedMarket.landmarks.map((landmark, idx) => (
                   <span key={idx} className="bg-[#F5F6F4] px-2.5 py-1 rounded-md border border-[#677865]/25 text-[#09240F]">
                     {landmark}
@@ -328,7 +328,7 @@ export const EditorialConcept: React.FC = () => {
               onClick={() => handleFilterByMarket(selectedMarket)}
               className="px-6 py-3.5 rounded-full bg-[#702B00] hover:bg-[#542000] text-white font-helvetica-bold text-xs uppercase tracking-wider shrink-0 transition-all flex items-center space-x-2 shadow-lg cursor-pointer"
             >
-              <span>View Residences in {selectedMarket.name}</span>
+              <span>{t('microViewResidences')} {selectedMarket.name}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

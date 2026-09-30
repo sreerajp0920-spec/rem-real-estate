@@ -24,7 +24,8 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
     toggleFavorite, 
     setSelectedProperty,
     setIsInvestModalOpen,
-    setInvestTargetProperty
+    setInvestTargetProperty,
+    t
   } = useApp();
 
   const [activeImgIndex, setActiveImgIndex] = useState(0);
@@ -60,19 +61,19 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
           <div className="flex flex-wrap gap-1.5 pointer-events-auto">
             <span className="px-2.5 py-1 rounded-md text-[10px] font-helvetica-black tracking-wider uppercase bg-[#09240F] text-white shadow-md">
-              FOR SALE
+              {t('cardForSale')}
             </span>
 
             {property.isUpcoming && (
               <span className="px-2.5 py-1 rounded-md text-[10px] font-helvetica-black tracking-wider uppercase bg-[#702B00] text-white shadow-md">
-                PRE-LAUNCH
+                {t('cardPreLaunch')}
               </span>
             )}
 
             {property.peaceOfMind.reraId && (
               <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-md text-[10px] font-helvetica-bold bg-[#09240F]/85 text-white border border-[#677865]/40 backdrop-blur-md">
                 <ShieldCheck className="w-3 h-3 text-[#1F4027]" />
-                <span>RERA VERIFIED</span>
+                <span>{t('cardReraVerified')}</span>
               </span>
             )}
           </div>
@@ -121,7 +122,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
             className="absolute bottom-3 left-3 inline-flex items-center space-x-1.5 px-3 py-1 rounded-md bg-[#09240F]/90 hover:bg-[#09240F] text-white font-helvetica-bold text-[11px] backdrop-blur-md border border-[#677865]/40 transition-all cursor-pointer shadow-lg"
           >
             <PlayCircle className="w-3.5 h-3.5 text-[#702B00]" />
-            <span>4K Video Tour</span>
+            <span>{t('cardWatchTour')}</span>
           </button>
         )}
 
@@ -166,19 +167,19 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
           {/* Dimensions Box */}
           <div className="grid grid-cols-3 gap-2 py-3 px-3.5 bg-[#F5F6F4] rounded-xl border border-[#677865]/20 text-center mb-4">
             <div>
-              <span className="text-[10px] text-[#677865] font-helvetica-bold uppercase tracking-wider block">Config</span>
+              <span className="text-[10px] text-[#677865] font-helvetica-bold uppercase tracking-wider block">{t('cardConfig')}</span>
               <span className="text-xs font-helvetica-bold text-[#09240F] truncate block mt-0.5">
                 {property.dimensions.bhk.split(' ')[0]} {property.dimensions.bhk.split(' ')[1] || 'Unit'}
               </span>
             </div>
             <div className="border-x border-[#677865]/25">
-              <span className="text-[10px] text-[#677865] font-helvetica-bold uppercase tracking-wider block">Carpet Area</span>
+              <span className="text-[10px] text-[#677865] font-helvetica-bold uppercase tracking-wider block">{t('cardCarpetArea')}</span>
               <span className="text-xs font-helvetica-bold text-[#09240F] block mt-0.5">
                 {formatNumber(property.dimensions.carpetAreaSqFt)} <span className="text-[10px] font-normal text-[#677865]">sft</span>
               </span>
             </div>
             <div>
-              <span className="text-[10px] text-[#677865] font-helvetica-bold uppercase tracking-wider block">Efficiency</span>
+              <span className="text-[10px] text-[#677865] font-helvetica-bold uppercase tracking-wider block">{t('cardEfficiency')}</span>
               <span className="text-xs font-helvetica-bold text-[#09240F] block mt-0.5">
                 {property.dimensions.efficiencyPercentage}%
               </span>
@@ -192,16 +193,16 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
             </p>
           </div>
 
-          {/* Investment Co-Ownership Box */}
+          {/* Investment Co-Investment Box */}
           {property.investment?.isInvestable && (
             <div className="mb-4 p-3 rounded-xl bg-[#F5F6F4] border border-[#702B00]/40 flex items-center justify-between text-xs">
               <div>
                 <div className="flex items-center space-x-1 font-helvetica-bold text-[#09240F] text-xs">
                   <TrendingUp className="w-3.5 h-3.5 text-[#702B00]" />
-                  <span>Co-Ownership ({property.investment.grossRentalYieldPercentage}% Net Yield)</span>
+                  <span>{t('cardCoInvest')} ({property.investment.grossRentalYieldPercentage}% {t('cardNetYield')})</span>
                 </div>
                 <div className="text-[11px] text-[#405D47] font-medium mt-0.5">
-                  From {formatINR(property.investment.minTicketSize || 50000)} • Monthly Dividend
+                  {t('cardStartsFrom')} {formatINR(property.investment.minTicketSize || 50000)} • {t('cardMonthlyDividend')}
                 </div>
               </div>
               <button
@@ -213,7 +214,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
                 }}
                 className="px-3 py-1.5 rounded-lg bg-[#702B00] hover:bg-[#542000] text-white font-helvetica-bold text-[10px] uppercase tracking-wider transition-all cursor-pointer shadow-xs"
               >
-                Invest
+                {t('cardInvestBtn')}
               </button>
             </div>
           )}
@@ -234,7 +235,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
             onClick={() => setSelectedProperty(property)}
             className="px-5 py-2.5 rounded-full bg-[#702B00] hover:bg-[#542000] text-white text-xs font-helvetica-bold tracking-wider uppercase transition-all flex items-center space-x-2 cursor-pointer shadow-md"
           >
-            <span>Explore</span>
+            <span>{t('cardExplore')}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

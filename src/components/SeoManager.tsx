@@ -37,11 +37,11 @@ export const SeoManager: React.FC<SeoManagerProps> = ({
       canonical = 'https://remestates.in/terms-and-conditions';
     } else if (activeTab === 'invest') {
       title = 'Commercial Real Estate Co-Investment Pools | REM Estates';
-      description = 'Co-own Grade-A commercial tech parks and retail assets in Bangalore starting from ₹50,000. Earn 8-14% monthly rental yield.';
+      description = 'Co-invest in Grade-A commercial tech parks and retail assets in Bangalore starting from ₹50,000. Earn 8-14% annual yield distributions.';
       canonical = 'https://remestates.in/invest';
     } else if (activeTab === 'portfolio') {
       title = 'Investor Portfolio & Payouts | REM Estates';
-      description = 'Monitor your verified co-investment allocations, monthly rental distributions, and property capital appreciation in Bangalore.';
+      description = 'Monitor your verified co-investment allocations, monthly yield distributions, and property capital appreciation in Bangalore.';
       canonical = 'https://remestates.in/portfolio';
     } else if (activeTab === 'admin') {
       title = 'Operations Console | REM Estates Staff';

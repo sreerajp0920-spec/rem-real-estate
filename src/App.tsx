@@ -54,7 +54,8 @@ const MainContent: React.FC = () => {
     propertyTypeFilter,
     setPropertyTypeFilter,
     preLaunchOnly,
-    setPreLaunchOnly
+    setPreLaunchOnly,
+    t
   } = useApp();
 
   const [sortBy, setSortBy] = useState('score_desc');
@@ -70,7 +71,7 @@ const MainContent: React.FC = () => {
   // Filter Properties
   const filteredProperties = properties.filter(prop => {
     // 1. Listing Type
-    if (prop.listingType === 'rent') return false;
+    if ((prop.listingType as string) === 'rent') return false;
 
     // 2. Property Type (Apartments, Villas, Plots, Penthouses, Commercial)
     if (propertyTypeFilter !== 'all') {
@@ -251,7 +252,7 @@ const MainContent: React.FC = () => {
                     {getSectionTitle()}
                   </h2>
                   <p className="text-xs font-helvetica font-semibold text-stone-700 mt-1 uppercase tracking-wider">
-                    Showing {sortedProperties.length} verified residences with 0% brokerage and guaranteed RERA title clearance.
+                    {sortedProperties.length} {t('catalogShowingSub')}
                   </p>
                 </div>
 
@@ -263,13 +264,13 @@ const MainContent: React.FC = () => {
                       className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#F5F6F4] hover:bg-[#FFFFFF] text-xs font-bold text-[#09240F] border border-[#677865]/30 transition-all cursor-pointer"
                     >
                       <RotateCcw className="w-3 h-3" />
-                      <span>Clear Nav Filter</span>
+                      <span>{t('catalogClearFilter')}</span>
                     </button>
                   )}
 
                   <div className="hidden sm:flex items-center space-x-1.5 text-xs font-semibold text-[#405D47] bg-[#FFFFFF] px-3 py-1.5 rounded-xl border border-[#677865]/25">
                     <ShieldCheck className="w-4 h-4 text-[#1F4027]" />
-                    <span>100% RERA Verified</span>
+                    <span>{t('catalogReraVerified')}</span>
                   </div>
                 </div>
               </div>
@@ -278,15 +279,15 @@ const MainContent: React.FC = () => {
               {sortedProperties.length === 0 ? (
                 <div className="bg-[#FFFFFF] rounded-3xl p-12 text-center border-2 border-[#677865]/25 shadow-sm max-w-lg mx-auto my-8">
                   <Building2 className="w-12 h-12 text-[#677865] mx-auto mb-3" />
-                  <h3 className="text-lg font-black text-[#09240F]">No properties match your filter</h3>
+                  <h3 className="text-lg font-black text-[#09240F]">{t('catalogNoMatch')}</h3>
                   <p className="text-xs text-[#405D47] mt-1 mb-6">
-                    Try expanding your budget range, resetting your filters, or clearing the search keyword.
+                    {t('catalogNoMatchDesc')}
                   </p>
                   <button
                     onClick={handleResetFilters}
                     className="px-5 py-2.5 rounded-xl bg-[#702B00] hover:bg-[#542000] text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
                   >
-                    View All Properties
+                    {t('catalogViewAll')}
                   </button>
                 </div>
               ) : (
