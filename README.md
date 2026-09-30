@@ -1,73 +1,70 @@
-#  REM Verified Real Estate Portal
+# REM ESTATES — Verified Real Estate & Co-Investment Platform
 
->  **Live Demo Website:** **[https://hazy-firefly-d82zc7v.shipstatic.com](https://hazy-firefly-d82zc7v.shipstatic.com)**  
-> *Click the link above to explore and test the live interactive application.*
+[![Live Website](https://img.shields.io/badge/🌐_Live_Website-Open_App-702B00?style=for-the-badge&logo=googlechrome&logoColor=white)](https://sreerajp0920-spec.github.io/rem-real-estate/)
+[![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub_Pages_Active-1F4027?style=for-the-badge&logo=github)](https://sreerajp0920-spec.github.io/rem-real-estate/)
+[![Trilingual Support](https://img.shields.io/badge/Languages-English_•_ಕನ್ನಡ_•_हिन्दी-532001?style=for-the-badge)](https://sreerajp0920-spec.github.io/rem-real-estate/)
 
----
-
-##  Key Features
-
-* **Hero Showcase:** Verified legal guarantee, 0% brokerage promise, and subtle ambient architectural slideshow.
-* **Category & Type Filters:** Filter by **Flats**, **Villas**, **Penthouses**, **Plots**, and **Commercial** properties.
-* **Location Intelligence:** Filter by micro-market regions including **South Bengaluru** and **North Bengaluru**.
-* **Compact Budget Slider:** Filter listings by purchase budget or monthly rental budget.
-* **Unit Configuration (BHK):** 1 BHK, 2 BHK, 3 BHK, 4 BHK, 4+ BHK.
-* **Property Detail Modal:** Complete carpet area breakdown, RERA verification credentials, and site visit booking.
-* **Admin & Buyer Separation:** Secure admin portal for property management with a clean, unbranded view for buyers.
+> ### 🔗 **Official Live Website URL:**  
+> 👉 **[https://sreerajp0920-spec.github.io/rem-real-estate/](https://sreerajp0920-spec.github.io/rem-real-estate/)**  
+> *(Hosted directly on GitHub Pages with automatic continuous deployment)*
 
 ---
 
-##  Getting Started
+## 🏛️ Overview & Key Features
 
-### Prerequisites
+* **Agency Luxury Starting Page**: Seamless autoPlay background video, Cormorant Garamond luxury serif typography, minimalist white search bar, and smooth-scrolling *Explore listings* trigger.
+* **100% Trilingual Platform**: Fully localized across **English**, **ಕನ್ನಡ (Kannada)**, and **हिन्दी (Hindi)** with instant switching from the top navigation bar.
+* **Direct Developer Pricing & 0% Brokerage**: Direct builder rates with 100% RERA verified legal documents and carpet area audits.
+* **Streamlined Options**: Strictly **BUY** and **CO-INVEST** (Zero rent).
+* **Fractional Co-Investment Pools**: Grade-A commercial tech park and retail asset syndicates with monthly yields deposited directly via NEFT and legally registered SPV certificates.
+* **Investor Portfolio Dashboard**: Real-time tracking of capital invested, current valuations, monthly payouts, cumulative distributions, and VIP site visit reservations.
+* **Interactive Media Showcase**: 4K video walkthrough tours, 2D/3D architectural floor plans, spatial efficiency ratios, and lifestyle compound amenities.
+
+---
+
+## 🚀 How to Run Locally
+
+### 1. Prerequisites
 * [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/) (v1.0+)
 
-### Installation
+### 2. Clone and Install
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/rem-real-estate.git
-
-# Navigate to project directory
+git clone https://github.com/sreerajp0920-spec/rem-real-estate.git
 cd rem-real-estate
-
-# Install dependencies
-npm install
-# or
 bun install
+# or: npm install
 ```
 
-### Running Locally
+### 3. Start Local Development Server
 ```bash
-# Start development server
-npm run dev
-# or
 bun run dev
+# or: npm run dev
 ```
+Open **[http://localhost:5173/](http://localhost:5173/)** in your web browser.
 
-### Production Build
+### 4. Build Production Bundle
 ```bash
-# Build optimized production bundle
-npm run build
-
-# Preview production build
-npm run preview
+bun run vite build
+# or: npm run build
 ```
 
 ---
 
-##  How to Push to GitHub
+## 🌐 How to Display the Website Link on GitHub (Below Repository Header)
 
-If you created a new repository on GitHub (e.g., `rem-real-estate`), push this folder with:
+To make your website link appear directly in the **About** section on the right side and below the repository header on GitHub:
 
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/rem-real-estate.git
-git branch -M main
-git push -u origin main
-```
+1. Open your repository on GitHub: **[https://github.com/sreerajp0920-spec/rem-real-estate](https://github.com/sreerajp0920-spec/rem-real-estate)**
+2. In the right-hand sidebar at the top, locate the **"About"** section and click the ⚙️ **Gear icon** (*Edit repository details*).
+3. Check the box: **☑ Use your GitHub Pages website**  
+   *(or paste: `https://sreerajp0920-spec.github.io/rem-real-estate/`)*.
+4. Click **Save changes**.
+5. Your live website link will now be permanently displayed right below the repository title on GitHub!
 
 ---
 
-##  Tech Stack
+## 💻 Tech Stack
 * **Framework:** React 19 + TypeScript + Vite
-* **Styling:** Tailwind CSS + Lucide Icons
-* **Deployment:** Ready for Vercel, Netlify, or GitHub Pages
+* **Styling:** Tailwind CSS v4 + Cormorant Garamond Serif
+* **Icons:** Lucide React
+* **Deployment:** GitHub Pages (Automated via GitHub Actions)
